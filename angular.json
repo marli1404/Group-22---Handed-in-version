@@ -88,6 +88,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Dashboard-app"
+    }
+  },
+  "defaultProject": "Dashboard-app",
+  "cli": {
+    "analytics": "4e472099-231c-40cf-acc3-3bfe9b4f9cef"
+  }
 }

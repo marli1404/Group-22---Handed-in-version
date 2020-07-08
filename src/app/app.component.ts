@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Dashboard-app';
+
+  viewSideBar = false;
+  
+  public toggleSideBar(){
+
+    this.viewSideBar = !this.viewSideBar;
+  }
 }
