@@ -27,6 +27,7 @@ import { LanguageComponent } from './components/profile/languages/language/langu
 import { UploadImageComponent } from './components/modals/uploadImage/upload-image/upload-image.component';
 import { ProfileAddSkillComponent } from './components/modals/profileAddSkill/profile-add-skill/profile-add-skill.component';
 import { ProfileAddLanguageComponent } from './components/modals/profileAddLanguage/profile-add-language/profile-add-language.component';
+import { CompanyConfigComponent } from './components/config/company/company-config/company-config.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { ProfileAddLanguageComponent } from './components/modals/profileAddLangu
     UploadImageComponent,
     ProfileAddSkillComponent,
     ProfileAddLanguageComponent,
+    CompanyConfigComponent,
      
   ],
   imports: [
