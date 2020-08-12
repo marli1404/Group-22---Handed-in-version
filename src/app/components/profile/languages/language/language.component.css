@@ -9,19 +9,7 @@
 
 }
 
-.heading-container{
-    position: relative;
-}
 
-.heading-container h3{
-    position: relative;
-    display: inline-block;
-}
-.heading-container h2{
-    position: absolute;
-    display: inline-block;
-    right: 0px;
-}
 i:hover{
     cursor: pointer;
 }

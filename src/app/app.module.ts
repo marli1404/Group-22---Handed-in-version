@@ -31,6 +31,9 @@ import { CompanyConfigComponent } from './components/config/company/company-conf
 import { BuildingComponent } from './components/config/building/building/building.component';
 import { LocationComponent } from './components/config/location/location/location.component';
 import { TableComponent } from './components/config/table/table/table.component';
+import { ConfigJobCardComponent } from './components/config/jobCard/config-job-card/config-job-card.component';
+import { ConfigRolesAndAuthComponent } from './components/config/rolesAndAuth/config-roles-and-auth/config-roles-and-auth.component';
+import { ConfigskillsAndQsComponent } from './components/config/skillsAndQs/configskills-and-qs/configskills-and-qs.component';
 
 
 @NgModule({
@@ -54,6 +57,9 @@ import { TableComponent } from './components/config/table/table/table.component'
     CompanyConfigComponent,
     BuildingComponent,
     TableComponent,
+    ConfigJobCardComponent,
+    ConfigRolesAndAuthComponent,
+    ConfigskillsAndQsComponent,
     
      
   ],

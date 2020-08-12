@@ -32,6 +32,7 @@
     
     <ul class="sideBarNav">
       <h3>NAVIGATION</h3>
+      <li [routerLink]="['/Dashboard']" routerLinkActive="router-link-active" ><i class="fad fa-home"></i><span>Home</span></li>
       <li><i class="fas fa-calendar-minus"></i><span>Booking</span></li>
       <li (click)="testStuff()"><i class="fal fa-calendar-alt"></i><span>Assistant Booking</span></li>
       <li><i class="fas fa-user-friends"></i><span>Team</span></li>
@@ -39,7 +40,7 @@
       <li><i class="fas fa-file-chart-line"></i><span>Reports</span></li>
       <li><i class="fal fa-hand-holding-medical"></i><span>Job Requests</span></li>
       <li class="accordian-parent" (click)="hrToggle = !hrToggle"><i class="far fa-share-alt"></i><span>HR</span><span class="arrow"><i [class]="(!hrToggle) ? 'far fa-chevron-down' : 'far fa-chevron-up'"></i></span>
-        <ul class="accordian" *ngIf="hrToggle">
+        <ul class="accordian" *ngIf="hrToggle" (click)="hrToggle = !hrToggle">
           <li>Approve Job Card</li>
           <li>Job Cards</li>
           <li>Hire Manager Control</li>
@@ -48,19 +49,19 @@
         </ul>
       </li>
       <li class="accordian-parent" (click)="configToggle = !configToggle"><i class="far fa-cogs"></i><span>Configuration</span><span class="arrow"><i [class]="(!configToggle) ? 'far fa-chevron-down' : 'far fa-chevron-up'"></i></span>
-        <ul class="accordian" *ngIf="configToggle">
-          <li>Job Card</li>
-          <li>Tables</li>
-          <li [routerLink]="['/Dashboard/ConfigBuilding']" routerLinkActive="router-link-active" >Buildings</li>
-          <li>Company</li>
-          <li>Skills Requirement & Questions</li>
-          <li>Roles and Authorizations</li>
+        <ul class="accordian" *ngIf="configToggle" (click)="configToggle = !configToggle">
+          <li [routerLink]="['/Dashboard/ConfigJobCard']">Job Card</li>
+          <li [routerLink]="['/Dashboard/ConfigTable']">Tables</li>
+          <li [routerLink]="['/Dashboard/ConfigBuilding']">Buildings</li>
+          <li [routerLink]="['/Dashboard/ConfigCompany']">Company</li>
+          <li [routerLink]="['/Dashboard/ConfigSkillsAndQuestions']">Skills Requirement & Questions</li>
+          <li [routerLink]="['/Dashboard/ConfigRolesAndAuthorization']">Roles and Authorizations</li>
         </ul>
       </li>
       <li><i class="fad fa-list-alt"></i><span>Job Listings</span></li>
       <li><i class="far fa-stamp"></i><span>Approve Job Card</span></li>
-      <li class="accordian-parent" (click)="auditToggle = !auditToggle"><i class="fas fa-eye"></i><span>Audit</span><span class="arrow"><i [class]="(!configToggle) ? 'far fa-chevron-down' : 'far fa-chevron-up'"></i></span>
-        <ul class="accordian" *ngIf="auditToggle">
+      <li class="accordian-parent" (click)="auditToggle = !auditToggle"><i class="fas fa-eye"></i><span>Audit</span><span class="arrow"><i [class]="(!auditToggle) ? 'far fa-chevron-down' : 'far fa-chevron-up'"></i></span>
+        <ul class="accordian" *ngIf="auditToggle" (click)="auditToggle = !auditToggle">
           <li>Roles</li>
           <li>View Authorization</li>
           <li>Log</li>
@@ -72,7 +73,7 @@
     </ul>
   </div>
   <div class="dash">
-    <div class="container-fluid">
+    <div class="container-fluid" style="overflow: auto;">
       <router-outlet></router-outlet>
     </div>
   </div>

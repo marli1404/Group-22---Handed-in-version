@@ -7,6 +7,11 @@ import { DashboardComponent } from './components/dashboard/dashboard/dashboard.c
 import { ResetPasswordComponent } from './components/resetPassword/reset-password/reset-password.component';
 import { AccountSuccessCreateComponent } from './components/accountSuccess/account-success-create/account-success-create.component';
 import { BuildingComponent } from './components/config/building/building/building.component'
+import { CompanyConfigComponent } from './components/config/company/company-config/company-config.component';
+import { TableComponent } from './components/config/table/table/table.component';
+import { ConfigJobCardComponent } from './components/config/jobCard/config-job-card/config-job-card.component';
+import { ConfigRolesAndAuthComponent } from './components/config/rolesAndAuth/config-roles-and-auth/config-roles-and-auth.component';
+import { ConfigskillsAndQsComponent } from './components/config/skillsAndQs/configskills-and-qs/configskills-and-qs.component';
 
 const routes: Routes = [
 { path: "", component : LoginComponent},
@@ -14,7 +19,12 @@ const routes: Routes = [
 { path: "CreateAccount", component : CreateAccountComponent},
 { path: "Dashboard", component : DashboardComponent,
   children : [
-      { path : "ConfigBuilding", component : BuildingComponent}
+      { path : "ConfigBuilding", component : BuildingComponent},
+      { path : "ConfigCompany", component : CompanyConfigComponent},
+      { path : "ConfigJobCard", component : ConfigJobCardComponent},
+      { path : "ConfigRolesAndAuthorization", component : ConfigRolesAndAuthComponent},
+      { path : "ConfigTable", component : TableComponent},
+      { path : "ConfigSkillsAndQuestions", component : ConfigskillsAndQsComponent}
   ]},
 { path: "AccountCreated", component : AccountSuccessCreateComponent},
 ];

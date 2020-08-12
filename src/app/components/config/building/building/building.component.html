@@ -1,13 +1,86 @@
-<div class="container-fluid">
+<div class="container-fluid" style="overflow: auto;">
     <div class="row">
-        <div class="col-sm-12 col-md-4">
-            <h1>Locations</h1>
+        <div class="col-sm-12 col-md-4 mt-2">
+            <div class="panel-container sm-container">
+                <h1>Locations</h1>
+                <form>
+                    <div class="form-group form-inline">
+                        <h4>Search Location:</h4> <input type="text" class="form-control ml-2">
+                    </div>
+                </form>
+                <hr>
+                <div>
+                    <div class="group-right">
+                        <h5>New Location</h5><h5><i class="fa fa-plus" aria-hidden="true"></i></h5>
+                    </div>
+                    <table class="table greyHead">
+                        <thead>
+                            <tr>
+                                <th>Location</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <!-- LOCATIONS GO HERE -->
+                        <tr><td>Roslyn</td><td class="text-center"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
+                        <tr><td>Menlyn</td><td class="text-center"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
+                        <tr><td>Midrand</td><td class="text-center"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
+                    </table>
+                </div>
+            </div>
+           
         </div>
-        <div class="col-sm-12 col-md-4">
-            <h1>Buildings</h1>
+        <div class="col-sm-12 col-md-4 mt-2">
+            <div class="panel-container sm-container">
+                <h1>Buildings</h1>
+                <form>
+                    <div class="form-group form-inline">
+                        <h4>Search Buildings:</h4> <input type="text" class="form-control ml-2">
+                    </div>
+                </form>
+                <hr>
+                <div class="group-right">
+                    <h5>New Building</h5><h5><i class="fa fa-plus" aria-hidden="true"></i></h5>
+                </div>
+                <table class="table greyHead">
+                    <thead>
+                        <tr>
+                            <th>Building</th>
+                            <th>Location</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <!-- BUILDINGS GO HERE -->
+                    <tr><td>Menly Maine</td><td>Menlyn</td><td class="text-center"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
+                    <tr><td>Menlyn Eco Park</td><td>Menlyn</td><td class="text-center"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
+                </table>
+            </div>
         </div>
-        <div class="col-sm-12 col-md-4">
-            <h1>Floors</h1>
+        <div class="col-sm-12 col-md-4 mt-2">
+            <div class="panel-container sm-container">
+                <h1>Floors</h1>
+                <form>
+                    <div class="form-group form-inline">
+                        <h4>Search Floors:</h4> <input type="text" class="form-control ml-2">
+                    </div>
+                </form>
+                <hr>
+                <div class="group-right">
+                    <h5>New Building</h5><h5><i class="fa fa-plus" aria-hidden="true"></i></h5>
+                </div>
+                <table class="table greyHead">
+                    <thead>
+                        <tr>
+                            <th>Floor</th>
+                            <th>Building</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <!-- Floors GO HERE -->
+                    <tr><td>Level 1</td><td>Menlyn Main</td><td class="text-center"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
+                    <tr><td>Level 2</td><td>Menlyn Main</td><td class="text-center"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
+                </table>
+            </div>
+            
         </div>
     </div>
 </div>

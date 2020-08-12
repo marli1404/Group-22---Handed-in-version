@@ -16,3 +16,40 @@
     max-width: 80vw;
     height: 95vh;
   }
+
+.sm-container{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+i:hover{
+    cursor: pointer;
+}
+.heading-container{
+    position: relative;
+}
+
+.heading-container h3{
+    position: relative;
+    display: inline-block;
+}
+.heading-container h2{
+    position: absolute;
+    display: inline-block;
+    right: 0px;
+}
+.group-right{
+    display: flex;
+    justify-content: flex-end;
+}
+.group-right:hover{
+    cursor: pointer;
+}
+.group-right h1, .group-right h2, .group-righth3,.group-right h4, .group-right h5{
+
+    display: block;
+    padding-left: 10px;
+}
+
+.greyHead thead{
+    background-color: #f2f2f2;
+}
