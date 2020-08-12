@@ -6,13 +6,16 @@ import { CreateAccountComponent } from './components/profile/createAccount/creat
 import { DashboardComponent } from './components/dashboard/dashboard/dashboard.component';
 import { ResetPasswordComponent } from './components/resetPassword/reset-password/reset-password.component';
 import { AccountSuccessCreateComponent } from './components/accountSuccess/account-success-create/account-success-create.component';
-
+import { BuildingComponent } from './components/config/building/building/building.component'
 
 const routes: Routes = [
 { path: "", component : LoginComponent},
 { path: "ForgotPassword", component : ForgotPasswordComponent},
 { path: "CreateAccount", component : CreateAccountComponent},
-{ path: "Dashboard", component : DashboardComponent},
+{ path: "Dashboard", component : DashboardComponent,
+  children : [
+      { path : "ConfigBuilding", component : BuildingComponent}
+  ]},
 { path: "AccountCreated", component : AccountSuccessCreateComponent},
 ];
 

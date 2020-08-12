@@ -51,7 +51,7 @@
         <ul class="accordian" *ngIf="configToggle">
           <li>Job Card</li>
           <li>Tables</li>
-          <li>Buildings</li>
+          <li [routerLink]="['/Dashboard/ConfigBuilding']" routerLinkActive="router-link-active" >Buildings</li>
           <li>Company</li>
           <li>Skills Requirement & Questions</li>
           <li>Roles and Authorizations</li>
@@ -73,6 +73,7 @@
   </div>
   <div class="dash">
     <div class="container-fluid">
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

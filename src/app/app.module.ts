@@ -28,6 +28,9 @@ import { UploadImageComponent } from './components/modals/uploadImage/upload-ima
 import { ProfileAddSkillComponent } from './components/modals/profileAddSkill/profile-add-skill/profile-add-skill.component';
 import { ProfileAddLanguageComponent } from './components/modals/profileAddLanguage/profile-add-language/profile-add-language.component';
 import { CompanyConfigComponent } from './components/config/company/company-config/company-config.component';
+import { BuildingComponent } from './components/config/building/building/building.component';
+import { LocationComponent } from './components/config/location/location/location.component';
+import { TableComponent } from './components/config/table/table/table.component';
 
 
 @NgModule({
@@ -49,6 +52,9 @@ import { CompanyConfigComponent } from './components/config/company/company-conf
     ProfileAddSkillComponent,
     ProfileAddLanguageComponent,
     CompanyConfigComponent,
+    BuildingComponent,
+    TableComponent,
+    
      
   ],
   imports: [
