@@ -6,12 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Dashboard-app';
-
-  viewSideBar = false;
   
-  public toggleSideBar(){
-
-    this.viewSideBar = !this.viewSideBar;
-  }
 }

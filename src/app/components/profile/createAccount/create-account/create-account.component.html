@@ -1,0 +1,72 @@
+<div class="container">
+    <h1 class="intro">Join the party and create your account!</h1>
+    <div>
+        <form [formGroup]="userProfile">
+            <div class="row">
+                <div class="col-md-2 col-sm-0"></div>
+                <!-- LEFT SIDE OF FORM-->
+                <div class="col-md-4 col-sm-12">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input class="form-control" [class.is-invalid]="userName.touched && !userName.valid" type="text" name="name" id="name" formControlName='name'>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact">Contact</label>
+                        <input class="form-control" [class.is-invalid]="userContact.touched && !userContact.valid" type="tel" name="contact" id="contact" formControlName='contact'>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input class="form-control" [class.is-invalid]="userEmail.touched && !userEmail.valid" type="email" name="email" id="email" formControlName='email'>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input class="form-control" [class.is-invalid]="userPass.touched && !userPass.valid" type="password" name="password" id="password" formControlName='password'>
+                    </div>
+                </div>
+                <!-- RIGHT SIDE OF FORM-->
+                <div class="col-md-4 col-sm-12">
+                    <div class="form-group">
+                        <label for="surname">Surname</label>
+                        <input class="form-control" [class.is-invalid]="userSurname.touched && !userSurname.valid" type="text" name="surname" id="surname" formControlName='surname'>
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Select which country you live in</label>
+                        <select class="form-control" [class.is-invalid]="userCountry.touched && !userCountry.valid" name="country" id="country" formControlName='countryId' >
+                            <option value="null" selected disabled>Select Country</option>
+                            <option *ngFor="let country of countries" [value]="country.id">{{country.country}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="nationality">Select your nationality</label>
+                        <select class="form-control" [class.is-invalid]="userNationality.touched && !userNationality.valid" name="nationality" id="nationality" formControlName='nationalityId'>
+                            <option value="null" selected disabled>Select Nationality</option>
+                            <option *ngFor="let national of nationalities" [value]="national.id">{{national.nationality}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="confrimPass">Confirmation Password</label>
+                        <input class="form-control" [class.is-invalid]="userPassConfirm.touched && !userPassConfirm.valid" type="password" name="confrimPass" id="confrimPass" formControlName='passconfirm'>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-0"></div>
+            </div>
+            <!-- BOTTOM OF THE FORM-->
+            <div class="row">
+                <div class="col-md-3 col-sm-12"></div>
+                <div class="col-md-6 col-sm-12">
+                    <button class="btn btn-primary form-control" type="button" (click)="createAccount()">Create Account</button>
+                    <div class="alert alert-warning mt-2">
+                        <h4>Oops</h4>
+                        <p>Please fill in all fields</p>
+                        <p>We already have an account with this email try to reset the password if you forgot it</p>
+                        <p>Both Passwords do not match</p>
+                        <p>Password strength is weak please use minimum of 8 characters containing 1 uppercase letter and 1 number</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12"></div>
+            </div>
+            
+        </form>
+        
+    </div>
+</div>

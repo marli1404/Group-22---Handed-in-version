@@ -1,2 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
+
+
+.largeModal .modal-dialog .modal-content{
+
+    height: 100%;
+    overflow: scroll;
+}
+.actionBtn:hover{
+    cursor: pointer;
+}
+
+.largeModal .modal-dialog {
+    max-width: 80vw;
+    height: 95vh;
+  }

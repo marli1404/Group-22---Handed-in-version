@@ -1,23 +1,36 @@
 <div class="grid-container">
-    <div>
-        <form action="">
-            <div class="from-group">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" class="form-control">
-            </div>
-            <div class="form-group">
-                <button class="btn btn-primary">Login</button>
+    <div class="header"></div>
+    <div class="login">
+        <div class="login-container">
+            <form action="">
+                <div class="from-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <label for="password" class="forgot" [routerLink]="['ForgotPassword']" routerLinkActive="router-link-active" ><i>Forgot Password?</i></label>
+                    <input type="password" name="password" id="password" class="form-control">
+                </div>
+                <div class="alert alert-warning text-center">
+                    <p>No matching email or password</p>
+                </div>
+                <div class="form-group">
+                    <button [routerLink]="['Dashboard']" type="button" class="btn btn-primary form-control">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="signup">
+        <div class="login-container">
+            <h3>Don't have an account?</h3>
+            <p>No problem create one and start applying for jobs at BMW</p>
+            <div class="text-right">
+                <button [routerLink]="['CreateAccount']" routerLinkActive="router-link-active"  class="btn btn-primary">Create Account</button>
             </div>
             
-        </form>
+        </div>
+        
     </div>
-    <div>
-        <p>Don't have an account?</p>
-        <p>No problem create one and start applying for jobs at BMW</p>
-        <button class="btn btn-primary">Create Account</button>
-    </div>
+    <div class="footer"></div>
 </div>

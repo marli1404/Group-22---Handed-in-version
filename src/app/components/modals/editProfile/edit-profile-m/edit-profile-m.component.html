@@ -1,0 +1,64 @@
+<div class="container-fluid modal-container">
+ <button type="button" class="close" aria-label="Close" (click)="activeModal.close('Close click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+ <div class="row">
+    <div class="col-md-3 col-sm-0"></div>
+    <div class="col-md-6 col-sm-0 text-center">
+        <h1>Update Profile</h1>
+    </div>
+    <div class="col-md-3 col-sm-0"></div>
+    <div class="col-md-6 col-sm-12">
+        <h1>Your Details</h1>
+        <hr>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="surname">Surname</label>
+            <input type="text" id="surname" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="surname">Email</label>
+            <input type="text" id="surname" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="nationality">Nationality</label>
+            <select name="nationality" id="nationality" class="form-control"></select>
+        </div>
+        <div class="form-group">
+            <label for="country">Country</label>
+            <select name="country" id="country" class="form-control"></select>
+        </div>
+        <div class="form-group">
+            <label for="contact">Contact</label>
+            <select name="contact" id="contact" class="form-control"></select>
+        </div>
+        <div>
+            <button class="btn btn-primary">Reset Password</button>
+            <button class="btn btn-primary float-right">Save Changes</button>
+        </div>
+    
+    </div>
+    <div class="col-md-6 col-sm-12 text-center">
+        <div class="image-container" (click)="changeImage();">
+            <div class="dummy"></div>
+            <div class="img-holder">
+                <img src="../../../../../assets/profile/Calvin.jpg" alt="">
+            </div>
+        </div>
+        <p>Click image above to change</p>
+    </div>
+ </div>
+ <h1 class="text-center">Your Languages and Skills</h1>
+ <hr>
+ <div class="row mb-4">
+     <div class="col-sm-12 col-md-8">
+        <app-skill class="borderShadow"></app-skill>
+     </div>
+     <div class="col-sm-12 col-md-4">
+        <app-language class="borderShadow"></app-language>
+    </div> 
+ </div>
+</div>

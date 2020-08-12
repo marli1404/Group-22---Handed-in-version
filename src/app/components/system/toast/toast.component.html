@@ -1,0 +1,7 @@
+<div>
+    <ngb-toast *ngFor="let toast of toasts.toasts" [class]="{'toast-success': toast.type == 'Success', 'toast-warning': toast.type == 'Error'}" 
+    [header]="toast.type" [autohide]="false" (hide)="toasts.remove(toast)">
+        <h4>{{toast.heading}}</h4>
+       <p>{{toast.message}}</p>
+    </ngb-toast>
+</div>

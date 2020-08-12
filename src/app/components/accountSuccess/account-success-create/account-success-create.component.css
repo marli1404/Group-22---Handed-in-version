@@ -1,0 +1,26 @@
+.top{
+    background-color: #373f51;
+    width: 100%;
+    height: 50vh;
+    color: white;
+}
+
+.top h1{
+    margin-top: 60px;
+    font-family: 'Muli', sans-serif;
+}
+
+.top img{
+    display: block;
+    height: 60%;
+    padding-top: 60px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.bottom{
+    padding-top: 60px;
+}
+
+.btn h4 {
+    text-decoration: underline;
+}
