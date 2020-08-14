@@ -18,6 +18,9 @@
   }
 
 .sm-container{
+    display: block;
+    position: relative;
+    height: 100%;
     padding-left: 10px;
     padding-right: 10px;
 }
@@ -54,10 +57,24 @@ i:hover{
     background-color: #f2f2f2;
 }
 .panel-container{
-
+    
+    overflow: auto;
+    position: relative;
     width: 100%;
-    height: 80vh;
+    display: flex; 
+    flex-flow: column; 
+    height: 70vh; 
     background-color: #ffffff;
     background-clip: padding-box;
     box-shadow: 0 .25rem .75rem rgba(0,0,0,.1);
 }
+
+.full-component{
+    height: 100%;
+    display: block;
+}
+
+.panel-container.panel-ext{
+    height: 80vh;
+}
+

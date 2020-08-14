@@ -29,7 +29,6 @@ import { ProfileAddSkillComponent } from './components/modals/profileAddSkill/pr
 import { ProfileAddLanguageComponent } from './components/modals/profileAddLanguage/profile-add-language/profile-add-language.component';
 import { CompanyConfigComponent } from './components/config/company/company-config/company-config.component';
 import { BuildingComponent } from './components/config/building/building/building.component';
-import { LocationComponent } from './components/config/location/location/location.component';
 import { TableComponent } from './components/config/table/table/table.component';
 import { ConfigJobCardComponent } from './components/config/jobCard/config-job-card/config-job-card.component';
 import { ConfigRolesAndAuthComponent } from './components/config/rolesAndAuth/config-roles-and-auth/config-roles-and-auth.component';
