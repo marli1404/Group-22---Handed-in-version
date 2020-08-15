@@ -80,3 +80,12 @@ i:hover{
 a[aria-selected=false]{
     color: grey;
 }
+
+hr {
+    border: 0;
+    clear:both;
+    display:block;
+    width: 96%;               
+    background-color:#e7e9ec;
+    height: 1px;
+  }

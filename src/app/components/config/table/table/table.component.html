@@ -37,7 +37,6 @@
                                     </select>
                                 </div>
                             </div>
-                        
                     </div>
                     </div>
                 </form>
@@ -59,9 +58,111 @@
         <!-- Other Config Section -->
         <div class="col-md-6 col-sm-12 mt-sm-4 mt-md-0">
             <div class="sm-container panel-container sm-container panel-ext">
-                <div class="container-fluid">
-                    
-                </div>
+                <ngb-tabset #t="ngbTabset">
+                    <ngb-tab id="tab-selectbyid1">
+                      <ng-template ngbTabTitle><h3>Tables & Settings</h3></ng-template>
+                      <ng-template ngbTabContent>
+                        <div class="container-fluid">
+                                <h1>Add Table</h1>
+                                <div class="row">
+                                    <div class="col-lg-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="tableName">Table ID/Name</label>
+                                            <input class="form-control" type="text" name="tableName" id="tableName">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="newTableType">Table Type</label>
+                                            <select class="form-control" name="newTableType" id="newTableType">
+                                                <option value="null" selected disabled>Select Type</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="newBuilding">Building</label>
+                                            <select class="form-control" name="newBuilding" id="newBuilding">
+                                                <option value="null" selected disabled>Select Building</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="newFloor">Floor</label>
+                                            <select class="form-control" name="newFloor" id="newFloor">
+                                                <option value="null" selected disabled>Select Floor</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-lg-4">
+                                        <button class="btn btn-outline-primary float-right mt-lg-4 mt-sm-0">Add Table</button>    
+                                    </div>
+                                    <hr>
+                                </div>
+                                <h1>Setting Group Slots</h1>
+                                <div class="row">
+                                    <div class="col-lg-4 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="slotStartTime">First Slot Starting Time</label>
+                                            <input class="form-control" type="time" name="slotStartTime" id="slotStartTime">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="slotEndTime">Last Slot Ending Time</label>
+                                            <input class="form-control" type="time" name="slotEndTime" id="slotEndTime">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="noSlots">No. Slots per hour</label>
+                                            <input class="form-control" type="number" name="noSlots" id="noSlots">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-outline-primary float-right mt-lg-4 mt-md-0">Set Slots</button>    
+                                    </div>
+                                    <hr>
+                                </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab id="tab-selectbyid2">
+                      <ng-template ngbTabTitle><h3>Bookable Dates</h3></ng-template>
+                      <ng-template ngbTabContent>
+                        <div class="container-fluid">
+                            <h2>Filter Dates</h2>
+                            <div class="row">
+                                <div class="col-lg-4 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="startDate">Starting Date</label>
+                                        <input class="form-control" type="date" name="startDate" id="startDate">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="endDate">Ending Date</label>
+                                        <input class="form-control" type="date" name="endDate" id="endDate">
+                                    </div>
+                                </div>
+                                <table class="table greyHead">
+                                    <thead>
+                                        <th>#</th>
+                                        <th>Date</th>
+                                        <th>Allow Booking</th>
+                                    </thead>
+                                    <tbody>
+                                        <!-- DATES GO HERE -->
+                                        <tr><td>1</td><td>01-26-2020</td><td><input type="checkbox" name="date1" id="date1"></td></tr>
+                                        <tr><td>2</td><td>01-27-2020</td><td><input type="checkbox" name="date2" id="date2"></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
             </div>
         </div>
     </div>
