@@ -33,6 +33,9 @@ import { TableComponent } from './components/config/table/table/table.component'
 import { ConfigJobCardComponent } from './components/config/jobCard/config-job-card/config-job-card.component';
 import { ConfigRolesAndAuthComponent } from './components/config/rolesAndAuth/config-roles-and-auth/config-roles-and-auth.component';
 import { ConfigskillsAndQsComponent } from './components/config/skillsAndQs/configskills-and-qs/configskills-and-qs.component';
+import { LogComponent } from './components/audit/log/log/log.component';
+import { DatabaseComponent } from './components/audit/database/database/database.component';
+import { AuthorizationComponent } from './components/audit/authorization/authorization/authorization.component';
 
 
 @NgModule({
@@ -59,6 +62,9 @@ import { ConfigskillsAndQsComponent } from './components/config/skillsAndQs/conf
     ConfigJobCardComponent,
     ConfigRolesAndAuthComponent,
     ConfigskillsAndQsComponent,
+    LogComponent,
+    DatabaseComponent,
+    AuthorizationComponent,
     
      
   ],

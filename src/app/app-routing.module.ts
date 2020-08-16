@@ -12,6 +12,9 @@ import { TableComponent } from './components/config/table/table/table.component'
 import { ConfigJobCardComponent } from './components/config/jobCard/config-job-card/config-job-card.component';
 import { ConfigRolesAndAuthComponent } from './components/config/rolesAndAuth/config-roles-and-auth/config-roles-and-auth.component';
 import { ConfigskillsAndQsComponent } from './components/config/skillsAndQs/configskills-and-qs/configskills-and-qs.component';
+import { LogComponent } from './components/audit/log/log/log.component';
+import { AuthorizationComponent } from './components/audit/authorization/authorization/authorization.component';
+import { DatabaseComponent } from './components/audit/database/database/database.component';
 
 const routes: Routes = [
 { path: "", component : LoginComponent},
@@ -24,7 +27,10 @@ const routes: Routes = [
       { path : "ConfigJobCard", component : ConfigJobCardComponent},
       { path : "ConfigRolesAndAuthorization", component : ConfigRolesAndAuthComponent},
       { path : "ConfigTable", component : TableComponent},
-      { path : "ConfigSkillsAndQuestions", component : ConfigskillsAndQsComponent}
+      { path : "ConfigSkillsAndQuestions", component : ConfigskillsAndQsComponent},
+      { path : "AuditLog", component : LogComponent},
+      { path : "AuditAuthorization", component : AuthorizationComponent},
+      { path : "AuditDatabase", component : DatabaseComponent},
   ]},
 { path: "AccountCreated", component : AccountSuccessCreateComponent},
 ];
