@@ -169,3 +169,8 @@ nav li:last-of-type{
 .arrow{
     position: absolute; right:20px;
 }
+.sideBar .active-link i,.sideBar .active-link span{
+    color: white;
+}
+
+

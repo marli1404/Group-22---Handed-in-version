@@ -96,3 +96,19 @@ hr {
     background-color:#e7e9ec;
     height: 1px;
   }
+
+.active-link{
+    color: white !important;
+}
+.fa-trash-alt:hover{
+    color: #ff4136;
+}
+.fa-pencil-alt:hover{
+    color: #ff851b;
+}
+.fa-crown{
+    color: gold;
+}
+.fa-users{
+    color: #A75B10;
+}

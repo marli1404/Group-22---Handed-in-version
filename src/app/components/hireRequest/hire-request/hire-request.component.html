@@ -1,0 +1,62 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4 col-md-12">
+            <h2>My Hire Requests</h2>
+            <div class="sm-container panel-container">
+                <div class="container-fluid">
+                    <div class="row">
+                        <!-- THIS IS WHERE WE WILL ADD THE JOB REQUEST CARDS WITH THE DIV WRAPPER OF class="col-12" -->
+                        <div class="col-12">
+                            <app-request-card></app-request-card>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-7 col-md-12">
+            <h2>Create New Hire Request</h2>
+            <div class="sm-container panel-container">
+                <!-- FORM CONTAINER -->
+                <form>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-12">
+                                <div class="form-group">
+                                    <label for="justification">Justification</label>
+                                    <select name="justification" id="justification" class="form-control">
+                                        <option value="null" selected disabled>Select a justification</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-12">
+                                <div class="form-group">
+                                    <label for="jobPosition">Job Position</label>
+                                    <select name="jobPosition" id="jobPosition" class="form-control">
+                                        <option value="null" selected disabled>Select a Job Position</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-12">
+                                <div class="form-group">
+                                    <label for="fulfilldate">Fulfilment Date</label>
+                                    <input type="date" name="fulfilldate" id="fulfilldate" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="brief"><h4>Brief</h4></label>
+                                    <textarea name="brief" id="brief" cols="30" rows="13" class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-outline-primary float-right ml-4">Request</button>
+                                <button class="btn btn-outline-primary float-right">Clear</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

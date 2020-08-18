@@ -1,0 +1,19 @@
+.requestCard{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #e6e7ea;
+}
+.requestCard h4{
+    text-decoration: underline;
+}
+.requestCard p{
+    margin-bottom: 2px;
+}
+.requestCard:hover{
+    cursor: pointer;
+    box-shadow: 0 .25rem .75rem rgba(0,0,0,.1);
+}
+.inline-p{
+    display: inline-block; 
+    margin-right: 15px;
+}

@@ -36,6 +36,9 @@ import { ConfigskillsAndQsComponent } from './components/config/skillsAndQs/conf
 import { LogComponent } from './components/audit/log/log/log.component';
 import { DatabaseComponent } from './components/audit/database/database/database.component';
 import { AuthorizationComponent } from './components/audit/authorization/authorization/authorization.component';
+import { HireRequestComponent } from './components/hireRequest/hire-request/hire-request.component';
+import { RequestCardComponent } from './components/hireRequest/requestCard/request-card/request-card.component';
+import { TeamComponent } from './components/team/teamView/team/team.component';
 
 
 @NgModule({
@@ -65,6 +68,9 @@ import { AuthorizationComponent } from './components/audit/authorization/authori
     LogComponent,
     DatabaseComponent,
     AuthorizationComponent,
+    HireRequestComponent,
+    RequestCardComponent,
+    TeamComponent,
     
      
   ],

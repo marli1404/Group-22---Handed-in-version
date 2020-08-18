@@ -15,6 +15,8 @@ import { ConfigskillsAndQsComponent } from './components/config/skillsAndQs/conf
 import { LogComponent } from './components/audit/log/log/log.component';
 import { AuthorizationComponent } from './components/audit/authorization/authorization/authorization.component';
 import { DatabaseComponent } from './components/audit/database/database/database.component';
+import { HireRequestComponent } from './components/hireRequest/hire-request/hire-request.component';
+import { TeamComponent } from './components/team/teamView/team/team.component';
 
 const routes: Routes = [
 { path: "", component : LoginComponent},
@@ -31,6 +33,8 @@ const routes: Routes = [
       { path : "AuditLog", component : LogComponent},
       { path : "AuditAuthorization", component : AuthorizationComponent},
       { path : "AuditDatabase", component : DatabaseComponent},
+      { path : "HireRequest", component : HireRequestComponent},
+      { path : "Teams", component : TeamComponent},
   ]},
 { path: "AccountCreated", component : AccountSuccessCreateComponent},
 ];
