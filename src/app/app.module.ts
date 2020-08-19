@@ -21,7 +21,7 @@ import { TestModalComponent } from './components/test-modal/test-modal.component
 import { ToastComponent } from './components/system/toast/toast.component';
 import { ToastsService } from './services/toasts.service';
 import { EditProfileMComponent } from './components/modals/editProfile/edit-profile-m/edit-profile-m.component';
-import { ProfileCardComponent } from './components/profile/profileWidget/profile-card/profile-card.component';
+import { ProfileCardComponent } from './components/profile/profileCard/profile-card/profile-card.component';
 import { SkillComponent } from './components/profile/skills/skill/skill.component';
 import { LanguageComponent } from './components/profile/languages/language/language.component';
 import { UploadImageComponent } from './components/modals/uploadImage/upload-image/upload-image.component';
@@ -39,6 +39,7 @@ import { AuthorizationComponent } from './components/audit/authorization/authori
 import { HireRequestComponent } from './components/hireRequest/hire-request/hire-request.component';
 import { RequestCardComponent } from './components/hireRequest/requestCard/request-card/request-card.component';
 import { TeamComponent } from './components/team/teamView/team/team.component';
+import { TeamCardComponent } from './components/team/teamCard/team-card/team-card.component';
 
 
 @NgModule({
@@ -71,6 +72,7 @@ import { TeamComponent } from './components/team/teamView/team/team.component';
     HireRequestComponent,
     RequestCardComponent,
     TeamComponent,
+    TeamCardComponent,
     
      
   ],

@@ -112,3 +112,10 @@ hr {
 .fa-users{
     color: #A75B10;
 }
+.border-el{
+    border: 1px solid #e7e9ec;
+}
+.border-el:hover{
+    cursor: pointer;
+    box-shadow: 0 .25rem .75rem rgba(0,0,0,.1);
+}

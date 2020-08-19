@@ -1,40 +1,45 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-5 col-md-12">
+        <div class="col-lg-3 col-md-12">
             <h1>My Teams</h1>
             <div class="sm-container panel-container panel-ext">
-                <div class="group-right mt-2">
-                    <h5>New Group</h5><h5><i class="fa fa-plus" aria-hidden="true"></i></h5>
+                <div class="group-right mt-2 mb-2">
+                    <h5>New Team</h5><h5><i class="fa fa-plus" aria-hidden="true"></i></h5>
                 </div>
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-6 col-sm-12">
-                            <div class="teamCard">
-                                <h3 class="ml-1">FAST</h3>
-                                <div class="flex-container">
-                                    <p class="membership ml-2"><i class="fad fa-crown"></i> Owner</p>
-                                    <p class="membership text-right mr-2">No. Members 8</p>
-                                </div>
-                                <button class="btn elipse"><i class="fas fa-ellipsis-h"></i></button>
-                            </div>
+                        <!-- FOR EACH TEAM ADD THE BELOW DIV WITH A TEAMCARD -->
+                        <div class="col-12 mt-2">
+                            <app-team-card></app-team-card>
                         </div>
-                        <div class="col-lg-6 col-sm-12">
-                            <div class="teamCard">
-                                <h3 class="ml-1">FAST</h3>
-                                <div class="flex-container">
-                                    <p class="membership ml-2"><i class="fad fa-users"></i> Member</p>
-                                    <p class="membership text-right mr-2">No. Members 8</p>
-                                </div>
-                                <button class="btn elipse"><i class="fas fa-ellipsis-h"></i></button>
-                            </div>
+                        <div class="col-12 mt-2">
+                            <app-team-card owner="true"></app-team-card>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-7 col-md-12">
+        <div class="col-lg-6 col-md-12">
             <h1>Team Members</h1>
-
+            <div class="sm-container panel-container panel-ext">
+                <div class="group-right mt-2 mb-2">
+                    <h5>Add Team Member</h5><h5><i class="fa fa-plus" aria-hidden="true"></i></h5>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <!-- ADD ALL THE TEAM MEMBERS IN HERE -->
+                        <div class="col-lg-4 col-md-12">
+                            <app-profile-card class="ml-4 mr-4 border-el" removable="true" ></app-profile-card>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                            <app-profile-card class="ml-4 mr-4 border-el"></app-profile-card>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-12 text-center">
+            <button class="btn btn-outline-primary mt-4 pl-4 pr-4">Search All Teams</button>
         </div>
     </div>
 </div>
