@@ -5,5 +5,16 @@
         <p class="membership ml-2" *ngIf="!owner"><i class="fad fa-users"></i> Member</p>
         <p class="membership text-right mr-2">No. Members 8</p>
     </div>
-    <button class="btn elipse"><i class="fas fa-ellipsis-h"></i></button>
+    
+    <div class="top-right"  ngbDropdown container="body" display="dynamic" #dropper="ngbDropdown">
+        
+        <button ngbDropdownAnchor  class="btn elipse" id="dropdownManual" (focus)="dropper.open()" ><i class="fas fa-ellipsis-h"></i></button>
+        <div ngbDropdownMenu aria-labelledby="dropdownManual" >
+          <button ngbDropdownItem>Leave Team</button>
+          <button ngbDropdownItem>Edit Team</button>
+          <button ngbDropdownItem>Delete Team</button>
+        </div>
+      </div>
+    
+    
 </div>

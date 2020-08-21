@@ -13,7 +13,7 @@
         <img class="notificationImg" src="../assets/icons/bellWarn.svg" alt="Notification">
       </li>
       <li>
-        <app-profile-card class="profileContainer" (click)="editProfile()"></app-profile-card>
+        <app-profile-card class="profileContainer img-sm" (click)="editProfile()"></app-profile-card>
         <!-- <div class="profileContainer" (click)="editProfile()">
           <img class="profileImg" src="../assets/profile/Calvin.jpg" alt=""/>
           <div class="profileNames">
@@ -36,14 +36,14 @@
       <li><i class="fas fa-calendar-minus"></i><span>Booking</span></li>
       <li (click)="testStuff()"><i class="fal fa-calendar-alt"></i><span>Assistant Booking</span></li>
       <li [routerLink]="['/Dashboard/Teams']" routerLinkActive="active-link" ><i class="fas fa-user-friends"></i><span>Team</span></li>
-      <li><i class="fal fa-copy"></i><span>Interviews</span></li>
+      <li [routerLink]="['/Dashboard/Interviews']" routerLinkActive="active-link" ><i class="fal fa-copy"></i><span>Interviews</span></li>
       <li><i class="fas fa-file-chart-line"></i><span>Reports</span></li>
       <li [routerLink]="['/Dashboard/HireRequest']" routerLinkActive="active-link" ><i class="fal fa-hand-holding-medical"></i><span>Job Requests</span></li>
       <li class="accordian-parent" (click)="hrToggle = !hrToggle"><i class="far fa-share-alt"></i><span>HR</span><span class="arrow"><i [class]="(!hrToggle) ? 'far fa-chevron-down' : 'far fa-chevron-up'"></i></span>
         <ul class="accordian" *ngIf="hrToggle" (click)="hrToggle = !hrToggle">
           <li>Approve Job Card</li>
           <li>Job Cards</li>
-          <li>Hire Manager Control</li>
+          <li [routerLink]="['/Dashboard/HireManagerControl']" routerLinkActive="active-link" >Hire Manager Control</li>
           <li>Create Employee Profile</li>
           <li>Update Employee Profile</li>
         </ul>

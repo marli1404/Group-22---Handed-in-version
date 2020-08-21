@@ -1,0 +1,9 @@
+.approvalCard{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #e6e7ea;
+}
+.approvalCard:hover{
+    cursor: pointer;
+    box-shadow: 0 .25rem .75rem rgba(0,0,0,.1);
+}

@@ -17,6 +17,8 @@ import { AuthorizationComponent } from './components/audit/authorization/authori
 import { DatabaseComponent } from './components/audit/database/database/database.component';
 import { HireRequestComponent } from './components/hireRequest/hire-request/hire-request.component';
 import { TeamComponent } from './components/team/teamView/team/team.component';
+import { InterviewComponent } from './components/interview/interview/interview.component';
+import { HiringControlComponent } from './components/hr/HiringControl/hiring-control/hiring-control.component';
 
 const routes: Routes = [
 { path: "", component : LoginComponent},
@@ -35,6 +37,8 @@ const routes: Routes = [
       { path : "AuditDatabase", component : DatabaseComponent},
       { path : "HireRequest", component : HireRequestComponent},
       { path : "Teams", component : TeamComponent},
+      { path : "Interviews", component : InterviewComponent},
+      { path : "HireManagerControl", component : HiringControlComponent},
   ]},
 { path: "AccountCreated", component : AccountSuccessCreateComponent},
 ];

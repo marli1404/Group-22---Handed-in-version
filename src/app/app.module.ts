@@ -40,6 +40,11 @@ import { HireRequestComponent } from './components/hireRequest/hire-request/hire
 import { RequestCardComponent } from './components/hireRequest/requestCard/request-card/request-card.component';
 import { TeamComponent } from './components/team/teamView/team/team.component';
 import { TeamCardComponent } from './components/team/teamCard/team-card/team-card.component';
+import { InterviewComponent } from './components/interview/interview/interview.component';
+import { InterviewRecordComponent } from './components/interview/interviewRecord/interview-record/interview-record.component';
+import { HiringControlComponent } from './components/hr/HiringControl/hiring-control/hiring-control.component';
+import { ApprovalCardComponent } from './components/hr/helperComponents/approval-card/approval-card.component';
+import { GenerateJobCardComponent } from './components/hr/modals/generate-job-card/generate-job-card.component';
 
 
 @NgModule({
@@ -73,6 +78,11 @@ import { TeamCardComponent } from './components/team/teamCard/team-card/team-car
     RequestCardComponent,
     TeamComponent,
     TeamCardComponent,
+    InterviewComponent,
+    InterviewRecordComponent,
+    HiringControlComponent,
+    ApprovalCardComponent,
+    GenerateJobCardComponent,
     
      
   ],

@@ -16,9 +16,17 @@
     top: 0px;
     right: 0px;
 }
+.top-right{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
 .membership{
    flex: 1 1 0px;
 }
 .flex-container{
     display: flex;
+}
+.dropdown-toggle::after {
+    display:none;
 }
