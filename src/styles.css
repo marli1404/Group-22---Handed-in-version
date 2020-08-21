@@ -3,10 +3,10 @@
 
 
 
-.largeModal .modal-dialog .modal-content{
+.largeModal .modal-dialog .modal-content, .hugeModal .modal-dialog .modal-content{
 
     height: 100%;
-    overflow: scroll;
+    overflow: auto;
 }
 .actionBtn:hover{
     cursor: pointer;
@@ -14,8 +14,13 @@
 
 .largeModal .modal-dialog {
     max-width: 80vw;
-    height: 95vh;
+    height: 90vh;
   }
+
+.hugeModal .modal-dialog {
+    max-width: 95vw;
+    height: 90vh;
+}
 
 .sm-container{
     display: block;

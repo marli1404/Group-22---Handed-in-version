@@ -45,6 +45,7 @@ import { InterviewRecordComponent } from './components/interview/interviewRecord
 import { HiringControlComponent } from './components/hr/HiringControl/hiring-control/hiring-control.component';
 import { ApprovalCardComponent } from './components/hr/helperComponents/approval-card/approval-card.component';
 import { GenerateJobCardComponent } from './components/hr/modals/generate-job-card/generate-job-card.component';
+import { JobRequestDetailsComponent } from './components/hr/helperComponents/job-request-details/job-request-details.component';
 
 
 @NgModule({
@@ -83,6 +84,7 @@ import { GenerateJobCardComponent } from './components/hr/modals/generate-job-ca
     HiringControlComponent,
     ApprovalCardComponent,
     GenerateJobCardComponent,
+    JobRequestDetailsComponent,
     
      
   ],
