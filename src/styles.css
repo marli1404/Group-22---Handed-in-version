@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
-
+@import '~bs-stepper/dist/css/bs-stepper.min.css';
 
 
 .largeModal .modal-dialog .modal-content, .hugeModal .modal-dialog .modal-content{
@@ -119,6 +119,9 @@ hr {
 }
 .fa-users{
     color: #A75B10;
+}
+.fa-eye:hover{
+    color: #1e88e5;
 }
 .border-el{
     border: 1px solid #e7e9ec;

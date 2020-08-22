@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { JobRequestDetailsComponent } from '../job-request-details/job-request-details.component';
 import { GenerateJobCardComponent } from '../../modals/generate-job-card/generate-job-card.component';
@@ -9,7 +9,7 @@ import { GenerateJobCardComponent } from '../../modals/generate-job-card/generat
   styleUrls: ['./approval-card.component.css']
 })
 export class ApprovalCardComponent implements OnInit {
-
+  
   constructor( private modal :NgbModal) { }
 
   ngOnInit(): void {

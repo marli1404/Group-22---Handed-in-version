@@ -1,0 +1,206 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4 col-md-12">
+            <h3>Request Details</h3>
+            <div class="panel-container panel-ext sm-container">
+                <app-job-request-details></app-job-request-details>
+            </div>
+            
+        </div>
+        <div class="col-lg-8 col-md-12">
+            <h3>Configure Job Card</h3>
+            <div class="container-fluid">
+                <div id="stepper1" class="bs-stepper">
+                    <div class="bs-stepper-header">
+                      <div class="step" data-target="#test-l-1">
+                        <button class="step-trigger">
+                          <span class="bs-stepper-circle">1</span>
+                          
+                        </button>
+                      </div>
+                      <div class="line"></div>
+                      <div class="step" data-target="#test-l-2">
+                        <button class="step-trigger">
+                          <span class="bs-stepper-circle">2</span>
+                          
+                        </button>
+                      </div>
+                      <div class="line"></div>
+                      <div class="step" data-target="#test-l-3">
+                        <button class="step-trigger">
+                          <span class="bs-stepper-circle">3</span>
+                          
+                        </button>
+                      </div>
+                      <div class="line"></div>
+                      <div class="step" data-target="#test-l-4">
+                        <button class="step-trigger">
+                          <span class="bs-stepper-circle">4</span>
+                          
+                        </button>
+                      </div>
+                      <div class="line"></div>
+                      <div class="step" data-target="#test-l-5">
+                        <button class="step-trigger">
+                          <span class="bs-stepper-circle">5</span>
+                          
+                        </button>
+                      </div>
+                      <div class="line"></div>
+                      <div class="step" data-target="#test-l-6">
+                        <button class="step-trigger">
+                          <span class="bs-stepper-circle">6</span>
+                          
+                        </button>
+                      </div>
+                      <div class="line"></div>
+                      <div class="step" data-target="#test-l-7">
+                        <button class="step-trigger">
+                          <span class="bs-stepper-circle">7</span>
+                          
+                        </button>
+                      </div>
+                    </div>
+                    <div class="bs-stepper-content">
+                      <form (ngSubmit)="onSubmit()">
+                        <div id="test-l-1" class="content">
+                            <!-- BASIC DETAILS -->
+                            <h4>Basic Details</h4>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-12">
+                                        <div class="form-group">
+                                            <label for="cardName">Job Card Name</label>
+                                            <input type="text" id="cardName" name="cardName" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-12">
+                                        <div class="form-group">
+                                            <label for="startDate">Start Date</label>
+                                            <input type="date" id="startDate" name="startDate" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-12">
+                                        <div class="form-group">
+                                            <label for="endDate">End Date</label>
+                                            <input type="date" id="endDate" name="endDate" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="intro">Introduction</label>
+                                            <textarea name="intro" id="intro" cols="30" rows="2" class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="description">Description</label>
+                                            <textarea name="description" id="description" cols="30" rows="2" class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-12">
+                                        <div class="form-group">
+                                            <label for="travel">Expected to travel</label>
+                                            <input id="travel" name="travel" type="checkbox" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-12">
+                                        <div class="form-group">
+                                            <label for="publishDate">Publishing date</label>
+                                            <input id="publishDate" name="publishDate" type="date" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-12">
+                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <label for="location">Primary Location</label>
+                                                <select name="location" id="location" class="form-control">
+                                                    <option value="null" selected disabled>Select Location</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-12">
+                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <label for="requisition">Requisition Approval</label>
+                                                <select name="requisition" id="requisition"  class="form-control">
+                                                    <option value="null" selected disabled>Select Requisition</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-12">
+                                        <div class="form-group">
+                                            <label for="workingHours">Publishing date</label>
+                                            <input id="workingHours" name="workingHours" type="number" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-12">
+                                        <div class="form-group">
+                                            <label for="closingDate">Closing date</label>
+                                            <input id="closingDate" name="closingDate" type="date" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-12">
+                                        <div class="form-group">
+                                            <label for="schedule">Schedule</label>
+                                            <select name="schedule" id="schedule"  class="form-control">
+                                                <option value="null" selected disabled>Select Schedule</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-12">
+                                        <button (click)="next()" class="btn btn-outline-primary float-right mt-4">Next</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- BASIC DETAILS END -->
+                          
+                        </div>
+                        <div id="test-l-2" class="content">
+                          <div class="container-fluid">
+                            <h4>Add Tests</h4>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-12">
+                                    <div class="form-group">
+                                        <label for="SearchTest">Search Tests</label>
+                                        <input type="text" name="SearchTest" id="SearchTest" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-lg-9 col-md-0"></div>
+                                <div class="col-12">
+                                    <table class="table">
+                                        <th>Test</th>
+                                        <th>Action</th>
+                                    </table>
+                                    <tbody>
+                                        <tr><td>Casino</td><td>Add</td></tr>
+                                    </tbody>
+                                </div>
+                            </div>
+                          </div>
+                          <button (click)="next()" class="btn btn-primary">Next</button>
+                        </div>
+                        <div id="test-l-3" class="content text-center">
+                          <button type="submit" class="btn btn-primary mt-5">Submit</button>
+                        </div>
+                        <div id="test-l-4" class="content text-center">
+                            <button type="submit" class="btn btn-primary mt-5">Submit</button>
+                        </div>
+                        <div id="test-l-5" class="content text-center">
+                            <button type="submit" class="btn btn-primary mt-5">Submit</button>
+                        </div>
+                        <div id="test-l-6" class="content text-center">
+                            <button type="submit" class="btn btn-primary mt-5">Submit</button>
+                        </div>
+                        <div id="test-l-7" class="content text-center">
+                            <button type="submit" class="btn btn-primary mt-5">Submit</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+            </div>  
+        </div>
+    </div>
+</div>

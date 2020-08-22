@@ -41,8 +41,7 @@
       <li [routerLink]="['/Dashboard/HireRequest']" routerLinkActive="active-link" ><i class="fal fa-hand-holding-medical"></i><span>Job Requests</span></li>
       <li class="accordian-parent" (click)="hrToggle = !hrToggle"><i class="far fa-share-alt"></i><span>HR</span><span class="arrow"><i [class]="(!hrToggle) ? 'far fa-chevron-down' : 'far fa-chevron-up'"></i></span>
         <ul class="accordian" *ngIf="hrToggle" (click)="hrToggle = !hrToggle">
-          <li>Approve Job Card</li>
-          <li>Job Cards</li>
+          <li [routerLink]="['/Dashboard/JobCardDashboard']" routerLinkActive="active-link" >Job Cards</li>
           <li [routerLink]="['/Dashboard/HireManagerControl']" routerLinkActive="active-link" >Hire Manager Control</li>
           <li>Create Employee Profile</li>
           <li>Update Employee Profile</li>

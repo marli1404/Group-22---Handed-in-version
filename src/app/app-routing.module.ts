@@ -19,6 +19,7 @@ import { HireRequestComponent } from './components/hireRequest/hire-request/hire
 import { TeamComponent } from './components/team/teamView/team/team.component';
 import { InterviewComponent } from './components/interview/interview/interview.component';
 import { HiringControlComponent } from './components/hr/HiringControl/hiring-control/hiring-control.component';
+import { JobCardDashComponent } from './components/hr/jobCard/job-card-dash/job-card-dash.component';
 
 const routes: Routes = [
 { path: "", component : LoginComponent},
@@ -39,6 +40,7 @@ const routes: Routes = [
       { path : "Teams", component : TeamComponent},
       { path : "Interviews", component : InterviewComponent},
       { path : "HireManagerControl", component : HiringControlComponent},
+      { path : "JobCardDashboard", component : JobCardDashComponent},
   ]},
 { path: "AccountCreated", component : AccountSuccessCreateComponent},
 ];

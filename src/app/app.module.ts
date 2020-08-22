@@ -46,6 +46,10 @@ import { HiringControlComponent } from './components/hr/HiringControl/hiring-con
 import { ApprovalCardComponent } from './components/hr/helperComponents/approval-card/approval-card.component';
 import { GenerateJobCardComponent } from './components/hr/modals/generate-job-card/generate-job-card.component';
 import { JobRequestDetailsComponent } from './components/hr/helperComponents/job-request-details/job-request-details.component';
+import { RejectRequestComponent } from './components/hr/modals/reject-request/reject-request.component';
+import { JobCardDashComponent } from './components/hr/jobCard/job-card-dash/job-card-dash.component';
+import { AssignedCardComponent } from './components/hr/helperComponents/assigned-card/assigned-card.component';
+import { JobCardCreateComponent } from './components/hr/jobCard/job-card-create/job-card-create.component';
 
 
 @NgModule({
@@ -85,6 +89,10 @@ import { JobRequestDetailsComponent } from './components/hr/helperComponents/job
     ApprovalCardComponent,
     GenerateJobCardComponent,
     JobRequestDetailsComponent,
+    RejectRequestComponent,
+    JobCardDashComponent,
+    AssignedCardComponent,
+    JobCardCreateComponent,
     
      
   ],
@@ -98,7 +106,8 @@ import { JobRequestDetailsComponent } from './components/hr/helperComponents/job
     ModalModule,
     NgbModule,
     ReactiveFormsModule,
-    FormsModule 
+    FormsModule,
+     
   ],
   providers: [
     FormBuilder,
