@@ -9,26 +9,26 @@
                 <div class="col-md-4 col-sm-12">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input class="form-control" [class.is-invalid]="userName.touched && !userName.valid" type="text" name="name" id="name" formControlName='name'>
+                        <input class="form-control" [class.is-invalid]="userName.touched && !userName.valid" type="text" name="name" id="name" formControlName='name' required>
                     </div>
                     <div class="form-group">
                         <label for="contact">Contact</label>
-                        <input class="form-control" [class.is-invalid]="userContact.touched && !userContact.valid" type="tel" name="contact" id="contact" formControlName='contact'>
+                        <input class="form-control" [class.is-invalid]="userContact.touched && !userContact.valid" type="tel" name="contact" id="contact" formControlName='contact' maxlength="10" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input class="form-control" [class.is-invalid]="userEmail.touched && !userEmail.valid" type="email" name="email" id="email" formControlName='email'>
+                        <input class="form-control" [class.is-invalid]="userEmail.touched && !userEmail.valid" type="email" name="email" id="email" formControlName='email' pattern="^[a-z0-9._%+-]+@[a-z0-9._]+\.[a-z]{2,4}$" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input class="form-control" [class.is-invalid]="userPass.touched && !userPass.valid" type="password" name="password" id="password" formControlName='password'>
+                        <input class="form-control" [class.is-invalid]="userPass.touched && !userPass.valid" type="password" name="password" id="password" formControlName='password' minlength="6" required>
                     </div>
                 </div>
                 <!-- RIGHT SIDE OF FORM-->
                 <div class="col-md-4 col-sm-12">
                     <div class="form-group">
                         <label for="surname">Surname</label>
-                        <input class="form-control" [class.is-invalid]="userSurname.touched && !userSurname.valid" type="text" name="surname" id="surname" formControlName='surname'>
+                        <input class="form-control" [class.is-invalid]="userSurname.touched && !userSurname.valid" type="text" name="surname" id="surname" formControlName='surname' required>
                     </div>
                     <div class="form-group">
                         <label for="country">Select which country you live in</label>
@@ -46,12 +46,12 @@
                     </div>
                     <div class="form-group">
                         <label for="confrimPass">Confirmation Password</label>
-                        <input class="form-control" [class.is-invalid]="userPassConfirm.touched && !userPassConfirm.valid" type="password" name="confrimPass" id="confrimPass" formControlName='passconfirm'>
+                        <input class="form-control" [class.is-invalid]="userPassConfirm.touched && !userPassConfirm.valid" type="password" name="confrimPass" id="confrimPass" formControlName='passconfirm' required>
                     </div>
                 </div>
                 <div class="col-md-2 col-sm-0"></div>
             </div>
-            <!-- BOTTOM OF THE FORM-->
+            <!-- BOTTOM OF THE FORM
             <div class="row">
                 <div class="col-md-3 col-sm-12"></div>
                 <div class="col-md-6 col-sm-12">
@@ -65,7 +65,88 @@
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-12"></div>
+            </div> -->
+
+           <!--Validation div-->
+            <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" class="alert alert-danger">
+
+              <div *ngIf="userName.errors.required">
+                Name is required.
+              </div>
+
+
             </div>
+
+            <div *ngIf="userSurname.invalid && ( userSurname.dirty || userSurname.touched)" class="alert alert-danger">
+              <div *ngIf="userSurname.errors.required && userSurname.errors.invalid">
+                Surname is required.
+              </div>
+            </div>
+
+
+
+            <div *ngIf="userContact.invalid && ( userContact.dirty || userContact.touched)" class="alert alert-danger">
+              <div *ngIf="userContact.errors.required">
+                Contact is required.
+              </div>
+
+              <div *ngIf="userContact.errors.maxlength">
+                Contact must be smaller than 10 digits.
+              </div>
+
+
+            </div>
+
+            <div *ngIf="userEmail.invalid && ( userEmail.dirty || userEmail.touched)" class="alert alert-danger">
+              <div *ngIf="userEmail.errors.required">
+                Email is required.
+              </div>
+
+
+
+
+
+            </div>
+
+             <!--compare the value to minlength
+              <div ngif="userPass.invalid && ( userPass.dirty || userPass.touched)" class="alert alert-danger">
+                <div *ngIf="userPass">
+                  Password strength is weak please use minimum of 8 characters containing 1 uppercase letter and 1 number
+                </div>
+
+              </div> -->
+
+
+            <div *ngIf="userPass.invalid && ( userPass.dirty || userPass.touched)" class="alert alert-danger">
+
+              <div *ngIf="userPass !== userPassConfirm" >
+
+                Both Passwords do not match.
+              </div>
+            </div>
+
+
+
+
+            <div *ngIf="userPass.invalid && ( userPass.dirty || userPass.touched)" class="alert alert-danger">
+              <div *ngIf="userPass.errors.required">
+                Password  is required.
+              </div>
+
+
+            </div>
+
+            <div *ngIf="userPass.invalid  && ( userPass.dirty || userPass.touched)" >
+              <div *ngIf="userPass.errors.minlength">
+                Password must have at least 6 characters.
+              </div>
+            </div>
+
+
+
+
+
+
 
         </form>
 
