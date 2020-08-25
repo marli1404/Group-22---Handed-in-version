@@ -8,12 +8,18 @@ import Stepper from 'bs-stepper';
 })
 export class JobCardCreateComponent implements OnInit {
 
+  // PAGINATION CONTROLS
+  pageSize : number = 5;
+  collectionSize : number = 3;
   constructor() { }
 
   private stepper: Stepper;
 
   next() {
     this.stepper.next();
+  }
+  previous() {
+    this.stepper.previous();
   }
 
   onSubmit() {

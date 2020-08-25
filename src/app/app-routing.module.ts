@@ -20,6 +20,13 @@ import { TeamComponent } from './components/team/teamView/team/team.component';
 import { InterviewComponent } from './components/interview/interview/interview.component';
 import { HiringControlComponent } from './components/hr/HiringControl/hiring-control/hiring-control.component';
 import { JobCardDashComponent } from './components/hr/jobCard/job-card-dash/job-card-dash.component';
+import { FullJobCardComponent } from './components/hr/jobCard/full-job-card/full-job-card.component';
+import { CreateEmployeeComponent } from './components/hr/createEmployee/create-employee/create-employee.component';
+import { UpdateEmployeeComponent } from './components/hr/updateEmployee/update-employee/update-employee.component';
+import { SearchEmployeeComponent } from './components/searchEmployee/search-employee/search-employee.component';
+import { JobListingComponent } from './components/jobListing/job-listing/job-listing.component';
+import { ApproveJobCardComponent } from './components/ApproveJobCard/approve-job-card/approve-job-card.component';
+import { JobApplicationViewComponent } from './components/jobListing/job-application-view/job-application-view.component';
 
 const routes: Routes = [
 { path: "", component : LoginComponent},
@@ -41,6 +48,13 @@ const routes: Routes = [
       { path : "Interviews", component : InterviewComponent},
       { path : "HireManagerControl", component : HiringControlComponent},
       { path : "JobCardDashboard", component : JobCardDashComponent},
+      { path : "FullJobCard/:id", component : FullJobCardComponent},
+      { path : "CreateEmployee/:id", component : CreateEmployeeComponent},
+      { path : "UpdateEmployee/:id", component : UpdateEmployeeComponent},
+      { path : "SearchEmployee", component : SearchEmployeeComponent},
+      { path : "JobListing", component : JobListingComponent},
+      { path : "JobCardApproval", component : ApproveJobCardComponent},
+      { path : "JobView/:id", component : JobApplicationViewComponent},
   ]},
 { path: "AccountCreated", component : AccountSuccessCreateComponent},
 ];

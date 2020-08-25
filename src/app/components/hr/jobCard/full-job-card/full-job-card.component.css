@@ -1,0 +1,42 @@
+#approvers-panel{
+    overflow: auto;
+    width: 100%;
+    height: 48vh;
+    background-color: #ffffff;
+    background-clip: padding-box;
+    box-shadow: 0 .25rem .75rem rgba(0,0,0,.1);
+}
+
+#interview-panel{
+    overflow: auto;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 48vh;
+    background-color: #ffffff;
+    background-clip: padding-box;
+    box-shadow: 0 .25rem .75rem rgba(0,0,0,.1);
+}
+#jobInfo-panel{
+    overflow: auto;
+    width: 100%;
+    height: 89.5%;
+    background-color: #ffffff;
+    background-clip: padding-box;
+    box-shadow: 0 .25rem .75rem rgba(0,0,0,.1);
+}
+#applicant-panel{
+    overflow: auto;
+    width: 100%;
+    height: 89.5%;
+    background-color: #ffffff;
+    background-clip: padding-box;
+    box-shadow: 0 .25rem .75rem rgba(0,0,0,.1);
+}
+
+.applicants{
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 50%;
+    width: 100%;
+    overflow: auto;
+}

@@ -1,0 +1,17 @@
+.notification-holder{
+    left: -30vw;
+    z-index: 20;
+    position: absolute;
+    background-color: #ffffff;
+    background-clip: padding-box;
+    box-shadow: 0 .25rem .75rem rgba(0,0,0,.5);
+    width: 30vw;
+    height: 70vh;
+    overflow: auto;
+}
+
+@media screen and (max-width: 480px) {
+    .notification-holder {
+      width: 90%;
+    }
+  }

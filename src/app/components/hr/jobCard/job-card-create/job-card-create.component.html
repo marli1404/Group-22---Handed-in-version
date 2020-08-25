@@ -159,6 +159,7 @@
                           
                         </div>
                         <div id="test-l-2" class="content">
+                            <!-- TEST DETAILS -->
                           <div class="container-fluid">
                             <h4>Add Tests</h4>
                             <div class="row">
@@ -171,31 +172,347 @@
                                 <div class="col-lg-9 col-md-0"></div>
                                 <div class="col-12">
                                     <table class="table">
-                                        <th>Test</th>
-                                        <th>Action</th>
+                                        <thead>
+                                            <th>Test</th>
+                                            <th>Description</th>
+                                            <th>Action</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr><td>Casino</td><td>The user must be able to code a black jack game</td><td><i class="fa fa-plus"></i></td></tr>
+                                            <tr><td>Test</td><td>The user must be able to code a black jack game</td><td><i class="fa fa-plus"></i></td></tr>
+                                            <tr><td>Rummy Cub</td><td>Must be able to code a game of rummy cub that can hold only 2 members</td><td><i class="fa fa-plus"></i></td></tr>
+                                        </tbody>
                                     </table>
-                                    <tbody>
-                                        <tr><td>Casino</td><td>Add</td></tr>
-                                    </tbody>
+                                    <ngb-pagination [pageSize]="pageSize" [collectionSize]="collectionSize"></ngb-pagination>
+                                </div>
+                                <div class="col-12">
+                                    <hr>
+                                    <h4>Added Tests</h4>
+                                    <table class="table">
+                                        <thead>
+                                            <th>Test</th>
+                                            <th>Test Critical</th>
+                                            <th>Action</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr><td>Casino</td><td><input type="checkbox"><label class="ml-2">Mark as critical</label></td><td><i class="fas fa-times"></i></td></tr>
+                                            <tr><td>Test</td><td><input type="checkbox"><label class="ml-2">Mark as critical</label></td><td><i class="fas fa-times"></i></td></tr>
+                                            <tr><td>Rummy Cub</td><td><input type="checkbox"><label class="ml-2">Mark as critical</label></td><td><i class="fas fa-times"></i></td></tr>
+                                        </tbody>
+                                    </table>
+                                    <ngb-pagination [pageSize]="pageSize" [collectionSize]="collectionSize"></ngb-pagination>
+                                    <button (click)="next()" class="btn btn-outline-primary float-right mt-4 ml-4">Next</button>
+                                    <button (click)="previous()" class="btn btn-outline-primary float-right mt-4">Previous</button>
                                 </div>
                             </div>
                           </div>
-                          <button (click)="next()" class="btn btn-primary">Next</button>
                         </div>
-                        <div id="test-l-3" class="content text-center">
-                          <button type="submit" class="btn btn-primary mt-5">Submit</button>
+                        <div id="test-l-3" class="content">
+                            <div class="container-fluid">
+                                <h4>Add Languages</h4>
+                                <div class="row">
+                                    <div class="col-lg-4 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="searchLang">Search Language</label>
+                                            <input type="text" name="searchLang" id="searchLang" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-4-lg col-sm-0"></div>
+                                    <div class="col-12">
+                                        <table class="table">
+                                            <thead>
+                                                <th>Language</th>
+                                                <th class="text-center">Action</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td>English</td><td class="text-center"><i class="fa fa-plus"></i></td></tr>
+                                                <tr><td>Afrikaans</td><td class="text-center"><i class="fa fa-plus"></i></td></tr>
+                                                <tr><td>German</td><td class="text-center"><i class="fa fa-plus"></i></td></tr>
+                                            </tbody>
+                                        </table>
+                                        <ngb-pagination [pageSize]="pageSize" [collectionSize]="collectionSize"></ngb-pagination>
+                                    </div>
+                                    <div class="col-12">
+                                        <h4>Added Languages</h4>
+                                        <table class="table">
+                                            <thead>
+                                                <th>Language</th>
+                                                <th>Expected Answer</th>
+                                                <th>Critical</th>
+                                                <th class="text-center">Action</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>English</td>
+                                                    <td>
+
+                                                        <select class="form-control">
+                                                            <option value="null" selected disabled>Select Option</option>
+                                                            <option value="">True</option>
+                                                            <option value="">False</option>
+                                                        </select>
+                                                    </td>
+                                                    <td><input type="checkbox"><label class="ml-2">Mark as critical</label></td>
+                                                    <td><i class="fas fa-times"></i></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Afrikaans</td>
+                                                    <td>
+
+                                                        <select class="form-control">
+                                                            <option value="null" selected disabled>Select Option</option>
+                                                            <option value="">True</option>
+                                                            <option value="">False</option>
+                                                        </select>
+                                                    </td>
+                                                    <td><input type="checkbox"><label class="ml-2">Mark as critical</label></td>
+                                                    <td><i class="fas fa-times"></i></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <ngb-pagination [pageSize]="pageSize" [collectionSize]="collectionSize"></ngb-pagination>
+                                        <button (click)="next()" class="btn btn-outline-primary float-right mt-4 ml-4">Next</button>
+                                        <button (click)="previous()" class="btn btn-outline-primary float-right mt-4">Previous</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- TEST DETAILS END -->
                         </div>
-                        <div id="test-l-4" class="content text-center">
-                            <button type="submit" class="btn btn-primary mt-5">Submit</button>
+                        <div id="test-l-4" class="content">
+                            <!-- SKILL DETAILS -->
+                            <div class="container-fluid">
+                                <h4>Add Skills</h4>
+                                <div class="row">
+                                    <div class="col-lg-4 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="searchSkill">Search Skill</label>
+                                            <input type="text" name="searchSkill" id="searchSkill" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-4-lg col-sm-0"></div>
+                                    <div class="col-12">
+                                        <table class="table">
+                                            <thead>
+                                                <th>Skill</th>
+                                                <th class="text-center">Action</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td>Able to do 20 pushups</td><td class="text-center"><i class="fa fa-plus"></i></td></tr>
+                                                <tr><td>Code a program in 5 mins</td><td class="text-center"><i class="fa fa-plus"></i></td></tr>
+                                            </tbody>
+                                        </table>
+                                        <ngb-pagination [pageSize]="pageSize" [collectionSize]="collectionSize"></ngb-pagination>
+                                    </div>
+                                    <div class="col-12">
+                                        <h4>Added Skills</h4>
+                                        <table class="table">
+                                            <thead>
+                                                <th>Skill</th>
+                                                <th>Expected Answer</th>
+                                                <th>Critical</th>
+                                                <th class="text-center">Action</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Able to do 20 pushups</td>
+                                                    <td>
+
+                                                        <select class="form-control">
+                                                            <option value="null" selected disabled>Select Option</option>
+                                                            <option value="">True</option>
+                                                            <option value="">False</option>
+                                                        </select>
+                                                    </td>
+                                                    <td><input type="checkbox"><label class="ml-2">Mark as critical</label></td>
+                                                    <td><i class="fas fa-times"></i></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Guess who will win bingo</td>
+                                                    <td>
+                                                        <select class="form-control">
+                                                            <option value="null" selected disabled>Select Option</option>
+                                                            <option value="">True</option>
+                                                            <option value="">False</option>
+                                                        </select>
+                                                    </td>
+                                                    <td><input type="checkbox"><label class="ml-2">Mark as critical</label></td>
+                                                    <td><i class="fas fa-times"></i></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <ngb-pagination [pageSize]="pageSize" [collectionSize]="collectionSize"></ngb-pagination>
+                                        <button (click)="next()" class="btn btn-outline-primary float-right mt-4 ml-4">Next</button>
+                                        <button (click)="previous()" class="btn btn-outline-primary float-right mt-4">Previous</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- SKILL DETAILS END -->
                         </div>
-                        <div id="test-l-5" class="content text-center">
-                            <button type="submit" class="btn btn-primary mt-5">Submit</button>
+                        <div id="test-l-5" class="content">
+                            <!-- LONG QUESTION DETAILS -->
+                            <div class="container-fluid">
+                                <h4>Add Long Question</h4>
+                                <div class="row">
+                                    <div class="col-lg-4 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="searchQuestion">Search Question</label>
+                                            <input type="text" name="searchQuestion" id="searchQuestion" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-4-lg col-sm-0"></div>
+                                    <div class="col-12">
+                                        <table class="table">
+                                            <thead>
+                                                <th>Question</th>
+                                                <th class="text-center">Action</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td>How do you cope under pressure</td><td class="text-center"><i class="fa fa-plus"></i></td></tr>
+                                            </tbody>
+                                        </table>
+                                        <ngb-pagination [pageSize]="pageSize" [collectionSize]="collectionSize"></ngb-pagination>
+                                    </div>
+                                    <div class="col-12">
+                                        <h4>Added Questions</h4>
+                                        <table class="table">
+                                            <thead>
+                                                <th>Question</th>
+                                                <th>Critical</th>
+                                                <th class="text-center">Action</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>How do you cope under pressure</td>
+                                                    <td><input type="checkbox"><label class="ml-2">Mark as critical</label></td>
+                                                    <td><i class="fas fa-times"></i></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <ngb-pagination [pageSize]="pageSize" [collectionSize]="collectionSize"></ngb-pagination>
+                                        <button (click)="next()" class="btn btn-outline-primary float-right mt-4 ml-2">Next</button>
+                                        <button (click)="previous()" class="btn btn-outline-primary float-right mt-4">Previous</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- LONG QUESTION DETAILS END -->
                         </div>
-                        <div id="test-l-6" class="content text-center">
-                            <button type="submit" class="btn btn-primary mt-5">Submit</button>
+                        <div id="test-l-6" class="content">
+                            <!-- REQUIREMENT DETAILS -->
+                            <div class="container-fluid">
+                                <h4>Add Requirement</h4>
+                                <div class="row">
+                                    <div class="col-lg-4 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="searchRequirement">Search Requirement</label>
+                                            <input type="text" name="searchRequirement" id="searchRequirement" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-4-lg col-sm-0"></div>
+                                    <div class="col-12">
+                                        <table class="table">
+                                            <thead>
+                                                <th>Requirement</th>
+                                                <th class="text-center">Action</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td>No Criminal record</td><td class="text-center"><i class="fa fa-plus"></i></td></tr>
+                                            </tbody>
+                                        </table>
+                                        <ngb-pagination [pageSize]="pageSize" [collectionSize]="collectionSize"></ngb-pagination>
+                                    </div>
+                                    <div class="col-12">
+                                        <h4>Added Questions</h4>
+                                        <table class="table">
+                                            <thead>
+                                                <th>Requirement</th>
+                                                <th>Expected Answer</th>
+                                                <th>Critical</th>
+                                                <th class="text-center">Action</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Able to do 20 pushups</td>
+                                                    <td>
+                                                    <select class="form-control">
+                                                        <option value="null" selected disabled>Select Option</option>
+                                                        <option value="">True</option>
+                                                        <option value="">False</option>
+                                                    </select>
+                                                    </td>
+                                                    <td><input type="checkbox"><label class="ml-2">Mark as critical</label></td>
+                                                    <td><i class="fas fa-times"></i></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <ngb-pagination [pageSize]="pageSize" [collectionSize]="collectionSize"></ngb-pagination>
+                                        <button (click)="next()" class="btn btn-outline-primary float-right mt-4 ml-2">Next</button>
+                                        <button (click)="previous()" class="btn btn-outline-primary float-right mt-4">Previous</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- REQUIREMENT DETAILS END -->
                         </div>
-                        <div id="test-l-7" class="content text-center">
-                            <button type="submit" class="btn btn-primary mt-5">Submit</button>
+                        <div id="test-l-7" class="content">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-12">
+                                        <h4>Added Approvers</h4>
+                                        <div class="panel-container sm-container">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <app-profile-card removable="True" class="img-sm border-el mt-2"></app-profile-card>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8 col-sm-12">
+                                        <h4>Search Approvers</h4>
+                                        <div class="panel-container sm-container">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-lg-4 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label for="nameSearch">Name or Surname</label>
+                                                            <input type="text" name="nameSearch" id="nameSearch" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label for="divisionSearch">Division</label>
+                                                            <select name="divisionSearch" id="divisionSearch" class="form-control">
+                                                                <option value="all">All</option>
+                                                                <option value="all">ZF 2</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label for="teamSearch">Team</label>
+                                                            <select name="teamSearch" id="teamSearch" class="form-control">
+                                                                <option value="all">All</option>
+                                                                <option value="all">Fast</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-md-12">
+                                                        <app-profile-card addable="True" class="img-sm border-el mt-2"></app-profile-card>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button class="btn btn-outline-primary float-right mt-4 ml-2">Save</button>
+                                    <button (click)="previous()" class="btn btn-outline-primary float-right mt-4 mb-4">Previous</button>
+                                </div>
+                            </div>
                         </div>
                       </form>
                     </div>

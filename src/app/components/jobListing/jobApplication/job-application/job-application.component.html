@@ -1,0 +1,173 @@
+<div class="container-fluid">
+    <h2>Job Name</h2>
+    <div id="stepper1" class="bs-stepper">
+        <div class="bs-stepper-header">
+            <div class="step" data-target="#test-l-1">
+                <button class="step-trigger">
+                  <span class="bs-stepper-circle">1</span>
+                  <span class="bs-stepper-label">Questionnaire</span>
+                </button>
+              </div>
+              <div class="line"></div>
+              <div class="step" data-target="#test-l-2">
+                <button class="step-trigger">
+                  <span class="bs-stepper-circle">2</span>
+                  <span class="bs-stepper-label">Test Upload</span>
+                </button>
+              </div>
+              <div class="line"></div>
+              <div class="step" data-target="#test-l-3">
+                <button class="step-trigger">
+                  <span class="bs-stepper-circle">3</span>
+                  <span class="bs-stepper-label">CV Upload</span>
+                </button>
+              </div>
+              <div class="line"></div>
+              <div class="step" data-target="#test-l-4">
+                <button class="step-trigger">
+                  <span class="bs-stepper-circle">4</span>
+                  <span class="bs-stepper-label">Summary</span>
+                </button>
+              </div>
+        </div>
+        <div class="bs-stepper-content">
+            <div id="test-l-1" class="content">
+                <div class="row">
+                    <div class="col-lg-9 col-md-12">
+                        <h2>Requirements</h2>
+                        <hr>
+                    </div>
+                    <div class="col-lg-3 col-md-0 col-sm-0"></div>
+                    <!-- FOR EACH REQUIREMENT ADD IT BELOW HERE -->
+                    <div class="col-lg-6 col-md-12">
+                        <!-- QUESTION -->
+                        <p>Have you got more than 10 years work experience?</p>
+                    </div>
+                    <div class="col-lg-6 col-md-0 col-sm-0">
+                        <!-- ANSWER -->
+                        <select class="form-control">
+                            <option value="null" selected disabled>Select Option</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <!-- QUESTION -->
+                        <p>Have you got a criminal record?</p>
+                    </div>
+                    <div class="col-lg-6 col-md-0 col-sm-0">
+                        <!-- ANSWER -->
+                        <select class="form-control">
+                            <option value="null" selected disabled>Select Option</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-9 col-md-12  mt-4">
+                        <h2>Skills</h2>
+                        <hr>
+                    </div>
+                    <div class="col-lg-3 col-md-0 col-sm-0"></div>
+                    <!-- FOR EACH SKILL ADD IT BELOW HERE -->
+                    <div class="col-lg-6 col-md-12">
+                        <!-- QUESTION -->
+                        <p>Can you eat an entire box of cookies in 5 minutes or less?</p>
+                    </div>
+                    <div class="col-lg-6 col-md-0 col-sm-0">
+                        <!-- ANSWER -->
+                        <select class="form-control">
+                            <option value="null" selected disabled>Select Option</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-9 col-md-12  mt-4">
+                        <h2>Questions</h2>
+                        <hr>
+                    </div>
+                    <div class="col-lg-3 col-md-0 col-sm-0"></div>
+                    <!-- FOR EACH LONG QUESTION ADD IT BELOW HERE -->
+                    <div class="col-12">
+                        <!-- QUESTION -->
+                        <p>How do you handle conflict?</p>
+                        <!-- ANSWER -->
+                        <textarea cols="30" rows="5" class="form-control"></textarea>
+                        <br>
+                    </div>
+                    
+                    <div class="col-12">
+                        <button (click)="next()" class="btn btn-outline-primary float-right">Next</button>
+                    </div>
+                </div>
+            </div>
+            <div id="test-l-2" class="content">
+                <div class="row">
+                    <div class="col-lg-8 col-sm-12">
+                        <h2>Test</h2>
+                        <hr>
+                    </div>
+                    <div class="col-lg-4 col-sm-0 col-md-0"></div>
+                    <div class="col-12">
+                        <!-- TEST NAME -->
+                        <h3>Black Jack Game</h3>
+                        <h4>Description:</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque culpa ut officia est magnam iste ipsam mollitia velit, minus dignissimos excepturi rerum rem in voluptas? Exercitationem nesciunt repellendus unde itaque!</p>
+                        <h4>Test URL</h4>
+                        <a href="">www.sometest.co.za</a>
+                        <br>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                        <label for="testFile">Upload Test <small>(Please upload .zip file)</small></label>
+                        <input type="file" class="form-control">
+                    </div>
+                    <div class="col-12">
+                        <button (click)="next()" class="btn btn-outline-primary mt-2 ml-4 float-right">Next</button>
+                        <button (click)="previous()" class="btn btn-outline-primary mt-2 float-right">Previous</button>
+                    </div>
+                </div>
+            </div>
+            <div id="test-l-3" class="content">
+                <div class="row">
+                    <div class="col-md-8 col-sm-12">
+                        <h2>CV</h2>
+                        <hr>
+                    </div>
+                    <div class="col-md-4 colsm-0"></div>
+                    <div class="col-md-4 col-sm-12">
+                        <label for="cv">Upload CV <small>(Please upload .pdf)</small></label>
+                        <input type="file" class="form-control">
+                    </div>
+                    <div class="col-12">
+                        <button (click)="next()" class="btn btn-outline-primary mt-2 ml-4 float-right">Next</button>
+                        <button (click)="previous()" class="btn btn-outline-primary mt-2 float-right">Previous</button>
+                    </div>
+                </div>
+            </div>
+            <div id="test-l-4" class="content">
+                <div class="row">
+                    <div class="col-md-8 col-sm-12">
+                        <h2>Application Summary</h2>
+                        <hr>
+                    </div>
+                    <div class="col-md-4 colsm-0"></div>
+                    <div class="col-12">
+                        <h3>Test File Uploaded</h3>
+                        <!-- TEST NAME -->
+                        <p>test.zip</p>
+                        <br>
+                        <h3>CV Uploaded</h3>
+                        <!-- TEST NAME-->
+                        <p>CV.pdf</p>
+                        <br>
+                        <h3>Questions Answered</h3>
+                        <!-- TOTAL ANSWERED -->
+                        <p>8/12</p>
+
+                        <button class="btn btn-outline-primary mt-2 ml-4 float-right">Save</button>
+                        <button (click)="previous()" class="btn btn-outline-primary mt-2 float-right">Previous</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

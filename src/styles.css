@@ -3,7 +3,7 @@
 @import '~bs-stepper/dist/css/bs-stepper.min.css';
 
 
-.largeModal .modal-dialog .modal-content, .hugeModal .modal-dialog .modal-content{
+.largeModal .modal-dialog .modal-content, .hugeModal .modal-dialog .modal-content,.mediumModal .modal-dialog .modal-content{
 
     height: 100%;
     overflow: auto;
@@ -16,6 +16,10 @@
     max-width: 80vw;
     height: 90vh;
   }
+.mediumModal .modal-dialog{
+    max-width: 50vw;
+    height: 50vh;
+}
 
 .hugeModal .modal-dialog {
     max-width: 95vw;
@@ -88,7 +92,12 @@ i:hover{
     background-clip: padding-box;
     box-shadow: 0 .25rem .75rem rgba(0,0,0,.1);
 }
-
+.fa-check-square {
+    color: #1e88e5;
+}
+.fa-times-square{
+    color: #ff4136;
+}
 .panel-container.panel-ext{
     height: 80vh;
 }
@@ -115,6 +124,9 @@ hr {
     color: #ff851b;
 }
 .fa-crown, .fa-star-half{
+    color: gold;
+}
+.fa-stars{
     color: gold;
 }
 .fa-users{

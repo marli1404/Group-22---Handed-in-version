@@ -50,6 +50,42 @@ import { RejectRequestComponent } from './components/hr/modals/reject-request/re
 import { JobCardDashComponent } from './components/hr/jobCard/job-card-dash/job-card-dash.component';
 import { AssignedCardComponent } from './components/hr/helperComponents/assigned-card/assigned-card.component';
 import { JobCardCreateComponent } from './components/hr/jobCard/job-card-create/job-card-create.component';
+import { FullJobCardComponent } from './components/hr/jobCard/full-job-card/full-job-card.component';
+import { ApplicantPoolCardComponent } from './components/hr/helperComponents/applicant-pool-card/applicant-pool-card.component';
+import { CreateInterviewComponent } from './components/hr/modals/create-interview/create-interview.component';
+import { InterviewCommentComponent } from './components/hr/helperComponents/interview-comment/interview-comment.component';
+import { InterviewOverviewComponent } from './components/hr/modals/interview-overview/interview-overview.component';
+import { JobInformationComponent } from './components/hr/jobCard/job-information/job-information.component';
+import { ApproverCardComponent } from './components/hr/helperComponents/approver-card/approver-card.component';
+import { CreateEmployeeComponent } from './components/hr/createEmployee/create-employee/create-employee.component';
+import { UpdateEmployeeComponent } from './components/hr/updateEmployee/update-employee/update-employee.component';
+import { SearchEmployeeComponent } from './components/searchEmployee/search-employee/search-employee.component';
+import { JobListingComponent } from './components/jobListing/job-listing/job-listing.component';
+import { ApproveJobCardComponent } from './components/ApproveJobCard/approve-job-card/approve-job-card.component';
+import { RolePickerComponent } from './components/hr/helperComponents/role-picker/role-picker.component';
+import { RoleAdderComponent } from './components/hr/modals/role-adder/role-adder.component';
+import { JobListingCardComponent } from './components/jobListing/helperComponents/job-listing-card/job-listing-card.component';
+import { JobApplicationViewComponent } from './components/jobListing/job-application-view/job-application-view.component';
+import { JobApplicationComponent } from './components/jobListing/jobApplication/job-application/job-application.component';
+import { MyApplicationsComponent } from './components/jobListing/helperComponents/my-applications/my-applications.component';
+import { NotificationComponent } from './components/notifications/notification/notification.component';
+import { EditAddStageComponent } from './components/config/modals/edit-add-stage/edit-add-stage.component';
+import { EditAddTestComponent } from './components/config/modals/edit-add-test/edit-add-test.component';
+import { EditTableComponent } from './components/config/modals/edit-table/edit-table.component';
+import { EditAddLocationComponent } from './components/config/modals/edit-add-location/edit-add-location.component';
+import { EditAddBuildingComponent } from './components/config/modals/edit-add-building/edit-add-building.component';
+import { EditAddFloorComponent } from './components/config/modals/edit-add-floor/edit-add-floor.component';
+import { EditAddDepartmentComponent } from './components/config/modals/edit-add-department/edit-add-department.component';
+import { EditAddDivisionComponent } from './components/config/modals/edit-add-division/edit-add-division.component';
+import { EditAddSkillComponent } from './components/config/modals/edit-add-skill/edit-add-skill.component';
+import { EditAddRequirementComponent } from './components/config/modals/edit-add-requirement/edit-add-requirement.component';
+import { EditAddQuestionComponent } from './components/config/modals/edit-add-question/edit-add-question.component';
+import { EditAddRoleComponent } from './components/config/modals/edit-add-role/edit-add-role.component';
+import { EditAddJobComponent } from './components/config/modals/edit-add-job/edit-add-job.component';
+import { EditAddViewAuthorizationComponent } from './components/config/modals/edit-add-view-authorization/edit-add-view-authorization.component';
+import { PendingSkillComponent } from './components/config/modals/pending-skill/pending-skill.component';
+import { PendingRequirementComponent } from './components/config/modals/pending-requirement/pending-requirement.component';
+import { PendingQuestionComponent } from './components/config/modals/pending-question/pending-question.component';
 
 
 @NgModule({
@@ -93,6 +129,42 @@ import { JobCardCreateComponent } from './components/hr/jobCard/job-card-create/
     JobCardDashComponent,
     AssignedCardComponent,
     JobCardCreateComponent,
+    FullJobCardComponent,
+    ApplicantPoolCardComponent,
+    CreateInterviewComponent,
+    InterviewCommentComponent,
+    InterviewOverviewComponent,
+    JobInformationComponent,
+    ApproverCardComponent,
+    CreateEmployeeComponent,
+    UpdateEmployeeComponent,
+    SearchEmployeeComponent,
+    JobListingComponent,
+    ApproveJobCardComponent,
+    RolePickerComponent,
+    RoleAdderComponent,
+    JobListingCardComponent,
+    JobApplicationViewComponent,
+    JobApplicationComponent,
+    MyApplicationsComponent,
+    NotificationComponent,
+    EditAddStageComponent,
+    EditAddTestComponent,
+    EditTableComponent,
+    EditAddLocationComponent,
+    EditAddBuildingComponent,
+    EditAddFloorComponent,
+    EditAddDepartmentComponent,
+    EditAddDivisionComponent,
+    EditAddSkillComponent,
+    EditAddRequirementComponent,
+    EditAddQuestionComponent,
+    EditAddRoleComponent,
+    EditAddJobComponent,
+    EditAddViewAuthorizationComponent,
+    PendingSkillComponent,
+    PendingRequirementComponent,
+    PendingQuestionComponent,
     
      
   ],

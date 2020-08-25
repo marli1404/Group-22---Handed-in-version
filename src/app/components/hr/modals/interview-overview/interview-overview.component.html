@@ -1,0 +1,19 @@
+<div class="container-fluid">
+    <div class="row mt-4">
+        <div class="col-2">
+            <h1 class="text-center"><i class="fas fa-stars"></i> 8.2</h1>
+        </div>
+        <div class="col-2">
+            <button (click)="hire()" [routerLink]="['/Dashboard/CreateEmployee/1']" routerLinkActive="router-link-active"  class="btn btn-outline-primary mt-2">Hire</button>
+        </div>
+        <div class="col-8"></div>
+        <div class="col-12">
+            <h1>Overall Comment:</h1>
+            <textarea name="overalComment" id="overalComment" cols="30" rows="5" class="form-control mb-4"></textarea>
+        </div>
+    </div>
+    <app-interview-comment></app-interview-comment>
+    <app-interview-comment></app-interview-comment>
+    <app-interview-comment></app-interview-comment>
+    <app-interview-comment></app-interview-comment>
+</div>

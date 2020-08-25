@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UploadImageComponent } from '../../uploadImage/upload-image/upload-image.component';
+import { ResetPasswordComponent } from 'src/app/components/modals/reset-password/reset-password.component';
 
 @Component({
   selector: 'app-edit-profile-m',
@@ -15,8 +16,11 @@ export class EditProfileMComponent implements OnInit {
   }
 
   changeImage(){
-
     const uploadInstance = this.modal.open(UploadImageComponent, { size: 'lg', backdrop: 'static' });
+  }
+
+  changePassword(){
+    const uploadInstance = this.modal.open(ResetPasswordComponent, { windowClass: "mediumModal"});
   }
 
 }
