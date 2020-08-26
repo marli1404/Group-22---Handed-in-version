@@ -138,6 +138,12 @@ hr {
 .border-el{
     border: 1px solid #e7e9ec;
 }
+.fa-check-circle{
+    color:#1e88e5;
+}
+.fa-times-circle{
+    color:#ff4136;
+}
 .border-el:hover{
     cursor: pointer;
     box-shadow: 0 .25rem .75rem rgba(0,0,0,.1);
