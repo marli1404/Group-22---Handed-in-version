@@ -23,4 +23,6 @@ export class EditProfileMComponent implements OnInit {
     const uploadInstance = this.modal.open(ResetPasswordComponent, { windowClass: "mediumModal"});
   }
 
+  
+
 }

@@ -12,6 +12,7 @@ import { EditProfileMComponent } from '../../modals/editProfile/edit-profile-m/e
 export class DashboardComponent implements OnInit {
 
   notificationToggle : boolean = false;
+  managerToggle : boolean = false;
   hrToggle : boolean = false;
   configToggle : boolean = false;
   auditToggle : boolean = false;

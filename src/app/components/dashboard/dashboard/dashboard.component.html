@@ -37,14 +37,18 @@
       <li><i class="fas fa-calendar-minus"></i><span>Booking</span></li>
       <li (click)="testStuff()"><i class="fal fa-calendar-alt"></i><span>Assistant Booking</span></li>
       <li [routerLink]="['/Dashboard/Teams']" routerLinkActive="active-link" ><i class="fas fa-user-friends"></i><span>Team</span></li>
-      <li [routerLink]="['/Dashboard/SearchEmployee']" routerLinkActive="active-link" ><i class="far fa-search"></i><span>Search User</span></li>
       <li [routerLink]="['/Dashboard/Interviews']" routerLinkActive="active-link" ><i class="fal fa-copy"></i><span>Interviews</span></li>
-      <li><i class="fas fa-file-chart-line"></i><span>Reports</span></li>
-      <li [routerLink]="['/Dashboard/HireRequest']" routerLinkActive="active-link" ><i class="fal fa-hand-holding-medical"></i><span>Job Requests</span></li>
       <li class="accordian-parent" (click)="hrToggle = !hrToggle"><i class="far fa-share-alt"></i><span>HR</span><span class="arrow"><i [class]="(!hrToggle) ? 'far fa-chevron-down' : 'far fa-chevron-up'"></i></span>
         <ul class="accordian" *ngIf="hrToggle" (click)="hrToggle = !hrToggle">
           <li [routerLink]="['/Dashboard/JobCardDashboard']" routerLinkActive="active-link" >Job Cards</li>
           <li [routerLink]="['/Dashboard/HireManagerControl']" routerLinkActive="active-link" >Hire Manager Control</li>
+        </ul>
+      </li>
+      <li class="accordian-parent" (click)="managerToggle = !managerToggle"><i class="fad fa-glasses"></i><span>Manger</span><span class="arrow"><i [class]="(!managerToggle) ? 'far fa-chevron-down' : 'far fa-chevron-up'"></i></span>
+        <ul class="accordian" *ngIf="managerToggle" (click)="managerToggle = !managerToggle">
+          <li><i class="fas fa-file-chart-line"></i><span>Reports</span></li>
+          <li [routerLink]="['/Dashboard/SearchEmployee']" routerLinkActive="active-link" ><span>Search User</span></li>
+          <li [routerLink]="['/Dashboard/HireRequest']" routerLinkActive="active-link" ><i class="fal fa-hand-holding-medical"></i><span>Employee Requests</span></li>
         </ul>
       </li>
       <li class="accordian-parent" (click)="configToggle = !configToggle"><i class="far fa-cogs"></i><span>Configuration</span><span class="arrow"><i [class]="(!configToggle) ? 'far fa-chevron-down' : 'far fa-chevron-up'"></i></span>
