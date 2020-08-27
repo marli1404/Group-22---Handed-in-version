@@ -71,6 +71,7 @@ export class CreateAccountComponent implements OnInit {
   }
   createAccount(){
     
+    console.log(this.userName);
     //TESTING MODAL
     // const modalInstance = this.modal.open(TestModalComponent);
     // modalInstance.componentInstance.test = "Lolies";
