@@ -29,6 +29,9 @@ export class EditProfileMComponent implements OnInit {
     const uploadInstance = this.modal.open(UploadImageComponent, { size: 'lg', backdrop: 'static' });
   }
 
+  changePassword(){
+    const modalInstance = this.modal.open(ResetPasswordComponent,{ size: 'lg'});
+  }
   buildForm(){
 
     this.editProfile = this.formBuilder.group({
