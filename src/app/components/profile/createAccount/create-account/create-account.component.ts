@@ -20,27 +20,27 @@ export class CreateAccountComponent implements OnInit {
   nationalities : Nationality [] = [];
   userProfile :any;
   userDetails : User;
-  constructor( private formBuilder : FormBuilder, 
-    private api : ApiService, 
-    private modal : NgbModal, 
+  constructor( private formBuilder : FormBuilder,
+    private api : ApiService,
+    private modal : NgbModal,
     private toast : ToastsService,
     private route : Router ) { }
 
-  
+
   ngOnInit(): void {
     this.buildForm();
     this.getData();
-    
+
   }
 
   buildForm(){
     this.userProfile = this.formBuilder.group({
       name : ['',[Validators.required, Validators.pattern("[a-zA-Z]+")]],
-      surname : ['',[Validators.required, ]],
-      contact : ['',[Validators.required, ]],
-      email : ['',[Validators.required, ]],
-      password : ['',[Validators.required,]],
-      passconfirm : ['',[Validators.required]],
+      surname : ['',[Validators.required,  Validators.pattern("[a-zA-Z]+")]],
+      contact : ['',[Validators.required,  Validators.pattern("[0-9]+"), Validators.minLength(10) ]], //SHOULD I KEEP THE TEN DIGIT LIMIT OR LEAVE IT ?
+      email : ['',[Validators.required, Validators.email, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9._]+\.[a-z]{2,4}$")]],
+      password : ['',[Validators.required, Validators.minLength(8), Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$") ]], //any specific business roles to the structure of the password
+      passconfirm : ['',[Validators.required,  Validators.minLength(8),  Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$")]],
       countryId : [null,[Validators.required]],
       nationalityId : [null,[Validators.required]],
     });
@@ -71,27 +71,21 @@ export class CreateAccountComponent implements OnInit {
     this.toast.display({type:"Error",heading: error.Title, message : error.message});
   }
   createAccount(){
-    
-    console.log(this.userName);
-    //TESTING MODAL
-    // const modalInstance = this.modal.open(TestModalComponent);
-    // modalInstance.componentInstance.test = "Lolies";
-
     this.api.createAccount(this.getFormInformation())
     .subscribe( success => this.createAccountSuccess(success),
     error => this.createAccountError(error));
-    
+
   }
   createAccountSuccess(success : any){
       this.route.navigate(["/AccountCreated"]);
   }
   createAccountError( error: any){
      console.log(error);
-     
+
   }
 
   getFormInformation(){
-    
+
     return{
     name : this.userProfile.get('name').value,
     surname : this.userProfile.get('surname').value,
@@ -129,6 +123,7 @@ export class CreateAccountComponent implements OnInit {
   get userPassConfirm(){
     return this.userProfile.controls['passconfirm'];
   }
-  
+
+
 
 }
