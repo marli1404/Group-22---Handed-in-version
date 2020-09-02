@@ -29,7 +29,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.views = this.auth.getViews();
-    console.log(this.views);
   }
   logout(){
       this.auth.logOut();

@@ -29,8 +29,8 @@ export class AuthService {
 
 
   logIn( details : any){
-    return this.http.post("http://localhost:8080/bmw_backend/API/User",
-    {request:"logIn",payload:details})
+    return this.http.post("http://bmwbackend.edumarx.co.za/API/User",
+    JSON.stringify({request:"logIn",payload:details}))
     .pipe(
       tap( token => this.setLogin(token))
     );

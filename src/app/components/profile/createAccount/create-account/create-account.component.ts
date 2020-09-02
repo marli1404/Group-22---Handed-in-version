@@ -60,10 +60,11 @@ export class CreateAccountComponent implements OnInit {
 
   loadNationalities(nationality : Nationality[]){
     this.nationalities = nationality;
+    console.log(this.nationalities);
   }
   loadCountries(countries:Country[]){
     this.countries = countries;
-    console.log(countries);
+    
   }
 
   errorRetrieved( error : any){

@@ -11,7 +11,7 @@ import { ToastsService } from './toasts.service';
 export class ApiService {
 
   /*****************URLS********************/
-  globalRoot :string = 'http://localhost:8080/bmw_backend/'
+  globalRoot :string = 'http://bmwbackend.edumarx.co.za/'
   user : string = `${this.globalRoot}API/User/`;
   country : string = `${this.globalRoot}API/Country/`;
   nationality : string = `${this.globalRoot}API/Nationality/`;
@@ -26,21 +26,19 @@ export class ApiService {
   }
 
   getCountries(){
-    return this.http.post<Country[]>(this.country,{"request":"getCountries"})
+    return this.http.post<Country[]>(this.country,{"request":"getCountries"});
   }
 
   getNationalities(){
-    return this.http.post<Nationality[]>(this.nationality,{"request":"getNationalities"})
+    return this.http.post<Nationality[]>(this.nationality,{"request":"getNationalities"});
   }
 
   createAccount(userDetails:any){
     console.log(userDetails);
-    return this.http.post(this.user,{"request":"createAccount","payload": userDetails})
+    return this.http.post(this.user,{"request":"createAccount","payload": userDetails});
   }
 
-  test(){
-    
-  }
+
 
 
   
