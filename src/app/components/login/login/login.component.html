@@ -2,21 +2,21 @@
     <div class="header"></div>
     <div class="login">
         <div class="login-container">
-            <form action="">
+            <form [formGroup]="userDetails">
                 <div class="from-group">
                     <label for="email">Email</label>
-                    <input type="email" name="email" id="email" class="form-control">
+                    <input type="email" name="email" id="email" class="form-control" formControlName="email">
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
                     <label for="password" class="forgot" [routerLink]="['ForgotPassword']" routerLinkActive="router-link-active" ><i>Forgot Password?</i></label>
-                    <input type="password" name="password" id="password" class="form-control">
+                    <input type="password" name="password" id="password" class="form-control" formControlName="password">
                 </div>
                 <div class="alert alert-warning text-center">
                     <p>No matching email or password</p>
                 </div>
                 <div class="form-group">
-                    <button [routerLink]="['Dashboard']" type="button" class="btn btn-primary form-control">Login</button>
+                    <button type="button" class="btn btn-primary form-control" (click)="login()">Login</button>
                 </div>
             </form>
         </div>

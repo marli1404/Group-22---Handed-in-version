@@ -6,7 +6,7 @@
       <h3>Dashboard</h3>
     </div>
     <ul>
-      <li>
+      <li class="logout" (click)="logout()">
         <h6>Logout</h6>
       </li>
       <li style="position:relative; cursor: pointer;" >
@@ -15,13 +15,6 @@
       </li>
       <li>
         <app-profile-card class="profileContainer img-sm" (click)="editProfile()"></app-profile-card>
-        <!-- <div class="profileContainer" (click)="editProfile()">
-          <img class="profileImg" src="../assets/profile/Calvin.jpg" alt=""/>
-          <div class="profileNames">
-            <p>Jonathan</p>
-            <p>van der Breggen</p>
-          </div>
-        </div> -->
       </li>
     </ul>
     
@@ -34,24 +27,24 @@
     <ul class="sideBarNav">
       <h3>NAVIGATION</h3>
       <li [routerLink]="['/Dashboard']"><i class="fad fa-home"></i><span>Home</span></li>
-      <li><i class="fas fa-calendar-minus"></i><span>Booking</span></li>
-      <li (click)="testStuff()"><i class="fal fa-calendar-alt"></i><span>Assistant Booking</span></li>
-      <li [routerLink]="['/Dashboard/Teams']" routerLinkActive="active-link" ><i class="fas fa-user-friends"></i><span>Team</span></li>
+      <li [routerLink]="['/Dashboard/Booking']" routerLinkActive="active-link" *ngIf="searchView('booking')"><i class="fas fa-calendar-minus"></i><span>Booking</span></li>
+      <li *ngIf="searchView('assistant booking')"><i class="fal fa-calendar-alt"></i><span>Assistant Booking</span></li>
+      <li [routerLink]="['/Dashboard/Teams']" routerLinkActive="active-link" *ngIf="searchView('team')"><i class="fas fa-user-friends"></i><span>Team</span></li>
       <li [routerLink]="['/Dashboard/Interviews']" routerLinkActive="active-link" ><i class="fal fa-copy"></i><span>Interviews</span></li>
-      <li class="accordian-parent" (click)="hrToggle = !hrToggle"><i class="far fa-share-alt"></i><span>HR</span><span class="arrow"><i [class]="(!hrToggle) ? 'far fa-chevron-down' : 'far fa-chevron-up'"></i></span>
+      <li class="accordian-parent" (click)="hrToggle = !hrToggle" *ngIf="searchView('hr')"><i class="far fa-share-alt"></i><span>HR</span><span class="arrow"><i [class]="(!hrToggle) ? 'far fa-chevron-down' : 'far fa-chevron-up'"></i></span>
         <ul class="accordian" *ngIf="hrToggle" (click)="hrToggle = !hrToggle">
           <li [routerLink]="['/Dashboard/JobCardDashboard']" routerLinkActive="active-link" >Job Cards</li>
-          <li [routerLink]="['/Dashboard/HireManagerControl']" routerLinkActive="active-link" >Hire Manager Control</li>
+          <li [routerLink]="['/Dashboard/HireManagerControl']" routerLinkActive="active-link" *ngIf="searchView('hr control')">Hire Manager Control</li>
         </ul>
       </li>
-      <li class="accordian-parent" (click)="managerToggle = !managerToggle"><i class="fad fa-glasses"></i><span>Manger</span><span class="arrow"><i [class]="(!managerToggle) ? 'far fa-chevron-down' : 'far fa-chevron-up'"></i></span>
+      <li class="accordian-parent" (click)="managerToggle = !managerToggle" *ngIf="searchView('manager')"><i class="fad fa-glasses"></i><span>Manger</span><span class="arrow"><i [class]="(!managerToggle) ? 'far fa-chevron-down' : 'far fa-chevron-up'"></i></span>
         <ul class="accordian" *ngIf="managerToggle" (click)="managerToggle = !managerToggle">
-          <li><i class="fas fa-file-chart-line"></i><span>Reports</span></li>
+          <li><span>Reports</span></li>
           <li [routerLink]="['/Dashboard/SearchEmployee']" routerLinkActive="active-link" ><span>Search User</span></li>
-          <li [routerLink]="['/Dashboard/HireRequest']" routerLinkActive="active-link" ><i class="fal fa-hand-holding-medical"></i><span>Employee Requests</span></li>
+          <li [routerLink]="['/Dashboard/HireRequest']" routerLinkActive="active-link" ><span>Employee Requests</span></li>
         </ul>
       </li>
-      <li class="accordian-parent" (click)="configToggle = !configToggle"><i class="far fa-cogs"></i><span>Configuration</span><span class="arrow"><i [class]="(!configToggle) ? 'far fa-chevron-down' : 'far fa-chevron-up'"></i></span>
+      <li class="accordian-parent" (click)="configToggle = !configToggle" *ngIf="searchView('config')"><i class="far fa-cogs"></i><span>Configuration</span><span class="arrow"><i [class]="(!configToggle) ? 'far fa-chevron-down' : 'far fa-chevron-up'"></i></span>
         <ul class="accordian" *ngIf="configToggle" (click)="configToggle = !configToggle">
           <li [routerLink]="['/Dashboard/ConfigJobCard']" routerLinkActive="active-link">Job Card</li>
           <li [routerLink]="['/Dashboard/ConfigTable']" routerLinkActive="active-link">Tables</li>
@@ -59,15 +52,15 @@
           <li [routerLink]="['/Dashboard/ConfigCompany']" routerLinkActive="active-link">Company</li>
           <li [routerLink]="['/Dashboard/ConfigSkillsAndQuestions']" routerLinkActive="active-link">Skills Requirement & Questions</li>
           <li [routerLink]="['/Dashboard/ConfigRolesAndAuthorization']" routerLinkActive="active-link">Roles and Authorizations</li>
+          <li [routerLink]="['/Dashboard/AuditAuthorization']" routerLinkActive="active-link">Operation Authorization</li>
         </ul>
       </li>
-      <li [routerLink]="['/Dashboard/JobListing']" routerLinkActive="active-link" ><i class="fad fa-list-alt"></i><span>Job Listings</span></li>
-      <li [routerLink]="['/Dashboard/JobCardApproval']" routerLinkActive="active-link" ><i class="far fa-stamp"></i><span>Approve Job Card</span></li>
-      <li class="accordian-parent" (click)="auditToggle = !auditToggle"><i class="fas fa-eye"></i><span>Audit</span><span class="arrow"><i [class]="(!auditToggle) ? 'far fa-chevron-down' : 'far fa-chevron-up'"></i></span>
+      <li [routerLink]="['/Dashboard/JobListing']" routerLinkActive="active-link" *ngIf="searchView('job listing')"><i class="fad fa-list-alt"></i><span>Job Listings</span></li>
+      <li [routerLink]="['/Dashboard/JobCardApproval']" routerLinkActive="active-link" *ngIf="searchView('approve job card')"><i class="far fa-stamp"></i><span>Approve Job Card</span></li>
+      <li class="accordian-parent" (click)="auditToggle = !auditToggle" *ngIf="searchView('audit')"><i class="fas fa-eye"></i><span>Audit</span><span class="arrow"><i [class]="(!auditToggle) ? 'far fa-chevron-down' : 'far fa-chevron-up'"></i></span>
         <ul class="accordian" *ngIf="auditToggle" (click)="auditToggle = !auditToggle">
           <li [routerLink]="['/Dashboard/AuditLog']" routerLinkActive="active-link">Log</li>
           <li [routerLink]="['/Dashboard/AuditDatabase']" routerLinkActive="active-link">Database</li>
-          <li [routerLink]="['/Dashboard/AuditAuthorization']" routerLinkActive="active-link">Operation Authorization</li>
         </ul>
       </li>
     </ul>

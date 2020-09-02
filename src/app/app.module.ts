@@ -86,6 +86,13 @@ import { EditAddViewAuthorizationComponent } from './components/config/modals/ed
 import { PendingSkillComponent } from './components/config/modals/pending-skill/pending-skill.component';
 import { PendingRequirementComponent } from './components/config/modals/pending-requirement/pending-requirement.component';
 import { PendingQuestionComponent } from './components/config/modals/pending-question/pending-question.component';
+import { CalendarComponent } from './components/booking/helperComponent/calendar/calendar.component';
+import { EditAddTeamComponent } from './components/team/modals/edit-add-team/edit-add-team.component';
+import { AddTeamMemberComponent } from './components/team/modals/add-team-member/add-team-member.component';
+import { BookingComponent } from './components/booking/booking/booking.component';
+import { AddEditDeskBookingComponent } from './components/booking/modals/add-edit-desk-booking/add-edit-desk-booking.component';
+import { AddEditSlotBookingComponent } from './components/booking/modals/add-edit-slot-booking/add-edit-slot-booking.component';
+import { ViewApplicationComponent } from './components/hr/modals/view-application/view-application.component';
 
 
 @NgModule({
@@ -165,6 +172,13 @@ import { PendingQuestionComponent } from './components/config/modals/pending-que
     PendingSkillComponent,
     PendingRequirementComponent,
     PendingQuestionComponent,
+    CalendarComponent,
+    EditAddTeamComponent,
+    AddTeamMemberComponent,
+    BookingComponent,
+    AddEditDeskBookingComponent,
+    AddEditSlotBookingComponent,
+    ViewApplicationComponent,
     
      
   ],
@@ -184,6 +198,7 @@ import { PendingQuestionComponent } from './components/config/modals/pending-que
   providers: [
     FormBuilder,
     ToastsService,
+    
   ],
   bootstrap: [AppComponent],
   entryComponents: [ TestModalComponent ]

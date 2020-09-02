@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.close('Close click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h1 *ngIf="!editing && !addMember">Create Team</h1>
+    <h1 *ngIf="editing && !addMember">Edit Team</h1>
+    <h1 *ngIf="addMember">Add Team Members</h1>
+    <div class="row">
+        <div class="col-sm-12 col-md-4" *ngIf="!addMember">
+            <div class="panel">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3>New Team Name</h3>
+                            <input type="text" id="teamName" name="teamName" class="form-control">
+                            <button class="btn btn-outline-primary mt-4 mb-4 float-right">Create Team</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-4">
+            <div class="panel-container panel-ext">
+                <h3 class="text-center">Added Members</h3>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <app-profile-card class="img-sm border-el" removable="true"></app-profile-card>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-4">
+            <div class="panel-container panel-ext">
+                <h3 class="text-center">Search for Members</h3>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="searchMember">Search</label>
+                            <input type="text" class="form-control">
+                            <hr>
+                        </div>
+                        <div class="col-12">
+                            <app-profile-card class="img-sm border-el" addable="true"></app-profile-card>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

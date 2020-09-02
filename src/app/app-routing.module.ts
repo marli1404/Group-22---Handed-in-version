@@ -27,12 +27,14 @@ import { SearchEmployeeComponent } from './components/searchEmployee/search-empl
 import { JobListingComponent } from './components/jobListing/job-listing/job-listing.component';
 import { ApproveJobCardComponent } from './components/ApproveJobCard/approve-job-card/approve-job-card.component';
 import { JobApplicationViewComponent } from './components/jobListing/job-application-view/job-application-view.component';
+import { BookingComponent } from './components/booking/booking/booking.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
 { path: "", component : LoginComponent},
 { path: "ForgotPassword", component : ForgotPasswordComponent},
 { path: "CreateAccount", component : CreateAccountComponent},
-{ path: "Dashboard", component : DashboardComponent,
+{ path: "Dashboard", component : DashboardComponent, canActivate :[AuthGuardService],
   children : [
       { path : "ConfigBuilding", component : BuildingComponent},
       { path : "ConfigCompany", component : CompanyConfigComponent},
@@ -55,6 +57,7 @@ const routes: Routes = [
       { path : "JobListing", component : JobListingComponent},
       { path : "JobCardApproval", component : ApproveJobCardComponent},
       { path : "JobView/:id", component : JobApplicationViewComponent},
+      { path : "Booking", component : BookingComponent},
   ]},
 { path: "AccountCreated", component : AccountSuccessCreateComponent},
 ];

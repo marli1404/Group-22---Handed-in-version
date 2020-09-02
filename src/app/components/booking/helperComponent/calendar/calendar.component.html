@@ -1,0 +1,39 @@
+<div class="container-fluid mb-4">
+    <h3 class="mt-2 pb-2">{{currentMonth}} {{year}}</h3>
+    <div class="calendar">
+        <div class="week-header">
+            <div class="day">
+                Sunday
+            </div>
+            <div class="day">
+                Monday
+            </div>
+            <div class="day">
+                Tuesday
+            </div>
+            <div class="day">
+                Wednesday
+            </div>
+            <div class="day">
+                Thursday
+            </div>
+            <div class="day">
+                Friday
+            </div>
+            <div class="day">
+                Saturday
+            </div>
+        </div>
+        <div class="week">
+            <div *ngFor="let day of days" [className]=" day.date > 0 ? 'day' : 'day blank'">
+                <h5 class="date">{{day.date}}</h5>
+                <div *ngIf="!day.bookingId && day.date > 0" class="text-center" (click)="openBookingScreen()">No Booking</div>
+                <div *ngIf="day.bookingId && day.date > 0 && !day.time" class="text-center"><span (click)="openBookingScreen(day)">{{day.tableName}}</span><button class="btn btn-sm btn-outline-danger ml-4">X</button></div>
+                <div *ngIf="day.bookingId && day.date > 0 && day.time" class="text-center"><span (click)="openBookingScreen(day)">{{day.time}} {{day.tableName}}</span><button class="btn btn-sm btn-outline-danger ml-4">X</button></div>
+            </div>
+        </div>
+       
+        
+    </div>
+</div>
+

@@ -122,6 +122,9 @@ nav li:last-of-type{
     width: 100%;
     height: 100%;
 }
+.profileContainer:hover{
+    cursor: pointer;
+}
 .container-fluid{
     margin: 10px 0;
     height: 96%;
@@ -172,5 +175,6 @@ nav li:last-of-type{
 .sideBar .active-link i,.sideBar .active-link span{
     color: white;
 }
-
-
+.logout:hover{
+    cursor: pointer;
+}

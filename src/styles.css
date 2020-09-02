@@ -155,13 +155,23 @@ hr {
     margin-top: 1rem;
     margin-left: 10px;
 }
+.img-md img{
+    width: 80px; 
+    height: 80px; 
+    border-radius: 50%; 
+    margin-top: 1rem;
+    margin-left: 10px;    
+}
+.img-md p{
+    font-size: 2vh;
+}
+
 .img-fit img{
     width: 120px; 
     height: 120px; 
     border-radius: 50%; 
     margin-top: 1rem;
-    margin-left: 10px;
-    
+    margin-left: 10px; 
 }
 .img-fit p{
     font-size: 5vh;

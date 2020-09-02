@@ -1,0 +1,46 @@
+
+.calendar{
+    width: 80vw;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 15px;
+    box-shadow: 0 .25rem .80rem rgba(0,0,0,.3);
+    background-color: #ffffff;
+}
+
+.week, .week-header{
+
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.date{
+    margin-left: 10px;
+}
+.week .day{
+    height: 11vh;
+    flex: 1 1 14%;
+    border-top: solid 0.5px#757575;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    position: relative;
+}
+
+
+
+.week-header .day{
+    padding-bottom: 10px;
+    flex: 1 1 14%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.blank{
+    background-color: #e7e7e7;
+}
+
+.week .day:not(.blank ):hover{
+    cursor: pointer;
+    box-shadow: 0 .25rem .75rem 5px rgba(0,0,0,.5);
+}
+
+
