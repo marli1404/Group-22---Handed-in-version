@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Country } from '../models/country';
 import { Nationality } from '../models/Nationality';
 import { ToastsService } from './toasts.service';
+import { userCard } from '../models/userCard';
 
 
 @Injectable({
@@ -15,6 +16,7 @@ export class ApiService {
   user : string = `${this.globalRoot}API/User/`;
   country : string = `${this.globalRoot}API/Country/`;
   nationality : string = `${this.globalRoot}API/Nationality/`;
+
   constructor( private http: HttpClient){ 
 
   }
@@ -34,8 +36,16 @@ export class ApiService {
   }
 
   createAccount(userDetails:any){
-    console.log(userDetails);
     return this.http.post(this.user,{"request":"createAccount","payload": userDetails});
+  }
+
+  getUserProfileLite(userId: number){
+    return this.http.post<userCard>(this.user,{request:"getWidgetDetails",payload:{id:userId}});
+  }
+  
+
+  getUserProfileDetailed(userId: number){
+
   }
 
 

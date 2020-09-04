@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UploadImageComponent } from '../../uploadImage/upload-image/upload-image.component';
 import { ResetPasswordComponent } from 'src/app/components/modals/reset-password/reset-password.component';
@@ -18,10 +18,13 @@ export class EditProfileMComponent implements OnInit {
   editProfile :any;
   userDetails : User;
 
+  @Input() userId : number;
+
   constructor( public activeModal : NgbActiveModal, private modal : NgbModal, private formBuilder : FormBuilder) { }
 
   ngOnInit(): void {
 
+    this.getProfileDetails();
     this.buildForm();
   }
 
@@ -44,6 +47,8 @@ export class EditProfileMComponent implements OnInit {
       countryId : [null,[Validators.required]],
       nationalityId : [null,[Validators.required]],
     });
+
+  
 
 
 
@@ -74,6 +79,9 @@ export class EditProfileMComponent implements OnInit {
     return this.editProfile.controls['passconfirm'];
   }
 
+  getProfileDetails(){
+    
+  }
 
 
 }

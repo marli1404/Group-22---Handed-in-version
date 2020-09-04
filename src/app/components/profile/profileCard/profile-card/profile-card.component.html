@@ -1,10 +1,10 @@
 <div class="flex-container">
     <div>
-        <img src="../../../../../assets/profile/Calvin.jpg" alt="test">
+        <img src="{{userDetails.imgUrl}}" alt="Profile Image">
     </div>
     <div>
-        <p>Jonathan</p>
-        <p>van der Breggen</p>
+        <p>{{userDetails.userName}}</p>
+        <p>{{userDetails.userSurname}}</p>
     </div>
     <div class="fill-flex">
         <h5 class="removeUser" *ngIf="removable"><i class="fas fa-user-minus"></i></h5>
