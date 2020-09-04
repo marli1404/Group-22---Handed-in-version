@@ -5,20 +5,18 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class InterceptorService implements HttpInterceptor{
+export class InterceptorService implements HttpInterceptor {
+  constructor() {}
 
-  intercept(req: HttpRequest<any>,
-    next: HttpHandler): Observable<HttpEvent<any>> {
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    const token = localStorage.getItem('bmwToken');
 
-      const token = localStorage.getItem("bmwToken");
+    req = req.clone({
+      setHeaders: {
+        'Authorization': `Bearer ${token}`
+      },
+    });
 
-      if(token){
-        const cloned = req.clone({ headers: req.headers.set("Authorization","Bearer " + token)});
-        return next.handle(cloned);
-      }
-      else{
-        return next.handle(req);
-      }
-      
-    }
+    return next.handle(req);
+  }
 }

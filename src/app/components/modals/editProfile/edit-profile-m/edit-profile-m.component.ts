@@ -7,6 +7,10 @@ import { User } from 'src/app/models/user';
 import { Country } from 'src/app/models/country';
 import { Nationality } from 'src/app/models/Nationality';
 import { TestModalComponent } from 'src/app/components/test-modal/test-modal.component';
+import { ApiService } from 'src/app/services/api.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { Toast } from 'src/app/models/toast';
+import { ToastsService } from 'src/app/services/toasts.service';
 
 @Component({
   selector: 'app-edit-profile-m',
@@ -18,9 +22,7 @@ export class EditProfileMComponent implements OnInit {
   editProfile :any;
   userDetails : User;
 
-  @Input() userId : number;
-
-  constructor( public activeModal : NgbActiveModal, private modal : NgbModal, private formBuilder : FormBuilder) { }
+  constructor( public activeModal : NgbActiveModal, private modal : NgbModal, private formBuilder : FormBuilder, private api : ApiService, private toast : ToastsService) { }
 
   ngOnInit(): void {
 
@@ -47,11 +49,6 @@ export class EditProfileMComponent implements OnInit {
       countryId : [null,[Validators.required]],
       nationalityId : [null,[Validators.required]],
     });
-
-  
-
-
-
   }
 
   get userName(){
@@ -80,7 +77,20 @@ export class EditProfileMComponent implements OnInit {
   }
 
   getProfileDetails(){
+    this.api.getUsersOwnProfile().subscribe( 
+      success => this.populatePage(success),
+      error => this.errorRetrieving(error)
+      );
     
+  }
+  populatePage(userInfo : any){
+    console.log(userInfo);
+  }
+  errorRetrieving(error){
+    console.log(error);
+    const cardError = error.error;
+    this.toast.display({type:"error",heading:error.Title,message : cardError.message + "\n" + error.message});
+    this.activeModal.close();
   }
 
 

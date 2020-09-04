@@ -15,7 +15,7 @@ import { ResetPasswordComponent } from './components/resetPassword/reset-passwor
 import { CreateAccountComponent } from './components/profile/createAccount/create-account/create-account.component';
 import { AccountSuccessCreateComponent } from './components/accountSuccess/account-success-create/account-success-create.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormBuilder, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TestModalComponent } from './components/test-modal/test-modal.component';
 import { ToastComponent } from './components/system/toast/toast.component';
@@ -93,6 +93,7 @@ import { BookingComponent } from './components/booking/booking/booking.component
 import { AddEditDeskBookingComponent } from './components/booking/modals/add-edit-desk-booking/add-edit-desk-booking.component';
 import { AddEditSlotBookingComponent } from './components/booking/modals/add-edit-slot-booking/add-edit-slot-booking.component';
 import { ViewApplicationComponent } from './components/hr/modals/view-application/view-application.component';
+import { InterceptorService } from './services/interceptor.service';
 
 
 @NgModule({
@@ -193,11 +194,14 @@ import { ViewApplicationComponent } from './components/hr/modals/view-applicatio
     NgbModule,
     ReactiveFormsModule,
     FormsModule,
+    
      
   ],
   providers: [
     FormBuilder,
     ToastsService,
+    {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
+    
     
   ],
   bootstrap: [AppComponent],

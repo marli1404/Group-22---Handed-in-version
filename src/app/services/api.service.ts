@@ -4,6 +4,7 @@ import { Country } from '../models/country';
 import { Nationality } from '../models/Nationality';
 import { ToastsService } from './toasts.service';
 import { userCard } from '../models/userCard';
+import { User } from '../models/user';
 
 
 @Injectable({
@@ -12,10 +13,11 @@ import { userCard } from '../models/userCard';
 export class ApiService {
 
   /*****************URLS********************/
-  globalRoot :string = 'http://bmwbackend.edumarx.co.za/'
+  globalRoot :string = 'https://bmwbackend.edumarx.co.za/'
   user : string = `${this.globalRoot}API/User/`;
   country : string = `${this.globalRoot}API/Country/`;
   nationality : string = `${this.globalRoot}API/Nationality/`;
+  jobRequest : string = `${this.globalRoot}API/JobRequest/`;
 
   constructor( private http: HttpClient){ 
 
@@ -28,24 +30,27 @@ export class ApiService {
   }
 
   getCountries(){
-    return this.http.post<Country[]>(this.country,{"request":"getCountries"});
+    return this.http.post<Country[]>(this.country,{request:"getCountries"});
   }
 
   getNationalities(){
-    return this.http.post<Nationality[]>(this.nationality,{"request":"getNationalities"});
+    return this.http.post<Nationality[]>(this.nationality,{request:"getNationalities"});
   }
 
   createAccount(userDetails:any){
-    return this.http.post(this.user,{"request":"createAccount","payload": userDetails});
+    return this.http.post(this.user,{request:"createAccount",payload: userDetails});
   }
 
   getUserProfileLite(userId: number){
     return this.http.post<userCard>(this.user,{request:"getWidgetDetails",payload:{id:userId}});
   }
   
-
-  getUserProfileDetailed(userId: number){
-
+  getUsersOwnProfile(){
+    return this.http.post(this.user,{request:"getUserProfile"});
+  }
+  
+  createJobRequest(request : any){
+    return this.http.post(this.jobRequest,{request:"createAJobRequest",payload:request});
   }
 
 

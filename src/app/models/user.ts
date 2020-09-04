@@ -11,10 +11,10 @@ export class User{
     name: string;
     surname: string;
     email : string;
-    contact: number;
-    pictureURL : string;
-    roles : Role[];
-    views : View[];
+    contact: string;
+    imgUrl : string;
+    //roles : Role[];
+    //views : View[];
     skills : Skill[];
     languages : Language[];
     nationality : Nationality;
