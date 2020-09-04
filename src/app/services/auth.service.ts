@@ -26,7 +26,17 @@ export class AuthService {
     // });
   }
 
+  getUserId(){
 
+    const token = localStorage.getItem("bmwToken");
+    if(!token){
+      this.logOut();
+      return null;
+    }
+    else{
+      return jwt_decode(token).userId;
+    }
+  }
 
   logIn( details : any){
     return this.http.post("http://bmwbackend.edumarx.co.za/API/User",

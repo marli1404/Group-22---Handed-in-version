@@ -61,7 +61,7 @@ export class DashboardComponent implements OnInit {
   }
 
   initLoading(){
-    this.api.getUserProfileLite(this.auth.userId).subscribe( 
+    this.api.getUserProfileLite(this.auth.getUserId()).subscribe( 
       success => this.getUserCardSuccess(success),
       failure => this.getUserCardFailed(failure)
     );
