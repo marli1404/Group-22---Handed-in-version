@@ -7,8 +7,11 @@
     <form>
         <div class="form-group">
             <label for="file">Upload Image</label>
-            <input type="file" name="file" id="file" class="form-control">
-            <button class="btn btn-primary mt-4">Change Profile</button>
+            <input type="file" name="file" id="file" class="form-control" (change)="fileChange($event)">
+            <div class="alert alert-warning" *ngIf="!validFile">
+                File can only be an image
+            </div>
+            <button class="btn btn-primary mt-4" [disabled]="!validFile" (click)="changeImage()">Change Profile</button>
         </div>
     </form>
 </div>

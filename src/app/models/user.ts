@@ -13,8 +13,8 @@ export class User{
     email : string;
     contact: string;
     imgUrl : string;
-    //roles : Role[];
-    //views : View[];
+    roles : Role[];
+    views : View[];
     skills : Skill[];
     languages : Language[];
     nationality : Nationality;

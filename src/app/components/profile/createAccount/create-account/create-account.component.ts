@@ -70,6 +70,7 @@ export class CreateAccountComponent implements OnInit {
     this.toast.display({type:"Error",heading: error.Title, message : error.message});
   }
   createAccount(){
+    console.log(this.getFormInformation());
     this.api.createAccount(this.getFormInformation())
     .subscribe( success => this.createAccountSuccess(success),
     error => this.createAccountError(error));

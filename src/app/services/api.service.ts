@@ -5,6 +5,7 @@ import { Nationality } from '../models/Nationality';
 import { ToastsService } from './toasts.service';
 import { userCard } from '../models/userCard';
 import { User } from '../models/user';
+import { UserProfile } from '../models/userProfile';
 
 
 @Injectable({
@@ -46,11 +47,23 @@ export class ApiService {
   }
   
   getUsersOwnProfile(){
-    return this.http.post(this.user,{request:"getUserProfile"});
+    return this.http.post<UserProfile>(this.user,{request:"getUserProfile"});
   }
   
   createJobRequest(request : any){
     return this.http.post(this.jobRequest,{request:"createAJobRequest",payload:request});
+  }
+
+  editAccount(userInfo: any){
+    return this.http.post<any>(this.user,{request : "updateAccount",payload: userInfo});
+  }
+
+  uploadProfile(file : File){
+    
+    let uploadData : FormData = new FormData();
+    uploadData.append('request','changeProfileImage');
+    uploadData.append('image',file);
+    return this.http.post(this.user,uploadData);
   }
 
 

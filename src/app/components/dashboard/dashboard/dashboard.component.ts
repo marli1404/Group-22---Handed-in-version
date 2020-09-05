@@ -48,6 +48,14 @@ export class DashboardComponent implements OnInit {
   }
   editProfile(){
     const editProfileInstance = this.modal.open(EditProfileMComponent,  { windowClass : "largeModal"});
+    editProfileInstance.result.then((res) =>{
+
+      if(res)
+      {
+        this.userProfileCard = res;
+      }
+      
+    });
   }
 
   searchView(viewName : string){

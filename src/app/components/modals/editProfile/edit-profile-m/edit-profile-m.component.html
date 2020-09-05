@@ -31,19 +31,23 @@
 
         <div class="form-group">
             <label for="nationality">Nationality</label>
-            <select name="nationality"  [class.is-invalid]="userNationality.touched && !userNationality.valid" id="nationality" formControlName='nationalityId' class="form-control"></select>
+            <select name="nationality"  [class.is-invalid]="userNationality.touched && !userNationality.valid" id="nationality" formControlName='nationalityId' class="form-control">
+              <option *ngFor="let item of nationality$ | async" [value]="item.nationalityId">{{item.nationality}}</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="country">Country</label>
-            <select name="country" id="country" [class.is-invalid]="userCountry.touched && !userCountry.valid" formControlName='countryId' class="form-control"></select>
+            <select name="country" id="country" [class.is-invalid]="userCountry.touched && !userCountry.valid" formControlName='countryId' class="form-control">
+              <option *ngFor="let item of country$ | async" [value]="item.id">{{item.country}}</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="contact">Contact</label>
-            <select name="contact" [class.is-invalid]="userContact.touched && !userContact.valid" id="contact" formControlName='contact' class="form-control"></select>
+            <input name="contact" [class.is-invalid]="userContact.touched && !userContact.valid" id="contact" formControlName='contact' class="form-control">
         </div>
         <div>
             <button (click)="changePassword()" class="btn btn-outline-primary">Reset Password</button>
-            <button class="btn btn-outline-primary float-right">Save Changes</button>
+            <button class="btn btn-outline-primary float-right" (click)="saveChanges()">Save Changes</button>
         </div>
 
         <div *ngIf="userName.invalid && (userName.dirty || userName.touched) && (userName.errors.required)" class="alert alert-danger">
@@ -112,7 +116,7 @@
         <div class="image-container" (click)="changeImage();">
             <div class="dummy"></div>
             <div class="img-holder">
-                <img src="../../../../../assets/profile/Calvin.jpg" alt="">
+                <img src="{{profileOwner.imgUrl}}" alt="">
             </div>
         </div>
         <p>Click image above to change</p>
