@@ -37,7 +37,7 @@ export class HireRequestComponent implements OnInit {
   getData(){
     this.api.getJustifications().subscribe( success => this.justificationRetSuccess(success), error => this.justificationRetFail(error));
     this.api.getJobPositions().subscribe( success => this.jobRetSuccess(success), error => this.jobRetFail(error));
-    this.api.getJobCards
+    //this.api.getJobCards
 
   }
   justificationRetSuccess(success){
