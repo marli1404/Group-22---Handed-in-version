@@ -47,12 +47,16 @@ export class DashboardComponent implements OnInit {
     this.toasts.display({type:"Error",heading : err.Title, message : err.message});
   }
   editProfile(){
-    const editProfileInstance = this.modal.open(EditProfileMComponent,  { windowClass : "largeModal"});
+    const editProfileInstance = this.modal.open(EditProfileMComponent,  { windowClass : "largeModal",backdrop:"static" });
     editProfileInstance.result.then((res) =>{
 
+      console.log(res);
       if(res)
       {
-        this.userProfileCard = res;
+        
+        this.userProfileCard.imgUrl = res.imgUrl;
+        this.userProfileCard.userName = res.name;
+        this.userProfileCard.userSurname = res.surname;
       }
       
     });

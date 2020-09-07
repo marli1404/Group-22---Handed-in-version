@@ -18,29 +18,31 @@
             <h2>Create New Hire Request</h2>
             <div class="sm-container panel-container">
                 <!-- FORM CONTAINER -->
-                <form>
+                <form [formGroup]="requestForm">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-lg-3 col-md-12">
                                 <div class="form-group">
                                     <label for="justification">Justification</label>
-                                    <select name="justification" id="justification" class="form-control">
+                                    <select name="justification" id="justification" class="form-control" formControlName="justification">
                                         <option value="null" selected disabled>Select a justification</option>
+                                        <option *ngFor="let item of justifications" [value]="item.id">{{item.justification}}</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-12">
                                 <div class="form-group">
                                     <label for="jobPosition">Job Position</label>
-                                    <select name="jobPosition" id="jobPosition" class="form-control">
+                                    <select name="jobPosition" id="jobPosition" class="form-control" formControlName="job">
                                         <option value="null" selected disabled>Select a Job Position</option>
+                                        <option *ngFor="let item of jobs" [value]="item.id">{{item.name}}</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-12">
                                 <div class="form-group">
                                     <label for="fulfilldate">Fulfilment Date</label>
-                                    <input type="date" name="fulfilldate" id="fulfilldate" class="form-control">
+                                    <input type="date" name="fulfilldate" id="fulfilldate" class="form-control" formControlName="requestDate">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -50,7 +52,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-outline-primary float-right ml-4">Request</button>
+                                <button class="btn btn-outline-primary float-right ml-4" [disabled]="requestForm.valid" (click)="makeRequest()">Request</button>
                                 <button class="btn btn-outline-primary float-right">Clear</button>
                             </div>
                         </div>

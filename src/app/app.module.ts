@@ -11,7 +11,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './components/forgotPassword/forgot-password/forgot-password.component';
-import { ResetPasswordComponent } from './components/resetPassword/reset-password/reset-password.component';
 import { CreateAccountComponent } from './components/profile/createAccount/create-account/create-account.component';
 import { AccountSuccessCreateComponent } from './components/accountSuccess/account-success-create/account-success-create.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -94,6 +93,7 @@ import { AddEditDeskBookingComponent } from './components/booking/modals/add-edi
 import { AddEditSlotBookingComponent } from './components/booking/modals/add-edit-slot-booking/add-edit-slot-booking.component';
 import { ViewApplicationComponent } from './components/hr/modals/view-application/view-application.component';
 import { InterceptorService } from './services/interceptor.service';
+import { ResetPasswordComponent } from './components/modals/reset-password/reset-password.component';
 
 
 @NgModule({
@@ -102,7 +102,6 @@ import { InterceptorService } from './services/interceptor.service';
     LoginComponent,
     DashboardComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent,
     CreateAccountComponent,
     AccountSuccessCreateComponent,
     TestModalComponent,
@@ -180,6 +179,8 @@ import { InterceptorService } from './services/interceptor.service';
     AddEditDeskBookingComponent,
     AddEditSlotBookingComponent,
     ViewApplicationComponent,
+    ResetPasswordComponent,
+    ResetPasswordComponent
     
      
   ],

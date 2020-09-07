@@ -6,6 +6,8 @@ import { ToastsService } from './toasts.service';
 import { userCard } from '../models/userCard';
 import { User } from '../models/user';
 import { UserProfile } from '../models/userProfile';
+import { Job } from '../models/job';
+import { Justification } from '../models/justification';
 
 
 @Injectable({
@@ -19,7 +21,8 @@ export class ApiService {
   country : string = `${this.globalRoot}API/Country/`;
   nationality : string = `${this.globalRoot}API/Nationality/`;
   jobRequest : string = `${this.globalRoot}API/JobRequest/`;
-
+  justification : string = `${this.globalRoot}API/Justification/`;
+  jobPositions : string = `${this.globalRoot}API/Job/`;
   constructor( private http: HttpClient){ 
 
   }
@@ -64,6 +67,20 @@ export class ApiService {
     uploadData.append('request','changeProfileImage');
     uploadData.append('image',file);
     return this.http.post(this.user,uploadData);
+  }
+  changePassword(password : string){
+
+    return this.http.post(this.user,{request : "changePassword", payload : {password}})
+  }
+
+  
+  getJobPositions(){
+    return this.http.post<Job[]>(this.jobPositions,{request: "getJobs"})
+  }
+
+  
+  getJustifications(){
+    return this.http.post<Justification[]>(this.justification,{request: "getJustifications" });
   }
 
 

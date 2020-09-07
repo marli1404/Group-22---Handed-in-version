@@ -1,5 +1,5 @@
 <div class="container-fluid modal-container">
- <button type="button" class="close" aria-label="Close" (click)="activeModal.close('Close click')">
+ <button type="button" class="close" aria-label="Close" (click)="activeModal.close(profileOwner)">
     <span aria-hidden="true">&times;</span>
   </button>
  <div class="row">
@@ -116,7 +116,7 @@
         <div class="image-container" (click)="changeImage();">
             <div class="dummy"></div>
             <div class="img-holder">
-                <img src="{{profileOwner.imgUrl}}" alt="">
+                <img *ngIf="profileOwner" src="{{profileOwner.imgUrl}}" alt="">
             </div>
         </div>
         <p>Click image above to change</p>

@@ -1,12 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UploadImageComponent } from '../../uploadImage/upload-image/upload-image.component';
-import { ResetPasswordComponent } from 'src/app/components/modals/reset-password/reset-password.component';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { User } from 'src/app/models/user';
 import { Country } from 'src/app/models/country';
 import { Nationality } from 'src/app/models/Nationality';
-import { TestModalComponent } from 'src/app/components/test-modal/test-modal.component';
 import { ApiService } from 'src/app/services/api.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { Toast } from 'src/app/models/toast';
@@ -14,6 +12,7 @@ import { ToastsService } from 'src/app/services/toasts.service';
 import { Observable } from 'rxjs';
 import { UserProfile } from 'src/app/models/userProfile';
 import { userCard } from 'src/app/models/userCard';
+import { ResetPasswordComponent } from '../../reset-password/reset-password.component';
 
 @Component({
   selector: 'app-edit-profile-m',
@@ -22,14 +21,17 @@ import { userCard } from 'src/app/models/userCard';
 })
 export class EditProfileMComponent implements OnInit {
 
-  profileOwner : UserProfile;
+  profileOwner : UserProfile = null;
   editProfile :FormGroup;
   userDetails : User;
   country$ : Observable<Country[]>;
   nationality$ : Observable<Nationality[]>;
 
-  constructor( public activeModal : NgbActiveModal, private modal : NgbModal, private formBuilder : FormBuilder, private api : ApiService, private toast : ToastsService) { }
+  constructor( public activeModal : NgbActiveModal, private modal : NgbModal, private formBuilder : FormBuilder, private api : ApiService, private toast : ToastsService) { 
+    
+  }
 
+  
   ngOnInit(): void {
 
     this.country$ = this.api.getCountries();
@@ -37,12 +39,13 @@ export class EditProfileMComponent implements OnInit {
     this.getProfileDetails();
     this.buildForm();
   }
+  
 
   changeImage(){
     const uploadInstance = this.modal.open(UploadImageComponent, { size: 'lg', backdrop: 'static' });
     uploadInstance.result.then((res) =>{
 
-      if(res)
+      if(res && res!="")
       {
         this.profileOwner.imgUrl = res;
       }
@@ -52,6 +55,7 @@ export class EditProfileMComponent implements OnInit {
 
   changePassword(){
     const modalInstance = this.modal.open(ResetPasswordComponent,{ size: 'lg'});
+
   }
   buildForm(){
     this.editProfile = this.formBuilder.group({
@@ -142,5 +146,10 @@ export class EditProfileMComponent implements OnInit {
     }
   }
 
+  dismiss(){
+  
+    this.activeModal.close(this.profileOwner);
+    
+  }
 
 }

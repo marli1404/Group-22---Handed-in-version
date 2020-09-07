@@ -14,7 +14,7 @@ export class UploadImageComponent implements OnInit {
   constructor(public activeModal : NgbActiveModal, private api : ApiService, private toasts : ToastsService) { }
 
   validFile : boolean = true;
-  file : File;
+  file : File = null;
   
   ngOnInit(): void {
   }
