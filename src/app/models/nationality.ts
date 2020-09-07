@@ -1,5 +1,5 @@
 export class Nationality{
 
-    id : number;
+    nationalityId : number;
     nationality : string;
 }
