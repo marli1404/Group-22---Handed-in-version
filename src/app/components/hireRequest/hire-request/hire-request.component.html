@@ -48,11 +48,11 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="brief"><h4>Brief</h4></label>
-                                    <textarea name="brief" id="brief" cols="30" rows="13" class="form-control"></textarea>
+                                    <textarea name="brief" id="brief" cols="30" rows="13" class="form-control" formControlName="brief"></textarea>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-outline-primary float-right ml-4" [disabled]="requestForm.valid" (click)="makeRequest()">Request</button>
+                                <button class="btn btn-outline-primary float-right ml-4" [disabled]="!requestForm.valid" (click)="makeRequest()">Request</button>
                                 <button class="btn btn-outline-primary float-right">Clear</button>
                             </div>
                         </div>

@@ -41,7 +41,7 @@
                         <label for="nationality">Select your nationality</label>
                         <select class="form-control" [class.is-invalid]="userNationality.touched && !userNationality.valid" name="nationality" id="nationality" formControlName='nationalityId'>
                             <option value="null" selected disabled>Select Nationality</option>
-                            <option *ngFor="let national of nationalities" [value]="national.nationalityid">{{national.nationality}}</option>
+                            <option *ngFor="let national of nationalities" [value]="national.nationalityId">{{national.nationality}}</option>
                         </select>
                     </div>
                     <div class="form-group">
