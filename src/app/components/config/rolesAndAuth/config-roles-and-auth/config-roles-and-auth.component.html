@@ -20,9 +20,7 @@
                             </tr>
                         </thead>
                         <!-- LOCATIONS GO HERE -->
-                        <tr><td>Manager</td><td class="text-center"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
-                        <tr><td>Employee</td><td class="text-center"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
-                        <tr><td>Applicant</td><td class="text-center"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
+                        <tr *ngFor="let item of roles"><td>{{item.roleName}}</td><td class="text-center"><i class="far fa-pencil-alt" (click)="editRole(item.roleId)"></i><i class="fas fa-trash-alt ml-4" (click)="deleteRole(item.roleId)"></i></td></tr>
                     </table>
                 </div>
             </div>
@@ -46,8 +44,7 @@
                         </tr>
                     </thead>
                     <!-- BUILDINGS GO HERE -->
-                    <tr><td>Sap Manager</td><td class="text-center"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
-                    <tr><td>Angular Dev</td><td class="text-center"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
+                    <tr *ngFor="let item of jobs"><td>{{item.name}}</td><td class="text-center"><i class="far fa-pencil-alt" (click)="editJob(item.id)"></i><i class="fas fa-trash-alt ml-4" (click)="deleteJob(item.id)"></i></td></tr>
                 </table>
             </div>
         </div>
@@ -71,8 +68,7 @@
                         </tr>
                     </thead>
                     <!-- Floors GO HERE -->
-                    <tr><td>Reports</td><td>Manager</td><td class="text-center"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
-                    <tr><td>Configuration</td><td>Manager</td><td class="text-center"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
+                    <tr *ngFor="let item of viewAuth"><td>{{item.view.view}}</td><td>{{item.role.roleName}}</td><td class="text-center"><i class="far fa-pencil-alt" (click)="editViewAuth(item.view.id, item.role.id)"></i><i class="fas fa-trash-alt ml-4" (click)="deleteViewAuth(item.view.id, item.role.id)"></i></td></tr>
                 </table>
             </div>
             

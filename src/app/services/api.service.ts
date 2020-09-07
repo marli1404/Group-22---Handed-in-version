@@ -8,6 +8,9 @@ import { User } from '../models/user';
 import { UserProfile } from '../models/userProfile';
 import { Job } from '../models/job';
 import { Justification } from '../models/justification';
+import { Role } from '../models/role';
+import { ViewAuth } from '../models/viewAuth';
+import { View } from '../models/view';
 
 
 @Injectable({
@@ -23,6 +26,11 @@ export class ApiService {
   jobRequest : string = `${this.globalRoot}API/JobRequest/`;
   justification : string = `${this.globalRoot}API/Justification/`;
   jobPositions : string = `${this.globalRoot}API/Job/`;
+  booking : string = `${this.globalRoot}API/UserBooking/`;
+  role : string = `${this.globalRoot}API/Role/`;
+  job : string = `${this.globalRoot}API/Job/`;
+  viewAuth : string = `${this.globalRoot}API/ViewAuthorisation/`;
+  view : string = `${this.globalRoot}API/View/`;
   constructor( private http: HttpClient){ 
 
   }
@@ -74,16 +82,51 @@ export class ApiService {
     return this.http.post(this.user,{request : "changePassword", payload : {password}})
   }
 
-  
-  getJobPositions(){
-    return this.http.post<Job[]>(this.jobPositions,{request: "getJobs"})
-  }
-
-  
   getJustifications(){
     return this.http.post<Justification[]>(this.justification,{request: "getJustifications" });
   }
 
+  addRole(role:any){
+    return this.http.post(this.role,{request :"createRole",payload : role})
+  }
+  editRole( role : any){
+    return this.http.post(this.role,{request :"updateRole",payload : role});
+  }
+  getRoles(){
+    return this.http.post<Role[]>(this.role,{request : "getRoles"});
+  }
+  deleteRole(id : number){
+    return this.http.post(this.role, {request : "deleteRole", payload : {id}});
+  }
+
+  getJobPositions(){
+    return this.http.post<Job[]>(this.jobPositions,{request: "getJobs"})
+  }
+  editJob(jobName){
+    return this.http.post(this.job, {request: "updateJob", payload: jobName});
+  }
+  deleteJob(id : number){
+    return this.http.post(this.job, {request: "d", payload : {id} }); // NEEDS BACK END
+  }
+
+  createJob(job : any){
+    return this.http.post(this.job, {request: "createJob", payload : job});
+  }
+
+  getViewAuths(){
+    return this.http.post<ViewAuth>(this.viewAuth, {request : "getViewAuthorisations"});
+  }
+
+  editViewAuths(){
+
+  }
+
+  delteViewAuths(){
+
+  }
+  getViews(){
+    return this.http.post<View[]>(this.view, {request: "getViews"});
+  }
 
 
 

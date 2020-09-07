@@ -2,17 +2,20 @@
     <button type="button" class="close" aria-label="Close" (click)="activeModal.close('Close click')">
         <span aria-hidden="true">&times;</span>
     </button>
-    <h1>Edit/Add Role</h1>
+    <h1 *ngIf="editRole">Edit Role</h1>
+    <h1 *ngIf="!editRole">Add Role</h1>
+    <form [formGroup]="roleForm">
     <div class="row">
         <div class="col-md-6 col-sm-12">
             <div class="form-group">
                 <label for="role">Role</label>
-                <input type="text" name="role" id="role" class="form-control">
+                <input type="text" name="role" id="role" class="form-control" formControlName="role">
             </div>
         </div>
         <div class="col-md-6 col-sm-0"></div>
         <div class="col-12">
-            <button class="btn btn-outline-primary mb-4 float-right">Save</button>
+            <button class="btn btn-outline-primary mb-4 float-right" [disabled]="!roleForm.valid" (click)="save()">Save</button>
         </div>
     </div>
+    </form>
 </div>
