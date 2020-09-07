@@ -110,7 +110,7 @@ export class EditProfileMComponent implements OnInit {
       contact : userInfo.contact,
       email : userInfo.email,
       countryId : userInfo.country.id,
-      nationalityId : userInfo.nationality.id
+      nationalityId : userInfo.nationality.nationalityId
     });
   }
   errorRetrieving(error){
