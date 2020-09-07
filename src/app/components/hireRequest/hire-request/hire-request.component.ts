@@ -55,14 +55,30 @@ export class HireRequestComponent implements OnInit {
   }
 
   makeRequest(){
-    alert('lols');
+    this.api.createJobRequest(this.getFormDetails()).subscribe( success =>{
+      this.requestSuccess(success);
+    },error=>{
+      this.requestSuccess(error);
+    })
   }
 
-  requestSuccess(){
-    
+  requestSuccess(success : any){
+    this.toast.display({type:"Success", heading : success.Title, message : success.message});
+    this.requestForm.reset();
   }
-  requestFailed(){
+  requestFailed(error : any){
+    this.toast.display({type:"error", heading : error.Title, message : error.message});
 
+  }
+
+  getFormDetails(){
+
+    return {
+      justificationId : this.requestForm.get('justification').value,
+      jobId : this.requestForm.get('job').value,
+      brief : this.requestForm.get('brief').value,
+      fulfilmentDate : this.requestForm.get('requestDate').value,
+    }
   }
 
 }

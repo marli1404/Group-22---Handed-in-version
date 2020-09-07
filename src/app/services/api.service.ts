@@ -54,7 +54,8 @@ export class ApiService {
   }
   
   createJobRequest(request : any){
-    return this.http.post(this.jobRequest,{request:"createAJobRequest",payload:request});
+    console.log()
+    return this.http.post(this.jobRequest,{request:"createJobRequest",payload:request});
   }
 
   editAccount(userInfo: any){
