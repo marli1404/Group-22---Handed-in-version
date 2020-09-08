@@ -1,5 +1,7 @@
 <div [className]="viewSideBar ? 'grid-container-sidebar' : 'grid-container'">
-  <app-toast style="position: absolute; min-width: 200px; top: 100px;right:10px; bottom: 20px; overflow: hidden;"></app-toast>
+  <div class="toast-container">
+    <app-toast></app-toast>
+  </div>
   <nav class="ribbon clearFix">
     <div class="currentNav" >
       <img [hidden]="viewSideBar" class="hamburger" src="../assets/icons/hamburger_open.svg" alt="Hamburger" (click)="toggleSideBar()">

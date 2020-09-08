@@ -78,8 +78,8 @@ export class ApiService {
     return this.http.post(this.user,uploadData);
   }
   changePassword(password : string){
-
-    return this.http.post(this.user,{request : "changePassword", payload : {password}})
+    console.log({request : "changePassword", payload : {password : password}});
+    return this.http.post(this.user,{request : "changePassword", payload : {password : password}})
   }
 
   getJustifications(){

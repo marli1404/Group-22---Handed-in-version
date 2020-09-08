@@ -27,12 +27,24 @@ export class ConfigRolesAndAuthComponent implements OnInit {
 
   addRole(){
       const modalInstance = this.modal.open(EditAddRoleComponent);
+      modalInstance.result.then((res)=>{
+        
+          this.getRoles();
+      });
   }
   addJob(){
     const modalInstance = this.modal.open(EditAddJobComponent);
+    modalInstance.result.then((res)=>{
+      
+        this.getJobs();
+    });
   }
   addViewAuth(){
     const modalInstance = this.modal.open(EditAddViewAuthorizationComponent);
+    modalInstance.result.then((res)=>{
+      
+        this.getViewAuths();
+    });
   }
 
   getData(){

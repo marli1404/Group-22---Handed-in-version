@@ -184,3 +184,11 @@ hr {
     box-shadow: 0 .25rem .75rem rgba(0,0,0,.1);
 
 }
+.toast-container{
+    position: absolute;
+    bottom: 100px !important;
+    min-width: 200px;
+    top: 100px;
+    right: 10px;
+    overflow: hidden;
+}

@@ -31,6 +31,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.views = this.auth.getViews();
     this.initLoading();
+
   }
   logout(){
       this.auth.logOut();

@@ -34,6 +34,7 @@ export class ResetPasswordComponent implements OnInit {
           this.activeModal.close();
         }
         ,error =>{
+          console.log(error);
           this.toasts.display({type:"Error",heading : (<any>error.error).Title, message : (<any>error.error).message});
           this.activeModal.close();
         }

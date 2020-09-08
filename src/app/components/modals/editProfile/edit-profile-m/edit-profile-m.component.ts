@@ -114,7 +114,7 @@ export class EditProfileMComponent implements OnInit {
     });
   }
   errorRetrieving(error){
-    console.log(error);
+  
     const cardError = error.error;
     this.toast.display({type:"error",heading:error.Title,message : cardError.message + "\n" + error.message});
     this.activeModal.close();
