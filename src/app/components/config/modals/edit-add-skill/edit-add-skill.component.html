@@ -2,17 +2,20 @@
     <button type="button" class="close" aria-label="Close" (click)="activeModal.close('Close click')">
         <span aria-hidden="true">&times;</span>
     </button>
-    <h1>Edit/Add Skill</h1>
-    <div class="row">
-        <div class="col-md-6 col-sm-12">
-            <div class="form-group">
-                <label for="skill">Skill</label>
-                <input type="text" name="skill" id="skill" class="form-control">
+    <h1 *ngIf="editSkill">Edit Skill</h1>
+    <h1 *ngIf="!editSkill">Add Skill</h1>
+    <form [formGroup]="skillForm">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group">
+                    <label for="skill">Skill</label>
+                    <input type="text" name="skill" id="skill" class="form-control" formControlName="skill">
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-0"></div>
+            <div class="col-12">
+                <button class="btn btn-outline-primary mb-4 float-right" (click)="save()">Save</button>
             </div>
         </div>
-        <div class="col-md-6 col-sm-0"></div>
-        <div class="col-12">
-            <button class="btn btn-outline-primary mb-4 float-right">Save</button>
-        </div>
-    </div>
+    </form>
 </div>

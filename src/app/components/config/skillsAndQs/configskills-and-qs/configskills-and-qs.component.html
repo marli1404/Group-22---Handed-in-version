@@ -35,8 +35,8 @@
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
-                        <!-- LOCATIONS GO HERE -->
-                        <tr><td>Do 10 pushup in 5 seconds</td><td class="text-center"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
+                        <!-- Skills GO HERE -->
+                        <tr *ngFor="let item of skills"><td>{{item.skill}}</td><td class="text-center"><i class="far fa-pencil-alt" (click)="editSkill(item.id)"></i><i class="fas fa-trash-alt ml-4" (click)="deleteSkill(item.id)"></i></td></tr>
                     </table>
                 </div>
             </div>
@@ -72,8 +72,8 @@
                                                 </tr>
                                             </thead>
                                             <!-- Requirements GO HERE -->
-                                            <tr><td>Must have 10 years in bootstrap expereince</td><td class="text-right"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
-                                            <tr><td>Must be able to run 10km in 1 hour 45 mins</td><td class="text-right"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
+                                            <tr *ngFor="let item of requirements"><td>{{item.requirement}}</td><td class="text-right"><i class="far fa-pencil-alt" (click)="editRequirement(item.id)"></i><i class="fas fa-trash-alt ml-4" (click)="deleteRequirement(item.id)"></i></td></tr>
+                                        
                                         </table>
                                     </div>
                                 </div>
@@ -109,8 +109,7 @@
                                                 </tr>
                                             </thead>
                                             <!-- QUESTIONS GO HERE -->
-                                            <tr><td>Have you ever worked in the automotive industry</td><td class="text-right"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
-                                            <tr><td>Can you speak more than 1 language</td><td class="text-right"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
+                                            <tr *ngFor="let item of longQuestions"><td>{{item.question}}</td><td class="text-right"><i class="far fa-pencil-alt" (click)="editLongQuestion(item.id)"></i><i class="fas fa-trash-alt ml-4" (click)="deleteLongQuestion(item.id)"></i></td></tr>
                                         </table>
                                     </div>
                                 </div>

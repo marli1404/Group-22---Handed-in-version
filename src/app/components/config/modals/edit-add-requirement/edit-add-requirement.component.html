@@ -2,17 +2,20 @@
     <button type="button" class="close" aria-label="Close" (click)="activeModal.close('Close click')">
         <span aria-hidden="true">&times;</span>
     </button>
-    <h1>Edit/Add Requirement</h1>
-    <div class="row">
-        <div class="col-md-6 col-sm-12">
-            <div class="form-group">
-                <label for="requirement">Requirement</label>
-                <input type="text" name="requirement" id="requirement" class="form-control">
+    <h1 *ngIf="editRequirement">Edit Requirement</h1>
+    <h1 *ngIf="!editRequirement">Add Requirement</h1>
+    <form [formGroup]="requirementForm">
+        <div class="row">
+            <div class="col-md-9 col-sm-12">
+                <div class="form-group">
+                    <label for="requirement">Requirement</label>
+                    <input type="text" name="requirement" id="requirement" class="form-control" formControlName="requirement">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-0"></div>
+            <div class="col-12">
+                <button class="btn btn-outline-primary mb-4 float-right"[disabled]="!requirementForm.valid" (click)="save()">Save</button>
             </div>
         </div>
-        <div class="col-md-6 col-sm-0"></div>
-        <div class="col-12">
-            <button class="btn btn-outline-primary mb-4 float-right">Save</button>
-        </div>
-    </div>
+    </form>
 </div>

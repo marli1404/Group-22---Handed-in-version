@@ -7,15 +7,17 @@
                     <div class="row">
                         <!-- THIS IS WHERE WE WILL ADD THE JOB REQUEST CARDS WITH THE DIV WRAPPER OF class="col-12" -->
                         <div class="col-12">
-                            <app-request-card></app-request-card>
+                            <app-request-card *ngFor="let item of requests" [cardDetails]="item" (editRequest)="fillForm($event)"></app-request-card>
+                            <h1 class="text-center no-content" *ngIf="requests.length === 0">No Job Requests</h1>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         
-        <div class="col-lg-7 col-md-12">
-            <h2>Create New Hire Request</h2>
+        <div class="col-lg-7 col-md-12" id="request" [class]=" editToggle ? 'hide' : ''">
+            <h2 *ngIf="!editing">Create New Hire Request</h2>
+            <h2 *ngIf="editing">Edit Hire Request</h2>
             <div class="sm-container panel-container">
                 <!-- FORM CONTAINER -->
                 <form [formGroup]="requestForm">
@@ -51,9 +53,13 @@
                                     <textarea name="brief" id="brief" cols="30" rows="13" class="form-control" formControlName="brief"></textarea>
                                 </div>
                             </div>
-                            <div class="col-12">
+                            <div class="col-12" *ngIf="!editing">
                                 <button class="btn btn-outline-primary float-right ml-4" [disabled]="!requestForm.valid" (click)="makeRequest()">Request</button>
                                 <button class="btn btn-outline-primary float-right">Clear</button>
+                            </div>
+                            <div class="col-12" *ngIf="editing">
+                                <button class="btn btn-outline-primary float-right ml-4" [disabled]="!requestForm.valid" (click)="saveChanges()">Save Changes</button>
+                                <button class="btn btn-outline-primary float-right" (click)="cancelEditing()">Cancel</button>
                             </div>
                         </div>
                     </div>

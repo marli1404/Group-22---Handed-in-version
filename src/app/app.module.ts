@@ -94,7 +94,7 @@ import { AddEditSlotBookingComponent } from './components/booking/modals/add-edi
 import { ViewApplicationComponent } from './components/hr/modals/view-application/view-application.component';
 import { InterceptorService } from './services/interceptor.service';
 import { ResetPasswordComponent } from './components/modals/reset-password/reset-password.component';
-
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 
 @NgModule({
   declarations: [
@@ -180,7 +180,7 @@ import { ResetPasswordComponent } from './components/modals/reset-password/reset
     AddEditSlotBookingComponent,
     ViewApplicationComponent,
     ResetPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
     
      
   ],
@@ -195,6 +195,8 @@ import { ResetPasswordComponent } from './components/modals/reset-password/reset
     NgbModule,
     ReactiveFormsModule,
     FormsModule,
+    BrowserModule,
+    BrowserAnimationsModule
     
      
   ],

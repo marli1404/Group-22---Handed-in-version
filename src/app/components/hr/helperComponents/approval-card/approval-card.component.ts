@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { JobRequestDetailsComponent } from '../job-request-details/job-request-details.component';
 import { GenerateJobCardComponent } from '../../modals/generate-job-card/generate-job-card.component';
+import { JobRequestInfo } from 'src/app/models/jobReqDetails';
 
 @Component({
   selector: 'app-approval-card',
@@ -9,6 +10,8 @@ import { GenerateJobCardComponent } from '../../modals/generate-job-card/generat
   styleUrls: ['./approval-card.component.css']
 })
 export class ApprovalCardComponent implements OnInit {
+  
+  @Input() cardDetails : JobRequestInfo;
   
   constructor( private modal :NgbModal) { }
 

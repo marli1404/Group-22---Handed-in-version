@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { JobReqCard } from 'src/app/models/jobReqCard';
 
 @Component({
   selector: 'app-request-card',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequestCardComponent implements OnInit {
 
+  @Input() cardDetails : JobReqCard = null;
+  
+  @Output() editRequest = new EventEmitter<JobReqCard>();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  outputRequest(){
+    this.editRequest.emit(this.cardDetails);
   }
 
 }

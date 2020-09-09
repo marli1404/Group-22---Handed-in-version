@@ -21,6 +21,7 @@ export class ConfigJobCardComponent implements OnInit {
   }
 
   addTest(){
+    console.log('test');
     const modalInstance = this.modal.open(EditAddTestComponent);
   }
 

@@ -11,6 +11,10 @@ import { Justification } from '../models/justification';
 import { Role } from '../models/role';
 import { ViewAuth } from '../models/viewAuth';
 import { View } from '../models/view';
+import { JobReqCard } from '../models/jobReqCard';
+import { Requirement } from '../models/requirement';
+import { LongQuestion } from '../models/longQuestion';
+import { JobRequestInfo } from '../models/jobReqDetails';
 
 
 @Injectable({
@@ -31,6 +35,9 @@ export class ApiService {
   job : string = `${this.globalRoot}API/Job/`;
   viewAuth : string = `${this.globalRoot}API/ViewAuthorisation/`;
   view : string = `${this.globalRoot}API/View/`;
+  skill : string = `${this.globalRoot}API/Skill/`;
+  requirement : string = `${this.globalRoot}API/Requirement/`;
+  longQuestion : string = `${this.globalRoot}API/LongQuestion/`;
   constructor( private http: HttpClient){ 
 
   }
@@ -127,7 +134,64 @@ export class ApiService {
   getViews(){
     return this.http.post<View[]>(this.view, {request: "getViews"});
   }
+  getJobRequestCards(){
+    return this.http.post<JobReqCard[]>(this.jobRequest,{request : "getManagersRequests"});
+  }
 
+  editJobRequest(obj : JobReqCard){
+    return this.http.post(this.jobRequest,{request : "updateJobRequest", payload: obj});
+  }
+
+  getSkills(){
+    return this.http.post(this.skill, {request : "getSkills"});
+  }
+
+  addSkill( skill : any){
+    console.log(skill);
+    return this.http.post(this.skill,{request : "createSkill", payload: skill});
+  }
+  editSkill( skill : any){
+    return this.http.post(this.skill,{request : "updateSkill", payload: skill});
+  }
+  deleteSkill( skill : any){
+    return this.http.post(this.skill,{request : "updateSkill", payload: skill});
+  }
+
+  getRequirements(){
+      return this.http.post(this.requirement, {request : "getRequirements"});
+  }
+
+  addRequirement(requirement : Requirement){
+    return this.http.post(this.requirement, {request : "createRequirement", payload : requirement});
+  }
+
+  editRequirement(requirement : Requirement){
+    return this.http.post(this.requirement, {request : "updateRequirement", payload : requirement});
+  }
+
+  deleteRequirement(id : number){
+    return this.http.post(this.requirement, {request : "updateRequirement", payload : "s"});
+  }
+
+  getLongQuestions(){
+    return this.http.post<LongQuestion[]>(this.longQuestion, {request : "getLongQuestions"});
+  }
+
+  addLongQuestions(question : LongQuestion){
+    return this.http.post(this.longQuestion, {request : "createLongQuestion", payload : question});
+  }
+
+  editLongQuestion( question : LongQuestion){
+    return this.http.post(this.longQuestion, {request : "updateLongQuestion", payload : question});
+  }
+
+  deleteLongQuestion(id : number){
+    return this.http.post(this.longQuestion, {request : "getLongQuestions"});
+  }
+
+  getJobRequests(){
+    return this.http.post<JobRequestInfo[]>(this.jobRequest, { request : "getJobRequests"});
+  }
 
 
   
