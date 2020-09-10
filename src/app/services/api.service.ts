@@ -24,6 +24,9 @@ import { Test } from '../models/test';
 import { Location } from '../models/location';
 import { Building } from '../models/building';
 import { Floor } from '../models/floor';
+import { Tafel } from '../models/tafel';
+import { TableType } from '../models/tableType';
+import { OperationAuthorisation } from '../models/operationAuthorization';
 
 
 
@@ -59,7 +62,11 @@ export class ApiService {
   location : string = `${this.globalRoot}API/Location/`;
   building : string = `${this.globalRoot}API/Building/`;
   floor : string = `${this.globalRoot}API/Floor/`;
-  
+  table : string = `${this.globalRoot}API/Tafel/`;
+  tableType : string = `${this.globalRoot}API/TableType/`;
+  operationAuthorisation : string = `${this.globalRoot}API/OperationAuthorisation/`;
+
+
   makeRequest(){
 
     this.http.post<string>(this.country,{"request":"test","payload":0},{headers:{'Authorization':'Bearer '+'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjIyNjUyLCJyb2xlcyI6W3siaWQiOjAsInJvbGUiOiJNYW5hZ2VyIn0seyJpZCI6MSwicm9sZSI6IkVtcGxveWVlIn1dLCJ2aWV3cyI6W3siaWQiOjAsInZpZXciOiJSZXBvcnQifSx7ImlkIjoxLCJyb2xlIjoiQm9va2luZyJ9XSwiZW5kU2Vzc2lvbiI6MTU5NjUzOTgzMX0.76phXVqFCK60VdOrtAEhGne-09MdRHie3kJnUbBgmbw'}})
@@ -283,7 +290,7 @@ export class ApiService {
 
 
   getBuildingsByLocation(locationId: number){
-    return this.http.post<Building[]>(this.building, {request: "getBuildingsByLocation", payload: {locationId} });
+    return this.http.post<Building[]>(this.building, {request: "getBuildingsByLocation", payload: {locationId} }); //move this into the ts
   }
 
   /////////Floor////////////////////////////
@@ -301,8 +308,12 @@ export class ApiService {
     return this.http.post(this.floor, {request: "deleteFloor", payload : {floorId}});
   }
 
+  getFloorsByBuilding(buildingId: number){
+    return this.http.post<Floor[]>(this.floor, {request: "getFloorsByBuilding", payload: {buildingId}}); //Move this into the ts
+  }
 
 
+  //////////////////////////////////////////////////
 
 
   setUpHiringTeam( card : any){
@@ -312,7 +323,7 @@ export class ApiService {
   rejectJobRequest( rejection : any){
     return this.http.post(this.jobRequest, { request : "rejectJobRequest"});
   }
-  
+
   addDepartment(department: any ){
     return this.http.post(this.department,{request :"createDepartment", payload : department});
   }
@@ -349,6 +360,39 @@ export class ApiService {
   deleteDivision(id: number){
     return this.http.post(this.division, {request : "deleteDivision", payload : {id}})
   }
+
+  /////table
+  addTable(table: any ){
+    return this.http.post(this.table,{request :"createTable", payload : table});
+  }
+  editTable(table: any){
+
+    return this.http.post(this.table,{request :"updateTable", payload: table });
+  }
+  getTables(){
+    return this.http.post<Tafel[]>(this.table, {request: "getTables"});
+  }
+  deleteTable(id: number){
+    return this.http.post(this.table, {request : "deleteTable", payload : {id}})
+  }
+
+  ///tableType
+  getTableTypes(){
+    return this.http.post<TableType[]>(this.tableType, {request: "getTableTypes"});
+  }
+  ///operationauth
+  getOperationAuthorisations(){
+    return this.http.post<OperationAuthorisation[]>(this.operationAuthorisation, {request : "getOperationAuthorisation"});
+  }
+  deleteOperationAuthorisation(roleaffected: string, roletarget : string, operationid : number, dbtableid : number){
+    return this.http.post(this.operationAuthorisation, {request : "deleteOperationAuthorisation", payload : {roleaffected, roletarget, operationid, dbtableid}})
+  }
+  addOperationAuthorisation(operationAuthorisation: any ){
+    return this.http.post(this.operationAuthorisation,{request :"createOperationAuthorisation", payload : operationAuthorisation});
+  }
+
+
+
 
 }
 
