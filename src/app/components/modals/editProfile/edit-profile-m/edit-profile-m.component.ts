@@ -27,11 +27,11 @@ export class EditProfileMComponent implements OnInit {
   country$ : Observable<Country[]>;
   nationality$ : Observable<Nationality[]>;
 
-  constructor( public activeModal : NgbActiveModal, private modal : NgbModal, private formBuilder : FormBuilder, private api : ApiService, private toast : ToastsService) { 
-    
+  constructor( public activeModal : NgbActiveModal, private modal : NgbModal, private formBuilder : FormBuilder, private api : ApiService, private toast : ToastsService) {
+
   }
 
-  
+
   ngOnInit(): void {
 
     this.country$ = this.api.getCountries();
@@ -39,7 +39,7 @@ export class EditProfileMComponent implements OnInit {
     this.getProfileDetails();
     this.buildForm();
   }
-  
+
 
   changeImage(){
     const uploadInstance = this.modal.open(UploadImageComponent, { size: 'lg', backdrop: 'static' });
@@ -49,7 +49,7 @@ export class EditProfileMComponent implements OnInit {
       {
         this.profileOwner.imgUrl = res;
       }
-      
+
     });
   }
 
@@ -59,8 +59,8 @@ export class EditProfileMComponent implements OnInit {
   }
   buildForm(){
     this.editProfile = this.formBuilder.group({
-      name : ['',[Validators.required, Validators.pattern("[a-zA-Z]+") ]],
-      surname : ['',[Validators.required,  Validators.pattern("[a-zA-Z]+")]],
+      name : ['',[Validators.required, Validators.pattern("^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])*$") ]],
+      surname : ['',[Validators.required,  Validators.pattern("^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])*$")]],
       contact : ['',[Validators.required, Validators.maxLength(10) ]],
       email : ['',[Validators.required, Validators.email, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9._]+\.[a-z]{2,4}$")]],
       countryId : [null,[Validators.required]],
@@ -94,11 +94,11 @@ export class EditProfileMComponent implements OnInit {
   }
 
   getProfileDetails(){
-    this.api.getUsersOwnProfile().subscribe( 
+    this.api.getUsersOwnProfile().subscribe(
       success => this.populatePage(success),
       error => this.errorRetrieving(error)
       );
-    
+
   }
   populatePage(userInfo : UserProfile){
     this.profileOwner = userInfo;
@@ -114,7 +114,7 @@ export class EditProfileMComponent implements OnInit {
     });
   }
   errorRetrieving(error){
-  
+
     const cardError = error.error;
     this.toast.display({type:"error",heading:error.Title,message : cardError.message + "\n" + error.message});
     this.activeModal.close();
@@ -122,12 +122,12 @@ export class EditProfileMComponent implements OnInit {
 
   saveChanges(){
       this.api.editAccount(this.getFormValues()).subscribe(
-        success => 
+        success =>
         {
           this.activeModal.close({id : this.profileOwner.id, userName: this.getFormValues().name, userSurname : this.getFormValues().surname, imgUrl : this.profileOwner.imgUrl});
           this.toast.display({type:"success",heading : success.Title, message : success.message})
         },
-        error => 
+        error =>
         {
           const cardError = error.error;
           this.toast.display({type:"error",heading:error.Title,message : cardError.message + "\n" + error.message});
@@ -147,9 +147,9 @@ export class EditProfileMComponent implements OnInit {
   }
 
   dismiss(){
-  
+
     this.activeModal.close(this.profileOwner);
-    
+
   }
 
 }

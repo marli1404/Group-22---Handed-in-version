@@ -12,9 +12,19 @@
                     <label for="password" class="forgot" [routerLink]="['ForgotPassword']" routerLinkActive="router-link-active" ><i>Forgot Password?</i></label>
                     <input type="password" name="password" id="password" class="form-control" formControlName="password">
                 </div>
-                <div class="alert alert-warning text-center">
-                    <p>No matching email or password</p>
+                <!--Validation-->
+                <div *ngIf="password.invalid && ( password.dirty || password.touched) && (password.errors.required  || password.errors.invalid)" class="alert alert-danger text-center">
+                  Password  is required.
                 </div>
+
+                <div *ngIf="email.invalid && ( email.dirty || email.touched) && (email.errors.required  || email.errors.invalid)" class="alert alert-danger text-center">
+                  Email is required.
+                </div>
+
+                <div *ngIf=" email.invalid && email.touched && email.errors.pattern" class="alert alert-danger text-center">
+                  Email needs to be a valid email with an @-sign and dot-character (.)
+                </div>
+
                 <div class="form-group">
                     <button type="button" class="btn btn-primary form-control" (click)="login()">Login</button>
                 </div>
@@ -28,9 +38,14 @@
             <div class="text-right">
                 <button [routerLink]="['CreateAccount']" routerLinkActive="router-link-active"  class="btn btn-primary">Create Account</button>
             </div>
-            
+
         </div>
-        
+
     </div>
     <div class="footer"></div>
+
+
+
+
+
 </div>

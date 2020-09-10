@@ -9,26 +9,26 @@
                 <div class="col-md-4 col-sm-12">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input class="form-control" [class.is-invalid]="userName.touched && !userName.valid" type="text" name="name" id="name" formControlName='name' required>
+                        <input class="form-control" [class.is-invalid]="userName.touched && !userName.valid" type="text" name="name" id="name" formControlName='name' >
                     </div>
                     <div class="form-group">
                         <label for="contact">Contact</label>
-                        <input class="form-control" [class.is-invalid]="userContact.touched && !userContact.valid" type="tel" name="contact" id="contact" formControlName='contact' minlength="10" maxlength="10" required>
+                        <input class="form-control" [class.is-invalid]="userContact.touched && !userContact.valid" type="tel" name="contact" id="contact" formControlName='contact' minlength="10" maxlength="10" >
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input class="form-control" [class.is-invalid]="userEmail.touched && !userEmail.valid" type="email" name="email" id="email" formControlName='email' pattern="^[a-z0-9._%+-]+@[a-z0-9._]+\.[a-z]{2,4}$" required>
+                        <input class="form-control" [class.is-invalid]="userEmail.touched && !userEmail.valid" type="email" name="email" id="email" formControlName='email' pattern="^[a-z0-9._%+-]+@[a-z0-9._]+\.[a-z]{2,4}$" >
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input class="form-control" [class.is-invalid]="userPass.touched && !userPass.valid" type="password" name="password" id="password" formControlName='password' minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" required>
+                        <input class="form-control" [class.is-invalid]="userPass.touched && !userPass.valid" type="password" name="password" id="password" formControlName='password' minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" >
                     </div>
                 </div>
                 <!-- RIGHT SIDE OF FORM-->
                 <div class="col-md-4 col-sm-12">
                     <div class="form-group">
                         <label for="surname">Surname</label>
-                        <input class="form-control" [class.is-invalid]="userSurname.touched && !userSurname.valid" type="text" name="surname" id="surname" formControlName='surname' required>
+                        <input class="form-control" [class.is-invalid]="userSurname.touched && !userSurname.valid" type="text" name="surname" id="surname" formControlName='surname'>
                     </div>
                     <div class="form-group">
                         <label for="country">Select which country you live in</label>
@@ -46,7 +46,7 @@
                     </div>
                     <div class="form-group">
                         <label for="confrimPass">Confirmation Password</label>
-                        <input class="form-control" [class.is-invalid]="userPassConfirm.touched && !userPassConfirm.valid" type="password" name="confrimPass" id="confrimPass" formControlName='passconfirm' minlength="8" required>
+                        <input class="form-control" [class.is-invalid]="userPassConfirm.touched && !userPassConfirm.valid" type="password" name="confrimPass" id="confrimPass" formControlName='passconfirm' minlength="8" >
                     </div>
                 </div>
                 <div class="col-md-2 col-sm-0"></div>
