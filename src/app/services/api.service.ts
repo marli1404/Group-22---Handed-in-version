@@ -11,6 +11,9 @@ import { Justification } from '../models/justification';
 import { Role } from '../models/role';
 import { ViewAuth } from '../models/viewAuth';
 import { View } from '../models/view';
+import { Division } from '../models/division';
+import { Department } from '../models/department';
+import { Team } from '../models/team';
 
 
 @Injectable({
@@ -31,11 +34,14 @@ export class ApiService {
   job : string = `${this.globalRoot}API/Job/`;
   viewAuth : string = `${this.globalRoot}API/ViewAuthorisation/`;
   view : string = `${this.globalRoot}API/View/`;
-  constructor( private http: HttpClient){ 
+  department : string = `${this.globalRoot}API/Department/`;
+  division : string = `${this.globalRoot}API/Division/`;
+  team : string = `${this.globalRoot}API/Team/`;
+  constructor( private http: HttpClient){
 
   }
   makeRequest(){
-    
+
     this.http.post<string>(this.country,{"request":"test","payload":0},{headers:{'Authorization':'Bearer '+'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjIyNjUyLCJyb2xlcyI6W3siaWQiOjAsInJvbGUiOiJNYW5hZ2VyIn0seyJpZCI6MSwicm9sZSI6IkVtcGxveWVlIn1dLCJ2aWV3cyI6W3siaWQiOjAsInZpZXciOiJSZXBvcnQifSx7ImlkIjoxLCJyb2xlIjoiQm9va2luZyJ9XSwiZW5kU2Vzc2lvbiI6MTU5NjUzOTgzMX0.76phXVqFCK60VdOrtAEhGne-09MdRHie3kJnUbBgmbw'}})
     .subscribe( success => console.log(success),
     error => console.log("ERROR",error));
@@ -56,11 +62,11 @@ export class ApiService {
   getUserProfileLite(userId: number){
     return this.http.post<userCard>(this.user,{request:"getWidgetDetails",payload:{id:userId}});
   }
-  
+
   getUsersOwnProfile(){
     return this.http.post<UserProfile>(this.user,{request:"getUserProfile"});
   }
-  
+
   createJobRequest(request : any){
     console.log()
     return this.http.post(this.jobRequest,{request:"createJobRequest",payload:request});
@@ -71,7 +77,7 @@ export class ApiService {
   }
 
   uploadProfile(file : File){
-    
+
     let uploadData : FormData = new FormData();
     uploadData.append('request','changeProfileImage');
     uploadData.append('image',file);
@@ -129,6 +135,42 @@ export class ApiService {
   }
 
 
+  addDepartment(department: any ){
+    return this.http.post(this.department,{request :"createDepartment", payload : department});
+  }
+  addDivision(division: any ){
+    return this.http.post(this.division,{request :"createDivision", payload : division});
+  }
 
-  
+  editDepartment(department: Department){
+
+    return this.http.post(this.department,{request :"updateDepartment", payload: department });
+  }
+  editDivision(division: any){
+
+    return this.http.post(this.division,{request :"updateDivision", payload: division });
+  }
+
+  getDivisions(){
+    return this.http.post<Division[]>(this.division, {request: "getDivisions"});
+  }
+
+  getDepartments(){
+    return this.http.post<Department[]>(this.department, {request: "getDepartments"});
+  }
+
+  getTeamsByDepartment(departmentId: number){
+    return this.http.post<Team[]>(this.team, {request: "getTeamsByDepartment", payload: {departmentId} });
+  }
+
+
+
+  deleteDepartment(departmentId: number){
+    return this.http.post(this.department, {request : "deleteDepartment", payload : {departmentId}})
+  }
+  deleteDivision(id: number){
+    return this.http.post(this.division, {request : "deleteDivision", payload : {id}})
+  }
+
 }
+
