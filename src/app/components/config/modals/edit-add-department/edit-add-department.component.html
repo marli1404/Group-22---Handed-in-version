@@ -2,18 +2,22 @@
     <button type="button" class="close" aria-label="Close" (click)="activeModal.close('Close click')">
         <span aria-hidden="true">&times;</span>
     </button>
-    <h1>Edit/New Department</h1>
-    <div class="row">
+    <h1 *ngIf="editDepartment">Edit Department</h1>
+     <h1 *ngIf="!editDepartment">Add Department</h1>
+    <form [formGroup]="departmentForm">
+      <div class="row">
         <div class="col-md-6 col-sm-12">
             <div class="form-group">
                 <label for="division">Select Division</label>
-                <select name="division" id="division" class="form-control">
-                    <option value="null">FZ-5</option>
-                </select>
+                <select name="division" id="division" class="form-control" formControlName="divisionId">
+                    <option value="null" selected disabled>Please select a division</option>
+                    <option *ngFor="let item of divisions" [value]="item.divisionId">{{item.description}} </option>
+
+                  </select>
             </div>
             <div class="form-group">
                 <label for="department">Department Name</label>
-                <input type="text" name="department" id="department" class="form-control">
+                <input type="text" name="department" id="department" class="form-control" formControlName="name">
             </div>
         </div>
         <div class="col-md-6 col-sm-0"></div>
@@ -21,9 +25,10 @@
         <div class="col-12">
             <div class="form-group">
                 <label for="departmentDetails">Department Details</label>
-                <textarea name="departmentDetails" id="departmentDetails" cols="30" rows="3" class="form-control"></textarea>
+                <textarea name="departmentDetails" id="departmentDetails" cols="30" rows="3" class="form-control" formControlName="description"></textarea>
             </div>
-            <button class="btn btn-outline-primary mb-4 float-right">Save</button>
+            <button class="btn btn-outline-primary mb-4 float-right" [disabled]="!departmentForm.valid" (click)="save()">Save</button>
         </div>
     </div>
+  </form>
 </div>

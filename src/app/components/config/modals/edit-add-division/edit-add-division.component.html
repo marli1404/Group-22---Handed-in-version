@@ -2,12 +2,14 @@
     <button type="button" class="close" aria-label="Close" (click)="activeModal.close('Close click')">
         <span aria-hidden="true">&times;</span>
     </button>
-    <h1>Edit/New Division</h1>
+    <h1 *ngIf="editDivision">Edit Division</h1>
+     <h1 *ngIf="!editDivision">Add Division</h1>
+    <form [formGroup]="divisionForm">
     <div class="row">
         <div class="col-md-6 col-sm-12">
             <div class="form-group">
                 <label for="division">Division Name</label>
-                <input type="text" name="division" id="division" class="form-control">
+                <input type="text" name="division" id="division" class="form-control" formControlName="name">
             </div>
         </div>
         <div class="col-md-6 col-sm-0"></div>
@@ -15,9 +17,10 @@
         <div class="col-12">
             <div class="form-group">
                 <label for="divisionDetails">Division Details</label>
-                <textarea name="divisionDetails" id="divisionDetails" cols="30" rows="3" class="form-control"></textarea>
+                <textarea name="divisionDetails" id="divisionDetails" cols="30" rows="3" class="form-control" formControlName="description"></textarea>
             </div>
-            <button class="btn btn-outline-primary mb-4 float-right">Save</button>
+            <button class="btn btn-outline-primary mb-4 float-right" [disabled]="!divisionForm.valid" (click)="save()">Save</button>
         </div>
     </div>
+    </form>
 </div>
