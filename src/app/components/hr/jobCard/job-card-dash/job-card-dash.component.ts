@@ -11,11 +11,29 @@ import { ToastsService } from 'src/app/services/toasts.service';
 })
 export class JobCardDashComponent implements OnInit {
 
- constructor(){}
+
+  assignedCards : JobRequestInfo [] = [];
+  constructor(private api : ApiService, private toast : ToastsService){}
 
 
- ngOnInit(){
-   
+  ngOnInit(){
+    this.loadData();
+  }
+
+ loadData(){
+  this.getAssignedCards();
+
  }
 
+ getAssignedCards(){
+   this.api.getAssignedJobCards().subscribe( succ => this.retCardSuccess(succ), err => this.retCardFail(err));
+ }
+ retCardSuccess(success){
+    this.assignedCards = success;
+    console.log(success);
+ }
+
+ retCardFail(error){
+   this.toast.display({type : "Error", heading : error.error?.Title, message : error.error.message + "\n" + error.message});
+ }
 }

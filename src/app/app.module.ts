@@ -95,6 +95,7 @@ import { ViewApplicationComponent } from './components/hr/modals/view-applicatio
 import { InterceptorService } from './services/interceptor.service';
 import { ResetPasswordComponent } from './components/modals/reset-password/reset-password.component';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
+import { JobCardHelperService } from './services/job-card-helper.service';
 
 @NgModule({
   declarations: [
@@ -203,6 +204,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
   providers: [
     FormBuilder,
     ToastsService,
+    JobCardHelperService,
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
     
     

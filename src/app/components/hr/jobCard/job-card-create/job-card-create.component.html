@@ -62,7 +62,7 @@
                       </div>
                     </div>
                     <div class="bs-stepper-content">
-                      <form (ngSubmit)="onSubmit()">
+                        <form [formGroup]="basicDetails">
                         <div id="test-l-1" class="content">
                             <!-- BASIC DETAILS -->
                             <h4>Basic Details</h4>
@@ -71,51 +71,52 @@
                                     <div class="col-lg-4 col-md-12">
                                         <div class="form-group">
                                             <label for="cardName">Job Card Name</label>
-                                            <input type="text" id="cardName" name="cardName" class="form-control">
+                                            <input type="text" id="cardName" name="cardName" class="form-control" formControlName="jobCardName">
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-12">
                                         <div class="form-group">
                                             <label for="startDate">Start Date</label>
-                                            <input type="date" id="startDate" name="startDate" class="form-control">
+                                            <input type="date" id="startDate" name="startDate" class="form-control" formControlName="startDate">
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-12">
                                         <div class="form-group">
                                             <label for="endDate">End Date</label>
-                                            <input type="date" id="endDate" name="endDate" class="form-control">
+                                            <input type="date" id="endDate" name="endDate" class="form-control" formControlName="endDate">
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="intro">Introduction</label>
-                                            <textarea name="intro" id="intro" cols="30" rows="2" class="form-control"></textarea>
+                                            <textarea name="intro" id="intro" cols="30" rows="2" class="form-control" formControlName="introduction"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="description">Description</label>
-                                            <textarea name="description" id="description" cols="30" rows="2" class="form-control"></textarea>
+                                            <textarea name="description" id="description" cols="30" rows="2" class="form-control" formControlName="description"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-md-12">
                                         <div class="form-group">
                                             <label for="travel">Expected to travel</label>
-                                            <input id="travel" name="travel" type="checkbox" class="form-control">
+                                            <input id="travel" name="travel" type="checkbox" class="form-control" formControlName="travel">
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-md-12">
                                         <div class="form-group">
                                             <label for="publishDate">Publishing date</label>
-                                            <input id="publishDate" name="publishDate" type="date" class="form-control">
+                                            <input id="publishDate" name="publishDate" type="date" class="form-control" formControlName="publishDate">
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-md-12">
                                         <div class="form-group">
                                             <div class="form-group">
                                                 <label for="location">Primary Location</label>
-                                                <select name="location" id="location" class="form-control">
+                                                <select name="location" id="location" class="form-control" formControlName="locationId">
                                                     <option value="null" selected disabled>Select Location</option>
+                                                    <option *ngFor="let item of locations" [value]="item.locationId">{{item.name}}</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -124,8 +125,9 @@
                                         <div class="form-group">
                                             <div class="form-group">
                                                 <label for="requisition">Requisition Approval</label>
-                                                <select name="requisition" id="requisition"  class="form-control">
+                                                <select name="requisition" id="requisition"  class="form-control" formControlName="raApprovalId">
                                                     <option value="null" selected disabled>Select Requisition</option>
+                                                    <option *ngFor="let item of rApprovals" [value]="item.id">{{item.approval}}</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -134,14 +136,15 @@
                                     <div class="col-lg-3 col-md-12">
                                         <div class="form-group">
                                             <label for="closingDate">Closing date</label>
-                                            <input id="closingDate" name="closingDate" type="date" class="form-control">
+                                            <input id="closingDate" name="closingDate" type="date" class="form-control" formControlName="closingDate">
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-md-12">
                                         <div class="form-group">
                                             <label for="schedule">Schedule</label>
-                                            <select name="schedule" id="schedule"  class="form-control">
+                                            <select name="schedule" id="schedule"  class="form-control" formControlName="scheduleId">
                                                 <option value="null" selected disabled>Select Schedule</option>
+                                                <option *ngFor="let item of schedules" [value]="item.id">{{item.schedule}}</option>
                                             </select>
                                         </div>
                                     </div>
@@ -151,19 +154,19 @@
                                 </div>
                             </div>
                             <!-- BASIC DETAILS END -->
-                          
                         </div>
+                        </form> 
                         <div id="test-l-2" class="content">
                             <!-- TEST DETAILS -->
                           <div class="container-fluid">
                             <h4>Add Tests</h4>
                             <div class="row">
-                                <div class="col-lg-3 col-md-12">
+                                <!-- <div class="col-lg-3 col-md-12">
                                     <div class="form-group">
                                         <label for="SearchTest">Search Tests</label>
                                         <input type="text" name="SearchTest" id="SearchTest" class="form-control">
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="col-lg-9 col-md-0"></div>
                                 <div class="col-12">
                                     <table class="table">
@@ -173,12 +176,10 @@
                                             <th>Action</th>
                                         </thead>
                                         <tbody>
-                                            <tr><td>Casino</td><td>The user must be able to code a black jack game</td><td><i class="fa fa-plus"></i></td></tr>
-                                            <tr><td>Test</td><td>The user must be able to code a black jack game</td><td><i class="fa fa-plus"></i></td></tr>
-                                            <tr><td>Rummy Cub</td><td>Must be able to code a game of rummy cub that can hold only 2 members</td><td><i class="fa fa-plus"></i></td></tr>
+                                            <tr *ngFor="let item of tests | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize"><td>{{item.testName}}</td><td>{{item.description}}</td><td><i class="fa fa-plus" (click)="addTest(item.testId)"></i></td></tr>
                                         </tbody>
                                     </table>
-                                    <ngb-pagination [pageSize]="pageSize" [collectionSize]="collectionSize"></ngb-pagination>
+                                    <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="testCollectionSize"></ngb-pagination>
                                 </div>
                                 <div class="col-12">
                                     <hr>
@@ -190,12 +191,10 @@
                                             <th>Action</th>
                                         </thead>
                                         <tbody>
-                                            <tr><td>Casino</td><td><input type="checkbox"><label class="ml-2">Mark as critical</label></td><td><i class="fas fa-times"></i></td></tr>
-                                            <tr><td>Test</td><td><input type="checkbox"><label class="ml-2">Mark as critical</label></td><td><i class="fas fa-times"></i></td></tr>
-                                            <tr><td>Rummy Cub</td><td><input type="checkbox"><label class="ml-2">Mark as critical</label></td><td><i class="fas fa-times"></i></td></tr>
+                                            <tr *ngFor="let item of addedTests"><td>{{item.testName}}</td><td>{{item.description}}</td><td><i class="fa fa-times" (click)="removeTest(item.testId)"></i></td></tr>
                                         </tbody>
                                     </table>
-                                    <ngb-pagination [pageSize]="pageSize" [collectionSize]="collectionSize"></ngb-pagination>
+                                    <!-- <ngb-pagination [pageSize]="pageSize" [collectionSize]="collectionSize"></ngb-pagination> -->
                                     <button (click)="next()" class="btn btn-outline-primary float-right mt-4 ml-4">Next</button>
                                     <button (click)="previous()" class="btn btn-outline-primary float-right mt-4">Previous</button>
                                 </div>
@@ -206,12 +205,12 @@
                             <div class="container-fluid">
                                 <h4>Add Languages</h4>
                                 <div class="row">
-                                    <div class="col-lg-4 col-sm-12">
+                                    <!-- <div class="col-lg-4 col-sm-12">
                                         <div class="form-group">
                                             <label for="searchLang">Search Language</label>
                                             <input type="text" name="searchLang" id="searchLang" class="form-control">
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="col-4-lg col-sm-0"></div>
                                     <div class="col-12">
                                         <table class="table">
@@ -220,12 +219,10 @@
                                                 <th class="text-center">Action</th>
                                             </thead>
                                             <tbody>
-                                                <tr><td>English</td><td class="text-center"><i class="fa fa-plus"></i></td></tr>
-                                                <tr><td>Afrikaans</td><td class="text-center"><i class="fa fa-plus"></i></td></tr>
-                                                <tr><td>German</td><td class="text-center"><i class="fa fa-plus"></i></td></tr>
+                                                <tr *ngFor="let item of languages | slice: (langPage-1) * pageSize : (langPage-1) * pageSize + pageSize"><td>{{item.language}}</td><td class="text-center"><i class="fa fa-plus"></i></td></tr>
                                             </tbody>
                                         </table>
-                                        <ngb-pagination [pageSize]="pageSize" [collectionSize]="collectionSize"></ngb-pagination>
+                                        <ngb-pagination [(page)]="langPage" [pageSize]="pageSize" [collectionSize]="languageCollectionSize"></ngb-pagination> 
                                     </div>
                                     <div class="col-12">
                                         <h4>Added Languages</h4>
@@ -265,7 +262,7 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <ngb-pagination [pageSize]="pageSize" [collectionSize]="collectionSize"></ngb-pagination>
+                                        <!-- <ngb-pagination [pageSize]="pageSize" [collectionSize]="collectionSize"></ngb-pagination> -->
                                         <button (click)="next()" class="btn btn-outline-primary float-right mt-4 ml-4">Next</button>
                                         <button (click)="previous()" class="btn btn-outline-primary float-right mt-4">Previous</button>
                                     </div>
@@ -278,12 +275,12 @@
                             <div class="container-fluid">
                                 <h4>Add Skills</h4>
                                 <div class="row">
-                                    <div class="col-lg-4 col-sm-12">
+                                    <!-- <div class="col-lg-4 col-sm-12">
                                         <div class="form-group">
                                             <label for="searchSkill">Search Skill</label>
                                             <input type="text" name="searchSkill" id="searchSkill" class="form-control">
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="col-4-lg col-sm-0"></div>
                                     <div class="col-12">
                                         <table class="table">
@@ -292,11 +289,12 @@
                                                 <th class="text-center">Action</th>
                                             </thead>
                                             <tbody>
-                                                <tr><td>Able to do 20 pushups</td><td class="text-center"><i class="fa fa-plus"></i></td></tr>
-                                                <tr><td>Code a program in 5 mins</td><td class="text-center"><i class="fa fa-plus"></i></td></tr>
+                                                <tr *ngFor="let item of skills | slice: (skillpage-1) * pageSize : (skillpage-1) * pageSize + pageSize">
+                                                    <td>{{item.skill}}</td><td class="text-center"><i class="fa fa-plus"></i></td>
+                                                </tr>
                                             </tbody>
                                         </table>
-                                        <ngb-pagination [pageSize]="pageSize" [collectionSize]="collectionSize"></ngb-pagination>
+                                        <ngb-pagination [(page)]="skillpage" [pageSize]="pageSize" [collectionSize]="skillCollectionSize"></ngb-pagination>
                                     </div>
                                     <div class="col-12">
                                         <h4>Added Skills</h4>
@@ -335,7 +333,7 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <ngb-pagination [pageSize]="pageSize" [collectionSize]="collectionSize"></ngb-pagination>
+                                        <!-- <ngb-pagination [pageSize]="pageSize" [collectionSize]="collectionSize"></ngb-pagination> -->
                                         <button (click)="next()" class="btn btn-outline-primary float-right mt-4 ml-4">Next</button>
                                         <button (click)="previous()" class="btn btn-outline-primary float-right mt-4">Previous</button>
                                     </div>
@@ -348,12 +346,12 @@
                             <div class="container-fluid">
                                 <h4>Add Long Question</h4>
                                 <div class="row">
-                                    <div class="col-lg-4 col-sm-12">
+                                    <!-- <div class="col-lg-4 col-sm-12">
                                         <div class="form-group">
                                             <label for="searchQuestion">Search Question</label>
                                             <input type="text" name="searchQuestion" id="searchQuestion" class="form-control">
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="col-4-lg col-sm-0"></div>
                                     <div class="col-12">
                                         <table class="table">
@@ -362,10 +360,10 @@
                                                 <th class="text-center">Action</th>
                                             </thead>
                                             <tbody>
-                                                <tr><td>How do you cope under pressure</td><td class="text-center"><i class="fa fa-plus"></i></td></tr>
+                                                <tr *ngFor="let item of longQuestions | slice: (questionPage-1) * pageSize : (questionPage-1) * pageSize + pageSize"><td>{{item.question}}</td><td class="text-center"><i class="fa fa-plus"></i></td></tr>
                                             </tbody>
                                         </table>
-                                        <ngb-pagination [pageSize]="pageSize" [collectionSize]="collectionSize"></ngb-pagination>
+                                        <ngb-pagination [(page)]="questionPage" [pageSize]="pageSize" [collectionSize]="longQuestionCollectionSize"></ngb-pagination>
                                     </div>
                                     <div class="col-12">
                                         <h4>Added Questions</h4>
@@ -383,7 +381,7 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <ngb-pagination [pageSize]="pageSize" [collectionSize]="collectionSize"></ngb-pagination>
+                                        <!-- <ngb-pagination [pageSize]="pageSize" [collectionSize]="collectionSize"></ngb-pagination> -->
                                         <button (click)="next()" class="btn btn-outline-primary float-right mt-4 ml-2">Next</button>
                                         <button (click)="previous()" class="btn btn-outline-primary float-right mt-4">Previous</button>
                                     </div>
@@ -396,12 +394,12 @@
                             <div class="container-fluid">
                                 <h4>Add Requirement</h4>
                                 <div class="row">
-                                    <div class="col-lg-4 col-sm-12">
+                                    <!-- <div class="col-lg-4 col-sm-12">
                                         <div class="form-group">
                                             <label for="searchRequirement">Search Requirement</label>
                                             <input type="text" name="searchRequirement" id="searchRequirement" class="form-control">
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="col-4-lg col-sm-0"></div>
                                     <div class="col-12">
                                         <table class="table">
@@ -410,10 +408,13 @@
                                                 <th class="text-center">Action</th>
                                             </thead>
                                             <tbody>
-                                                <tr><td>No Criminal record</td><td class="text-center"><i class="fa fa-plus"></i></td></tr>
+                                                <tr *ngFor="let item of requirements | slice: (requirementPage-1) * pageSize : (requirementPage-1) * pageSize + pageSize">
+                                                    <td>{{item.requirement}}</td><td class="text-center"><i class="fa fa-plus"></i></td>
+                                                </tr>
+                                                
                                             </tbody>
                                         </table>
-                                        <ngb-pagination [pageSize]="pageSize" [collectionSize]="collectionSize"></ngb-pagination>
+                                        <ngb-pagination [(page)]="requirementPage" [pageSize]="pageSize" [collectionSize]="requirementCollectionSize"></ngb-pagination>
                                     </div>
                                     <div class="col-12">
                                         <h4>Added Questions</h4>
@@ -439,7 +440,7 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <ngb-pagination [pageSize]="pageSize" [collectionSize]="collectionSize"></ngb-pagination>
+                                        <!-- <ngb-pagination [pageSize]="pageSize" [collectionSize]="collectionSize"></ngb-pagination> -->
                                         <button (click)="next()" class="btn btn-outline-primary float-right mt-4 ml-2">Next</button>
                                         <button (click)="previous()" class="btn btn-outline-primary float-right mt-4">Previous</button>
                                     </div>
@@ -509,7 +510,6 @@
                                 </div>
                             </div>
                         </div>
-                      </form>
                     </div>
                   </div>
             </div>  

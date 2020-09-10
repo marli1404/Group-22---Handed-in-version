@@ -24,6 +24,9 @@ import { Test } from '../models/test';
 import { Location } from '../models/location';
 import { Building } from '../models/building';
 import { Floor } from '../models/floor';
+import { Schedule } from '../models/schedule';
+import { RequisitionApproval } from '../models/requisitionApproval';
+import { Language } from '../models/language';
 
 
 
@@ -52,14 +55,18 @@ export class ApiService {
   jobCard : string = `${this.globalRoot}API/JobCard/`;
   department : string = `${this.globalRoot}API/Department/`;
   division : string = `${this.globalRoot}API/Division/`;
-  team : string = `${this.globalRoot}API/Team/`;
-  constructor( private http: HttpClient){ }
+  team : string = `${this.globalRoot}API/Team/`;  
   stage : string = `${this.globalRoot}API/Stage/`;
   test : string = `${this.globalRoot}API/Test/`;
   location : string = `${this.globalRoot}API/Location/`;
   building : string = `${this.globalRoot}API/Building/`;
   floor : string = `${this.globalRoot}API/Floor/`;
+  schedule : string = `${this.globalRoot}API/Schedule/`;
+  requisitionApproval : string = `${this.globalRoot}API/RequisitionApproval/`;
+  language : string = `${this.globalRoot}API/Language/`;
   
+  constructor( private http: HttpClient){ }
+
   makeRequest(){
 
     this.http.post<string>(this.country,{"request":"test","payload":0},{headers:{'Authorization':'Bearer '+'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjIyNjUyLCJyb2xlcyI6W3siaWQiOjAsInJvbGUiOiJNYW5hZ2VyIn0seyJpZCI6MSwicm9sZSI6IkVtcGxveWVlIn1dLCJ2aWV3cyI6W3siaWQiOjAsInZpZXciOiJSZXBvcnQifSx7ImlkIjoxLCJyb2xlIjoiQm9va2luZyJ9XSwiZW5kU2Vzc2lvbiI6MTU5NjUzOTgzMX0.76phXVqFCK60VdOrtAEhGne-09MdRHie3kJnUbBgmbw'}})
@@ -247,13 +254,17 @@ export class ApiService {
   getHiringTeam(){
     return this.http.post<HiringTeam>(this.userRole, { request : "getHiringTeam"});
   }
+
+  rejectRequest(message){
+    return this.http.post(this.jobRequest, { request : "rejectJobRequest", payload : message});
+  }
   /////////////////////////Location//////////////////////////////////////
   getLocations(){
     return this.http.post<Location[]>(this.location, {request: "getLocations"});
   }
 
   addLocation(location : any){
-    return this.http.post(this.location,{request :"createLocation",payload : location})
+    return this.http.post(this.location,{request :"createLocation",payload : location});
   }
   editLocation( location : Location){
     return this.http.post(this.location,{request :"updateLocation",payload :location});
@@ -268,7 +279,7 @@ export class ApiService {
 
   /////////Building/////////
   addBuilding(building : any){
-    return this.http.post(this.building,{request :"createBuilding",payload : building})
+    return this.http.post(this.building,{request :"createBuilding",payload : building});
   }
   editBuilding( building : Building){
     return this.http.post(this.building,{request :"updateBuilding",payload :building});
@@ -281,14 +292,13 @@ export class ApiService {
     return this.http.post(this.building, {request: "deleteBuilding", payload : {buildingId}});
   }
 
-
   getBuildingsByLocation(locationId: number){
     return this.http.post<Building[]>(this.building, {request: "getBuildingsByLocation", payload: {locationId} });
   }
 
   /////////Floor////////////////////////////
   addFloor(floor : any){
-    return this.http.post(this.floor,{request :"createFloor",payload : floor})
+    return this.http.post(this.floor,{request :"createFloor",payload : floor});
   }
   editFloor( floor : Floor){
     return this.http.post(this.floor,{request :"updateFloor",payload :floor});
@@ -300,10 +310,6 @@ export class ApiService {
   deleteFloor(floorId : number){
     return this.http.post(this.floor, {request: "deleteFloor", payload : {floorId}});
   }
-
-
-
-
 
   setUpHiringTeam( card : any){
     return this.http.post(this.jobCard, { request : "generateJobCard", payload : card});
@@ -341,14 +347,31 @@ export class ApiService {
     return this.http.post<Team[]>(this.team, {request: "getTeamsByDepartment", payload: {departmentId} });
   }
 
-
-
   deleteDepartment(departmentId: number){
-    return this.http.post(this.department, {request : "deleteDepartment", payload : {departmentId}})
+    return this.http.post(this.department, {request : "deleteDepartment", payload : {departmentId}});
   }
+
   deleteDivision(id: number){
-    return this.http.post(this.division, {request : "deleteDivision", payload : {id}})
+    return this.http.post(this.division, {request : "deleteDivision", payload : {id}});
   }
+
+  getAssignedJobCards(){
+    return this.http.post<JobRequestInfo[]>( this.jobRequest, { request : "getAssignedCards"});
+  }
+
+  getSchedule(){
+    return this.http.post<Schedule[]>( this.schedule, {request : "getSchedules"}); 
+  }
+
+  getRequisitionApprovals(){
+    return this.http.post<RequisitionApproval[]>( this.requisitionApproval, { request : "getRequisitionApprovals"});
+  }
+
+  getLanguages(){
+    return this.http.post<Language[]>( this.language , { request : "getLanguages"});
+  }
+
+
 
 }
 

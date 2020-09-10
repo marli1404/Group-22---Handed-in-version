@@ -3,8 +3,8 @@
     <form [formGroup]="rejectForm">
         <textarea name="rejectionMsg" id="rejectionMsg" cols="30" rows="10" class="form-control" formControlName="rejectionMessage"></textarea>
         <div class="container-fluid">
-            <button class="btn btn-outline-danger float-right mt-4 ml-4 mb-4" [disabled]="!this.rejectForm" (click)="save()">Reject</button>
-            <button class="btn btn-outline-primary float-right mt-4 mb-4" (click)="modal.close('Close click')">Cancel</button>
+            <button class="btn btn-outline-danger float-right mt-4 ml-4 mb-4" [disabled]="!this.rejectForm.valid" (click)="save()">Reject</button>
+            <button class="btn btn-outline-primary float-right mt-4 mb-4" (click)="activeModal.close('Close click')">Cancel</button>
         </div>
     </form>
 </div>

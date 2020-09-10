@@ -1,7 +1,9 @@
 <div class="assignedCard">
     <div class="container">
-        <h3>Job NAME</h3>
-        <p>Submitted by: XX</p>
-        <button (click)="createJobCard()" class="btn top-right mr-4"><h3><i class="fa fa-plus"></i></h3></button>
+        <div class="col-11">
+            <h4 class="mt-2">{{cardDetails.jobPosition.name}}</h4>
+            <p>Submitted by: {{cardDetails.user.name}} {{cardDetails.user.surname}}</p>
+        </div>     
+        <button (click)="createJobCard()" class="btn top-right"><h3><i class="fa fa-plus"></i></h3></button>
     </div>  
 </div>

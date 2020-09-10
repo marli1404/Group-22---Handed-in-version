@@ -14,7 +14,7 @@ export class RejectRequestComponent implements OnInit {
 
   @Input() jobRequest : JobRequestInfo;
 
-  constructor( public modal : NgbActiveModal, private toast : ToastsService, private api : ApiService, private formBuilder : FormBuilder) { }
+  constructor( public activeModal : NgbActiveModal, private modal : NgbModal, private toast : ToastsService, private api : ApiService, private formBuilder : FormBuilder) { }
 
   rejectForm : FormGroup;
   ngOnInit(): void {
@@ -36,7 +36,16 @@ export class RejectRequestComponent implements OnInit {
   }
 
   save(){
-    alert('ADD');
+    this.api.rejectRequest(this.getFormDetails()).subscribe( success => this.rejectSuccess(success), err => this.rejectFailed(err))
+  }
+  rejectFailed( fail){
+    this.toast.display({type : "Error", heading : fail.Title, message : fail.message});
+    
+  }
+
+  rejectSuccess( success ){
+    this.toast.display({type : "Success", heading : success.Title, message : success.message});
+    this.modal.dismissAll();
   }
 
 
