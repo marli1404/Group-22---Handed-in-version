@@ -26,6 +26,7 @@ export class ResetPasswordComponent implements OnInit {
   }
 
   changePass(){
+    console.log()
     if(this.changePassForm.valid){
       this.api.changePassword(this.changePassForm.get('password').value).subscribe(
         success =>
@@ -41,7 +42,7 @@ export class ResetPasswordComponent implements OnInit {
       );
     }
   }
-  
+
 
 
 

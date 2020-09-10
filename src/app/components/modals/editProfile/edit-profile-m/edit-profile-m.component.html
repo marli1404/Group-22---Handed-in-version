@@ -56,20 +56,15 @@
                 Name is required.
         </div>
 
-        <div *ngIf=" (!userName.valid && userName.touched) && userName.value != ''" class="alert alert-danger" >
+      <div *ngIf=" !userName.valid && userName.touched && userName.value != ''" class="alert alert-danger" >
 
+          Name can only consist  of letters.
+      </div>
 
-                Name can only consist  of lettters.
+      <div *ngIf=" !userSurname.valid && userSurname.touched && userSurname.value != ''" class="alert alert-danger" >
 
-
-        </div>
-
-        <div *ngIf=" !userSurname.valid && userSurname.touched && userSurname.value != ''" class="alert alert-danger" >
-
-
-          Surname can only consist of letters.
-
-        </div>
+        Surname can only consist  of letters.
+      </div>
 
           <div *ngIf="userSurname.invalid && ( userSurname.dirty || userSurname.touched) && (userSurname.errors.required)" class="alert alert-danger">
 

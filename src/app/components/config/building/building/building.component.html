@@ -44,7 +44,7 @@
                       </tr>
                   </thead>
                   <!-- Builiding GO HERE -->
-                  <tr *ngFor="let item of buildings"><td>{{item.name}}</td><td class="text-center"><i class="far fa-pencil-alt" (click)="editBuilding(item.buildingId)"></i><i class="fas fa-trash-alt ml-4" (click)="deleteBuilding(item.buildingId)"></i></td></tr>
+                  <tr *ngFor="let item of buildings" ><td>{{item.name}}</td><td class="text-center"><i class="far fa-pencil-alt" (click)="editBuilding(item.buildingId)"></i><i class="fas fa-trash-alt ml-4" (click)="deleteBuilding(item.buildingId)"></i></td></tr>
               </table>
             </div>
         </div>
