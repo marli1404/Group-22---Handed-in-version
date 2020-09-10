@@ -1,34 +1,39 @@
 <div class="container-fluid">
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.close('Close click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
     <h1>Generate Job Card</h1>
+    <hr>
     <div class="row">
         <div class="col-lg-6 col-md-12">
             <h2>Card Information</h2>
             <div class="panel-container sm-panel">
                 <div style="height: 85%; overflow: auto;">
-                    <app-job-request-details></app-job-request-details>
+                    <app-job-request-details [cardDetails]="requestDetails"></app-job-request-details>
                 </div>
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-12">
-                            <button class="btn btn-outline-primary float-right ml-4 mt-2">Accept</button>
+                        <div class="col-12" [class.hide]="accepted">
+                            <button class="btn btn-outline-primary float-right ml-4 mt-2" (click)="makeDecision('accept')">Accept</button>
                             <button class="btn btn-outline-danger float-right mt-2" (click)="rejectRequest()">Reject</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-md-12">
+        <div class="col-lg-4 col-md-12" id="hireTeam" [className]="accepted ? 'show' : 'hide'">
             <h2>Hiring Team</h2>
             <div class="container panel">
                 <h4>Add Recruitment Team</h4>
-                <form>
                     <div class="container-fluid">
+                        <form [formGroup]="hiringTeamForm">
                             <div class="row">
                                 <div class="col-sm-12 col-md-7">
                                     <div class="form-group">
                                         <label for="recruiter">Recruiter</label>
-                                        <select name="recruiter" id="recruiter" class="form-control">
+                                        <select name="recruiter" id="recruiter" class="form-control" formControlName="recruiterId">
                                             <option value="null" selected disabled>Select Recruiter</option>
+                                            <option *ngFor="let item of reqruiterList" [value]="item.id">{{item.name}} {{item.surname}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -36,19 +41,20 @@
                                 <div class="col-sm-12 col-md-7">
                                     <div class="form-group">
                                         <label for="manager">Hiring Manager</label>
-                                        <select name="manager" id="manager" class="form-control">
+                                        <select name="manager" id="manager" class="form-control" formControlName="managerId">
                                             <option value="null" selected disabled>Select Hiring Manager</option>
+                                            <option *ngFor="let item of managerList" [value]="item.id" >{{item.name}} {{item.surname}}</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-sm-0 col-md-5"></div>
                                 <div class="col-sm-0 col-md-8"></div>
                                 <div class="col-sm-12 col-md-4 mb-4">
-                                    <button class="btn btn-outline-primary form-control">Save</button>
+                                    <button class="btn btn-outline-primary form-control" [disabled]="!hiringTeamForm" (click)="save()">Save</button>
                                 </div>
                             </div>
+                        </form>
                     </div>
-                </form>
             </div>
         </div>
     </div>

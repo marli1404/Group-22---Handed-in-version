@@ -8,7 +8,7 @@ import { JobRequestInfo } from 'src/app/models/jobReqDetails';
 })
 export class JobRequestDetailsComponent implements OnInit {
 
-  @Input() jobRequest : JobRequestInfo = null;
+  @Input() cardDetails : JobRequestInfo = null;
   constructor() { }
 
   ngOnInit(): void {

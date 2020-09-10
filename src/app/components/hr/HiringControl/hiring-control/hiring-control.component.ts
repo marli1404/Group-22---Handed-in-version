@@ -35,4 +35,8 @@ export class HiringControlComponent implements OnInit {
     this.toasts.display({type : "Error", heading : err.error.Title, message : err.error.message});
   }
 
+  updateRequests(event){
+    this.getRequests();
+  }
+
 }

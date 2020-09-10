@@ -1,0 +1,13 @@
+#hireTeam{
+
+    transition: 0.5s all;
+    transition-timing-function: ease-in-out;
+}
+.hide{
+
+    opacity: 0;
+    transform: translate(50px.50px);
+}
+.show{
+    opacity: 100%;
+}

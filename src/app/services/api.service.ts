@@ -15,6 +15,7 @@ import { JobReqCard } from '../models/jobReqCard';
 import { Requirement } from '../models/requirement';
 import { LongQuestion } from '../models/longQuestion';
 import { JobRequestInfo } from '../models/jobReqDetails';
+import { HiringTeam } from '../models/hiringTeam';
 
 
 @Injectable({
@@ -38,6 +39,9 @@ export class ApiService {
   skill : string = `${this.globalRoot}API/Skill/`;
   requirement : string = `${this.globalRoot}API/Requirement/`;
   longQuestion : string = `${this.globalRoot}API/LongQuestion/`;
+  userRole : string = `${this.globalRoot}API/UserRole/`;
+  jobCard : string = `${this.globalRoot}API/JobCard/`;
+
   constructor( private http: HttpClient){ 
 
   }
@@ -193,6 +197,17 @@ export class ApiService {
     return this.http.post<JobRequestInfo[]>(this.jobRequest, { request : "getJobRequests"});
   }
 
+  getHiringTeam(){
+    return this.http.post<HiringTeam>(this.userRole, { request : "getHiringTeam"});
+  }
+
+  setUpHiringTeam( card : any){
+    return this.http.post(this.jobCard, { request : "generateJobCard", payload : card});
+  }
+
+  rejectJobRequest( rejection : any){
+    return this.http.post(this.jobRequest, { request : "rejectJobRequest"});
+  }
 
   
 }
