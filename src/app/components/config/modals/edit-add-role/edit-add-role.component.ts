@@ -38,7 +38,7 @@ export class EditAddRoleComponent implements OnInit {
     }
   }
   save(){
-    
+
     let role : any = this.getFormDetails();
     console.log(role);
     if(!this.editRole)
@@ -48,7 +48,7 @@ export class EditAddRoleComponent implements OnInit {
       this.editRole.roleName = role.roleName;
       this.api.editRole(role).subscribe( success => this.editRoleSuccess(success),error => this.editRoleFailed(error));
     }
-      
+
   }
 
   addRoleSuccess(success){

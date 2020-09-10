@@ -13,17 +13,15 @@
                         <h5>New Location</h5><h5><i class="fa fa-plus" aria-hidden="true"></i></h5>
                     </div>
                     <table class="table greyHead">
-                        <thead>
-                            <tr>
-                                <th>Location</th>
-                                <th class="text-center">Action</th>
-                            </tr>
-                        </thead>
-                        <!-- LOCATIONS GO HERE -->
-                        <tr><td>Roslyn</td><td class="text-center"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
-                        <tr><td>Menlyn</td><td class="text-center"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
-                        <tr><td>Midrand</td><td class="text-center"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
-                    </table>
+                      <thead>
+                          <tr>
+                              <th>Location</th>
+                              <th class="text-center">Action</th>
+                          </tr>
+                      </thead>
+                      <!-- LOCATIONS GO HERE -->
+                      <tr *ngFor="let item of locations"><td>{{item.name}}</td><td class="text-center"><i class="far fa-pencil-alt" (click)="editLocation(item.locationId)"></i><i class="fas fa-trash-alt ml-4" (click)="deleteLocation(item.locationId)"></i></td></tr>
+                  </table>
                 </div>
             </div>
         </div>
@@ -39,17 +37,15 @@
                     <h5>New Building</h5><h5><i class="fa fa-plus" aria-hidden="true"></i></h5>
                 </div>
                 <table class="table greyHead">
-                    <thead>
-                        <tr>
-                            <th>Building</th>
-                            <th>Location</th>
-                            <th class="text-center">Action</th>
-                        </tr>
-                    </thead>
-                    <!-- BUILDINGS GO HERE -->
-                    <tr><td>Menly Maine</td><td>Menlyn</td><td class="text-center"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
-                    <tr><td>Menlyn Eco Park</td><td>Menlyn</td><td class="text-center"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
-                </table>
+                  <thead>
+                      <tr>
+                          <th>Building</th>
+                          <th class="text-center">Action</th>
+                      </tr>
+                  </thead>
+                  <!-- Builiding GO HERE -->
+                  <tr *ngFor="let item of buildings"><td>{{item.name}}</td><td class="text-center"><i class="far fa-pencil-alt" (click)="editBuilding(item.buildingId)"></i><i class="fas fa-trash-alt ml-4" (click)="deleteBuilding(item.buildingId)"></i></td></tr>
+              </table>
             </div>
         </div>
         <div class="col-sm-12 col-md-4 mt-2">
@@ -72,11 +68,12 @@
                         </tr>
                     </thead>
                     <!-- Floors GO HERE -->
-                    <tr><td>Level 1</td><td>Menlyn Main</td><td class="text-center"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
-                    <tr><td>Level 2</td><td>Menlyn Main</td><td class="text-center"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
-                </table>
+
+                    <tr *ngFor="let item of floors"><td>{{item.floorNumber}}</td><td>{{item.buildingName}}</td><td class="text-center"><i class="far fa-pencil-alt" (click)="editFloor(item.floorId)"></i><i class="fas fa-trash-alt ml-4" (click)="deleteFloor(item.floorId)"></i></td></tr>
+
+                  </table>
             </div>
-            
+
         </div>
     </div>
 </div>

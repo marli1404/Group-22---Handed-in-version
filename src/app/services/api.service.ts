@@ -9,8 +9,14 @@ import { UserProfile } from '../models/userProfile';
 import { Job } from '../models/job';
 import { Justification } from '../models/justification';
 import { Role } from '../models/role';
+import { Stage } from '../models/stage';
 import { ViewAuth } from '../models/viewAuth';
 import { View } from '../models/view';
+import { Test } from '../models/test';
+import { Location } from '../models/location';
+import { Building } from '../models/building';
+import { Floor } from '../models/floor';
+
 
 
 @Injectable({
@@ -31,11 +37,16 @@ export class ApiService {
   job : string = `${this.globalRoot}API/Job/`;
   viewAuth : string = `${this.globalRoot}API/ViewAuthorisation/`;
   view : string = `${this.globalRoot}API/View/`;
-  constructor( private http: HttpClient){ 
+  stage : string = `${this.globalRoot}API/Stage/`;
+  test : string = `${this.globalRoot}API/Test/`;
+  location : string = `${this.globalRoot}API/Location/`;
+  building : string = `${this.globalRoot}API/Building/`;
+  floor : string = `${this.globalRoot}API/Floor/`;
+  constructor( private http: HttpClient){
 
   }
   makeRequest(){
-    
+
     this.http.post<string>(this.country,{"request":"test","payload":0},{headers:{'Authorization':'Bearer '+'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjIyNjUyLCJyb2xlcyI6W3siaWQiOjAsInJvbGUiOiJNYW5hZ2VyIn0seyJpZCI6MSwicm9sZSI6IkVtcGxveWVlIn1dLCJ2aWV3cyI6W3siaWQiOjAsInZpZXciOiJSZXBvcnQifSx7ImlkIjoxLCJyb2xlIjoiQm9va2luZyJ9XSwiZW5kU2Vzc2lvbiI6MTU5NjUzOTgzMX0.76phXVqFCK60VdOrtAEhGne-09MdRHie3kJnUbBgmbw'}})
     .subscribe( success => console.log(success),
     error => console.log("ERROR",error));
@@ -56,11 +67,11 @@ export class ApiService {
   getUserProfileLite(userId: number){
     return this.http.post<userCard>(this.user,{request:"getWidgetDetails",payload:{id:userId}});
   }
-  
+
   getUsersOwnProfile(){
     return this.http.post<UserProfile>(this.user,{request:"getUserProfile"});
   }
-  
+
   createJobRequest(request : any){
     console.log()
     return this.http.post(this.jobRequest,{request:"createJobRequest",payload:request});
@@ -71,7 +82,7 @@ export class ApiService {
   }
 
   uploadProfile(file : File){
-    
+
     let uploadData : FormData = new FormData();
     uploadData.append('request','changeProfileImage');
     uploadData.append('image',file);
@@ -85,7 +96,7 @@ export class ApiService {
   getJustifications(){
     return this.http.post<Justification[]>(this.justification,{request: "getJustifications" });
   }
-
+  ///////////////////////////////////////role/////////////////////////////////////
   addRole(role:any){
     return this.http.post(this.role,{request :"createRole",payload : role})
   }
@@ -98,7 +109,39 @@ export class ApiService {
   deleteRole(id : number){
     return this.http.post(this.role, {request : "deleteRole", payload : {id}});
   }
+  ///////////////////////////////////////stage///////////////////////////
+  addStage(stage:any){
+    return this.http.post(this.stage,{request :"createStage",payload : stage})
+  }
+  editStage( stage : any){
+    return this.http.post(this.stage,{request :"updateStage",payload : stage});
+  }
+  getStages(){
+    return this.http.post<Stage[]>(this.stage,{request : "getStages"});
+  }
 
+ deleteStage(id : number){
+    return this.http.post(this.stage, {request : "deleteStage", payload : {id}});
+  }
+  /////////////////////////////////////test////////////////////
+  addTest(test: any){
+
+    return this.http.post(this.test,{request :"createTest",payload : test})
+  }
+
+  editTest( test : any){
+    return this.http.post(this.test,{request :"updateTest",payload : test});
+  }
+
+  getTests(){
+    return this.http.post<Test[]>(this.test,{request : "getTests"});
+  }
+
+
+  deleteTest(id : number){
+    return this.http.post(this.test, {request : "deleteTest", payload : {id}});
+  }
+  //////////////////////////////////////Job//////////////////////////////////////
   getJobPositions(){
     return this.http.post<Job[]>(this.jobPositions,{request: "getJobs"})
   }
@@ -106,7 +149,7 @@ export class ApiService {
     return this.http.post(this.job, {request: "updateJob", payload: jobName});
   }
   deleteJob(id : number){
-    return this.http.post(this.job, {request: "d", payload : {id} }); // NEEDS BACK END
+    return this.http.post(this.job, {request: "deleteJob", payload : {id} }); // NEEDS BACK END
   }
 
   createJob(job : any){
@@ -128,7 +171,63 @@ export class ApiService {
     return this.http.post<View[]>(this.view, {request: "getViews"});
   }
 
+  /////////////////////////Location//////////////////////////////////////
+  getLocations(){
+    return this.http.post<Location[]>(this.location, {request: "getLocations"});
+  }
+
+  addLocation(location : any){
+    return this.http.post(this.location,{request :"createLocation",payload : location})
+  }
+  editLocation( location : Location){
+    return this.http.post(this.location,{request :"updateLocation",payload :location});
+  }
+  getLocation(){
+    return this.http.post<Role[]>(this.location,{request : "getLocations"});
+
+  }
+  deleteLocation(id : number){
+    return this.http.post(this.location, {request : "deleteLocation", payload : {id}})
+  }
+
+  /////////Building/////////
+  addBuilding(building : any){
+    return this.http.post(this.building,{request :"createBuilding",payload : building})
+  }
+  editBuilding( building : Building){
+    return this.http.post(this.building,{request :"updateBuilding",payload :building});
+  }
+  getBuildings(){
+    return this.http.post<Building[]>(this.building, {request: "getBuildings"});
+  }
+
+  deleteBuilding(buildingId : number){
+    return this.http.post(this.building, {request: "deleteBuilding", payload : {buildingId}});
+  }
 
 
-  
+  getBuildingsByLocation(locationId: number){
+    return this.http.post<Building[]>(this.building, {request: "getBuildingsByLocation", payload: {locationId} });
+  }
+
+  /////////Floor////////////////////////////
+  addFloor(floor : any){
+    return this.http.post(this.floor,{request :"createFloor",payload : floor})
+  }
+  editFloor( floor : Floor){
+    return this.http.post(this.floor,{request :"updateFloor",payload :floor});
+  }
+  getFloors(){
+    return this.http.post<Floor[]>(this.floor, {request: "getFloors"});
+  }
+
+  deleteFloor(floorId : number){
+    return this.http.post(this.floor, {request: "deleteFloor", payload : {floorId}});
+  }
+
+
+
+
+
+
 }

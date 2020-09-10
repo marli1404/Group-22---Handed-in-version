@@ -1,24 +1,28 @@
 <div class="container-fluid">
-    <button type="button" class="close" aria-label="Close" (click)="activeModal.close('Close click')">
-        <span aria-hidden="true">&times;</span>
-    </button>
-    <h1>Edit/Add Location</h1>
-    <div class="row">
-        <div class="col-md-6 col-sm-12">
-            <div class="form-group">
-                <label for="locationSelect">Location</label>
-                <select name="locationSelect" id="locationSelect" class="form-control">
-                    <option value="null" selected disabled>Please Select a Location</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="building">Building</label>
-                <input type="text" name="building" id="building" class="form-control">
-            </div>
-        </div>
-        <div class="col-md-6 col-sm-0"></div>
-        <div class="col-12">
-            <button class="btn btn-outline-primary mb-4 float-right">Save</button>
-        </div>
-    </div>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.close('Close click')">
+      <span aria-hidden="true">&times;</span>
+  </button>
+      <h1 *ngIf="editLocation">Edit Location</h1>
+      <h1 *ngIf="!editLocation">Add Location</h1>
+      <form [formGroup]="locationForm">
+  <div class="row">
+      <div class="col-md-6 col-sm-12">
+          <div class="form-group">
+              <label for="locationSelect">Country</label>
+              <select name="locationSelect" id="locationSelect" class="form-control" formControlName="countryId">
+                  <option value="null" selected disabled>Please Select a Country</option>
+                  <option *ngFor="let item of countries" [value]="item.id">{{item.country}}</option>
+              </select>
+          </div>
+          <div class="form-group">
+              <label for="location">Location</label>
+              <input type="text" name="location" id="location" class="form-control"  formControlName="location">
+          </div>
+      </div>
+      <div class="col-md-6 col-sm-0"></div>
+      <div class="col-12">
+          <button class="btn btn-outline-primary mb-4 float-right" [disabled]="!locationForm.valid" (click)="save()" >Save</button>
+      </div>
+  </div>
+  </form>
 </div>

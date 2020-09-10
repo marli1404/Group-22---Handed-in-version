@@ -68,10 +68,10 @@
                         </tr>
                     </thead>
                     <!-- Floors GO HERE -->
-                    <tr *ngFor="let item of viewAuth"><td>{{item.view.view}}</td><td>{{item.role.roleName}}</td><td class="text-center"><i class="far fa-pencil-alt" (click)="editViewAuth(item.view.id, item.role.id)"></i><i class="fas fa-trash-alt ml-4" (click)="deleteViewAuth(item.view.id, item.role.id)"></i></td></tr>
+                    <tr *ngFor="let item of viewAuth"><td>{{item.view.view}}</td><td>{{item.role.roleName}}</td><td class="text-center"><i class="far fa-pencil-alt" (click)="editViewAuth(item.view.id, item.role.roleId)"></i><i class="fas fa-trash-alt ml-4" (click)="deleteViewAuth(item.view.id, item.role.roleId)"></i></td></tr><!--Chaged the role (id) to roleId-->
                 </table>
             </div>
-            
+
         </div>
     </div>
 </div>
