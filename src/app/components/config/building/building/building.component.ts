@@ -129,6 +129,10 @@ export class BuildingComponent implements OnInit {
     this.toast.display({type:"Error", heading : error.error.Title, message : error.error.message});
   }
 
+  getBuildingsByLocation(locationId: number){
+    //move this into the ts
+  }
+
   /////////Floor/////////////
 
   addFloor(){
@@ -145,6 +149,7 @@ export class BuildingComponent implements OnInit {
   //success
   getFloorSuccess(floors: Floor[]){
     console.log(floors);
+
     this.floors = floors;
   }
   //fail
@@ -166,6 +171,10 @@ export class BuildingComponent implements OnInit {
     console.log(this.floors);
   }
 
+
+  getFloorsByBuilding(buildingId: number){
+
+  }
   deleteFloor(floorId : number){
     this.api.deleteFloor(floorId).subscribe( suc => this.deleteSuccessFloor(suc, floorId), err => this.deleteFailFloor(err))
   }

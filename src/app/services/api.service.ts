@@ -27,6 +27,9 @@ import { Floor } from '../models/floor';
 import { Schedule } from '../models/schedule';
 import { RequisitionApproval } from '../models/requisitionApproval';
 import { Language } from '../models/language';
+import { Tafel } from '../models/tafel';
+import { TableType } from '../models/tableType';
+import { OperationAuthorisation } from '../models/operationAuthorization';
 
 
 
@@ -64,9 +67,12 @@ export class ApiService {
   schedule : string = `${this.globalRoot}API/Schedule/`;
   requisitionApproval : string = `${this.globalRoot}API/RequisitionApproval/`;
   language : string = `${this.globalRoot}API/Language/`;
-  
-  constructor( private http: HttpClient){ }
+  table : string = `${this.globalRoot}API/Tafel/`;
+  tableType : string = `${this.globalRoot}API/TableType/`;
+  operationAuthorisation : string = `${this.globalRoot}API/OperationAuthorisation/`;
 
+  constructor( private http: HttpClient){ }
+  
   makeRequest(){
 
     this.http.post<string>(this.country,{"request":"test","payload":0},{headers:{'Authorization':'Bearer '+'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjIyNjUyLCJyb2xlcyI6W3siaWQiOjAsInJvbGUiOiJNYW5hZ2VyIn0seyJpZCI6MSwicm9sZSI6IkVtcGxveWVlIn1dLCJ2aWV3cyI6W3siaWQiOjAsInZpZXciOiJSZXBvcnQifSx7ImlkIjoxLCJyb2xlIjoiQm9va2luZyJ9XSwiZW5kU2Vzc2lvbiI6MTU5NjUzOTgzMX0.76phXVqFCK60VdOrtAEhGne-09MdRHie3kJnUbBgmbw'}})
@@ -293,7 +299,7 @@ export class ApiService {
   }
 
   getBuildingsByLocation(locationId: number){
-    return this.http.post<Building[]>(this.building, {request: "getBuildingsByLocation", payload: {locationId} });
+    return this.http.post<Building[]>(this.building, {request: "getBuildingsByLocation", payload: {locationId} }); //move this into the ts
   }
 
   /////////Floor////////////////////////////
@@ -311,6 +317,10 @@ export class ApiService {
     return this.http.post(this.floor, {request: "deleteFloor", payload : {floorId}});
   }
 
+  getFloorsByBuilding(buildingId: number){
+    return this.http.post<Floor[]>(this.floor, {request: "getFloorsByBuilding", payload: {buildingId}}); //Move this into the ts
+  }
+
   setUpHiringTeam( card : any){
     return this.http.post(this.jobCard, { request : "generateJobCard", payload : card});
   }
@@ -318,7 +328,7 @@ export class ApiService {
   rejectJobRequest( rejection : any){
     return this.http.post(this.jobRequest, { request : "rejectJobRequest"});
   }
-  
+
   addDepartment(department: any ){
     return this.http.post(this.department,{request :"createDepartment", payload : department});
   }
@@ -370,6 +380,36 @@ export class ApiService {
   getLanguages(){
     return this.http.post<Language[]>( this.language , { request : "getLanguages"});
   }
+  /////table
+  addTable(table: any ){
+    return this.http.post(this.table,{request :"createTable", payload : table});
+  }
+  editTable(table: any){
+
+    return this.http.post(this.table,{request :"updateTable", payload: table });
+  }
+  getTables(){
+    return this.http.post<Tafel[]>(this.table, {request: "getTables"});
+  }
+  deleteTable(id: number){
+    return this.http.post(this.table, {request : "deleteTable", payload : {id}})
+  }
+
+  ///tableType
+  getTableTypes(){
+    return this.http.post<TableType[]>(this.tableType, {request: "getTableTypes"});
+  }
+  ///operationauth
+  getOperationAuthorisations(){
+    return this.http.post<OperationAuthorisation[]>(this.operationAuthorisation, {request : "getOperationAuthorisation"});
+  }
+  deleteOperationAuthorisation(roleaffected: string, roletarget : string, operationid : number, dbtableid : number){
+    return this.http.post(this.operationAuthorisation, {request : "deleteOperationAuthorisation", payload : {roleaffected, roletarget, operationid, dbtableid}})
+  }
+  addOperationAuthorisation(operationAuthorisation: any ){
+    return this.http.post(this.operationAuthorisation,{request :"createOperationAuthorisation", payload : operationAuthorisation});
+  }
+
 
 
 
