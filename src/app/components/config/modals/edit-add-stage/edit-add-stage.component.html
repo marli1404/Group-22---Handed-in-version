@@ -2,17 +2,21 @@
     <button type="button" class="close" aria-label="Close" (click)="activeModal.close('Close click')">
         <span aria-hidden="true">&times;</span>
     </button>
-    <h1>Edit/New Stage</h1>
-    <div class="row">
-        <div class="col-md-6 col-sm-12">
-            <div class="form-group">
-                <label for="stage">Stage</label>
-                <input type="text" name="stage" id="stage" class="form-control">
-            </div> 
-        </div>
-        <div class="col-md-6 col-sm-0"></div>
-        <div class="col-12">
-            <button class="btn btn-outline-primary mb-4 float-right">Save</button>
-        </div>
-    </div>
+    <h1 *ngIf="editStage">Edit Stage</h1>
+    <h1 *ngIf="!editStage">Add Stage</h1>
+
+    <form [formGroup]="stageForm">
+      <div class="row">
+          <div class="col-md-6 col-sm-12">
+              <div class="form-group">
+                  <label for="stage">Stage</label>
+                  <input type="text" name="name" id="name" formControlName="name" class="form-control" >
+              </div>
+          </div>
+          <div class="col-md-6 col-sm-0"></div>
+          <div class="col-12">
+              <button class="btn btn-outline-primary mb-4 float-right"  [disabled]="!stageForm.valid" (click)="save()">Save</button>
+          </div>
+      </div>
+   </form>
 </div>

@@ -9,20 +9,16 @@
                     </div>
                 </form>
                 <div>
-                    <div class="group-right" (click)="addStage()">
-                        <h5>New Stage</h5><h5><i class="fa fa-plus" aria-hidden="true"></i></h5>
-                    </div>
+
                     <table class="table greyHead">
                         <thead>
                             <tr>
                                 <th>Stage</th>
-                                <th class="text-center">Action</th>
+                                <th class="text-center"></th>
                             </tr>
                         </thead>
-                        <!-- LOCATIONS GO HERE -->
-                        <tr><td>Roslyn</td><td class="text-center"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
-                        <tr><td>Menlyn</td><td class="text-center"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
-                        <tr><td>Midrand</td><td class="text-center"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
+
+                         <tr *ngFor="let item of stages"><td>{{item.stage}}</td><td class="text-center"></td></tr>
                     </table>
                 </div>
             </div>
@@ -46,8 +42,7 @@
                         </tr>
                     </thead>
                     <!-- BUILDINGS GO HERE -->
-                    <tr><td><h5>Casino</h5><p>THIS IS TESTING STUFF</p></td><td class="text-center"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
-                    <tr><td><h5>Rummy Cub</h5><p>THIS IS TESTING STUFF</p></td><td class="text-center"><i class="far fa-pencil-alt"></i><i class="fas fa-trash-alt ml-4"></i></td></tr>
+                    <tr *ngFor="let item of tests"><td>{{item.description}}</td><td class="text-center"><i class="far fa-pencil-alt" (click)="editTest(item.testId)"></i><i class="fas fa-trash-alt ml-4" (click)="deleteTest(item.testId)"></i></td></tr>
                 </table>
             </div>
         </div>

@@ -28,21 +28,21 @@ export class ConfigRolesAndAuthComponent implements OnInit {
   addRole(){
       const modalInstance = this.modal.open(EditAddRoleComponent);
       modalInstance.result.then((res)=>{
-        
+
           this.getRoles();
       });
   }
   addJob(){
     const modalInstance = this.modal.open(EditAddJobComponent);
     modalInstance.result.then((res)=>{
-      
+
         this.getJobs();
     });
   }
   addViewAuth(){
     const modalInstance = this.modal.open(EditAddViewAuthorizationComponent);
     modalInstance.result.then((res)=>{
-      
+
         this.getViewAuths();
     });
   }
@@ -63,7 +63,7 @@ export class ConfigRolesAndAuthComponent implements OnInit {
   getRolesFail(error){
     this.toast.display({type : "Error", heading :error.error.Title, message : error.error.message });
   }
-  
+
   getViewAuth(){
 
   }
@@ -75,7 +75,7 @@ export class ConfigRolesAndAuthComponent implements OnInit {
     modalInstance.componentInstance.editRole = role;
     modalInstance.result.then(res =>{
 
-      this.getData();
+      this.getData(); ////// getRoles();
     })
     console.log(this.roles);
   }
@@ -145,7 +145,7 @@ export class ConfigRolesAndAuthComponent implements OnInit {
 
   }
   deleteViewAuth(vId : number, rId : number ){
-    
+
   }
 
 }

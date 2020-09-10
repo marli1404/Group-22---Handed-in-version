@@ -2,23 +2,29 @@
     <button type="button" class="close" aria-label="Close" (click)="activeModal.close('Close click')">
         <span aria-hidden="true">&times;</span>
     </button>
-    <h1>Edit/Add Building</h1>
-    <div class="row">
+    <h1 *ngIf="editBuilding">Edit Building</h1>
+    <h1 *ngIf="!editBuilding">Add Building</h1>
+    <form [formGroup]="buildingForm">
+      <div class="row">
         <div class="col-md-6 col-sm-12">
             <div class="form-group">
-                <label for="countrySelect">Country</label>
-                <select name="countrySelect" id="countrySelect" class="form-control">
-                    <option value="null" selected disabled>Please Select a country</option>
+                <label for="locationSelect">Location</label>
+                <select name="location" id="location"  formControlName="locationId" class="form-control">
+                    <option value="null" selected disabled>Please Select a building</option>
+                    <option *ngFor="let item of locations" [value]="item.locationId">{{item.name}}</option>
                 </select>
             </div>
+
+
             <div class="form-group">
-                <label for="location">Location</label>
-                <input type="text" name="location" id="location" class="form-control">
+                <label for="location">Buildimg Name</label>
+                <input type="text" name="name" id="name" formControlName="name" class="form-control">
             </div>
         </div>
         <div class="col-md-6 col-sm-0"></div>
         <div class="col-12">
-            <button class="btn btn-outline-primary mb-4 float-right">Save</button>
+          <button class="btn btn-outline-primary mb-4 float-right" [disabled]="!buildingForm.valid" (click)="save()" >Save</button>
         </div>
-    </div>
+      </div>
+    </form>
 </div>
