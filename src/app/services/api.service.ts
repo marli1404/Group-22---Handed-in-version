@@ -30,6 +30,8 @@ import { Language } from '../models/language';
 import { Tafel } from '../models/tafel';
 import { TableType } from '../models/tableType';
 import { OperationAuthorisation } from '../models/operationAuthorization';
+import { DatabaseTable } from '../models/databaseTable';
+import { Operation } from '../models/operation';
 
 
 
@@ -58,7 +60,7 @@ export class ApiService {
   jobCard : string = `${this.globalRoot}API/JobCard/`;
   department : string = `${this.globalRoot}API/Department/`;
   division : string = `${this.globalRoot}API/Division/`;
-  team : string = `${this.globalRoot}API/Team/`;  
+  team : string = `${this.globalRoot}API/Team/`;
   stage : string = `${this.globalRoot}API/Stage/`;
   test : string = `${this.globalRoot}API/Test/`;
   location : string = `${this.globalRoot}API/Location/`;
@@ -70,9 +72,11 @@ export class ApiService {
   table : string = `${this.globalRoot}API/Tafel/`;
   tableType : string = `${this.globalRoot}API/TableType/`;
   operationAuthorisation : string = `${this.globalRoot}API/OperationAuthorisation/`;
+  databaseTable : string = `${this.globalRoot}API/DatabaseTable/`;
+  operation : string = `${this.globalRoot}API/Operation/`;
 
   constructor( private http: HttpClient){ }
-  
+
   makeRequest(){
 
     this.http.post<string>(this.country,{"request":"test","payload":0},{headers:{'Authorization':'Bearer '+'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjIyNjUyLCJyb2xlcyI6W3siaWQiOjAsInJvbGUiOiJNYW5hZ2VyIn0seyJpZCI6MSwicm9sZSI6IkVtcGxveWVlIn1dLCJ2aWV3cyI6W3siaWQiOjAsInZpZXciOiJSZXBvcnQifSx7ImlkIjoxLCJyb2xlIjoiQm9va2luZyJ9XSwiZW5kU2Vzc2lvbiI6MTU5NjUzOTgzMX0.76phXVqFCK60VdOrtAEhGne-09MdRHie3kJnUbBgmbw'}})
@@ -370,7 +374,7 @@ export class ApiService {
   }
 
   getSchedule(){
-    return this.http.post<Schedule[]>( this.schedule, {request : "getSchedules"}); 
+    return this.http.post<Schedule[]>( this.schedule, {request : "getSchedules"});
   }
 
   getRequisitionApprovals(){
@@ -400,16 +404,25 @@ export class ApiService {
     return this.http.post<TableType[]>(this.tableType, {request: "getTableTypes"});
   }
   ///operationauth
-  getOperationAuthorisations(){
+  getOperationAuthorisation(){
     return this.http.post<OperationAuthorisation[]>(this.operationAuthorisation, {request : "getOperationAuthorisation"});
   }
-  deleteOperationAuthorisation(roleaffected: string, roletarget : string, operationid : number, dbtableid : number){
-    return this.http.post(this.operationAuthorisation, {request : "deleteOperationAuthorisation", payload : {roleaffected, roletarget, operationid, dbtableid}})
+  deleteOperationAuthorisation(operationAuthorisation : any){
+    return this.http.post(this.operationAuthorisation, {request : "deleteOperationAuthorisation", payload : {operationAuthorisation}})
   }
-  addOperationAuthorisation(operationAuthorisation: any ){
+  createOperationAuthorisation(operationAuthorisation: any ){
     return this.http.post(this.operationAuthorisation,{request :"createOperationAuthorisation", payload : operationAuthorisation});
   }
 
+  getDatabaseTables(){
+    return this.http.post<DatabaseTable[]>(this.databaseTable, {request : "getDatabaseTables"});
+  }
+  getOperation(){
+    return this.http.post<Operation[]>(this.operation, {request : "getOperation"});
+  }
+  createOperation(operation: any ){
+    return this.http.post(this.operation,{request :"createOperation", payload : operation});
+  }
 
 
 
