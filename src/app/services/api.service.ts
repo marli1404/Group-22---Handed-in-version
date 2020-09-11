@@ -410,6 +410,13 @@ export class ApiService {
     return this.http.post(this.operationAuthorisation,{request :"createOperationAuthorisation", payload : operationAuthorisation});
   }
 
+  getEmployees(){
+    return this.http.post(this.user, {request : "getEmployees"});
+  }
+
+  forgotPasswordReq(email : string){
+    return this.http.post( this.user, {request : "forgotPassword", payload : { email }});
+  }
 
 
 

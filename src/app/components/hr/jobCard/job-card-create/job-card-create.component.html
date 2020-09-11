@@ -183,16 +183,18 @@
                                 </div>
                                 <div class="col-12">
                                     <hr>
-                                    <h4>Added Tests</h4>
+                                    <h4 (click)=testing();>Added Tests</h4>
                                     <table class="table">
                                         <thead>
                                             <th>Test</th>
                                             <th>Test Critical</th>
                                             <th>Action</th>
                                         </thead>
-                                        <tbody>
-                                            <tr *ngFor="let item of addedTests"><td>{{item.testName}}</td><td>{{item.description}}</td><td><i class="fa fa-times" (click)="removeTest(item.testId)"></i></td></tr>
-                                        </tbody>
+                                        
+                                            <tbody>
+                                                <tr *ngFor="let item of addedTests; let i = index"><td>{{item.testName}}</td><td><input type="checkbox" [formControl]="testsFArray.controls[i]"></td><td><i class="fa fa-times" (click)="removeTest(item.testId)"></i></td></tr>
+                                            </tbody>
+                                        
                                     </table>
                                     <!-- <ngb-pagination [pageSize]="pageSize" [collectionSize]="collectionSize"></ngb-pagination> -->
                                     <button (click)="next()" class="btn btn-outline-primary float-right mt-4 ml-4">Next</button>
@@ -496,8 +498,8 @@
                                                 </div>
                                                 <hr>
                                                 <div class="row">
-                                                    <div class="col-lg-6 col-md-12">
-                                                        <!-- <app-profile-card addable="True" class="img-sm border-el mt-2"></app-profile-card> -->
+                                                    <div class="col-lg-6 col-md-12" *ngFor="let item of employees">
+                                                        <app-profile-card [cardDetails]="item" addable="True" class="img-sm border-el mt-2"></app-profile-card>
                                                     </div>
                                                 </div>
                                             </div>

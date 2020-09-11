@@ -3,7 +3,7 @@ import Stepper from 'bs-stepper';
 import { JobRequestInfo } from 'src/app/models/jobReqDetails';
 import { JobCardHelperService } from 'src/app/services/job-card-helper.service';
 import { Observer, Observable, Subject } from 'rxjs';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl, FormArray } from '@angular/forms';
 import { Schedule } from 'src/app/models/schedule';
 import { RequisitionApproval } from 'src/app/models/requisitionApproval';
 import { ApiService } from 'src/app/services/api.service';
@@ -14,6 +14,9 @@ import { Language } from 'src/app/models/language';
 import { Skill } from 'src/app/models/skill';
 import { LongQuestion } from 'src/app/models/longQuestion';
 import { Requirement } from 'src/app/models/requirement';
+import { userLite } from 'src/app/models/userLite';
+import { userCard } from 'src/app/models/userCard';
+import { UserProfile } from 'src/app/models/userProfile';
 
 
 @Component({
@@ -27,6 +30,15 @@ export class JobCardCreateComponent implements OnInit {
 
 
   basicDetails : FormGroup;
+  testForm : FormGroup;
+  language : FormGroup;
+  skill : FormGroup;
+  longQuestion : FormGroup;
+  requirement : FormGroup;
+
+
+
+
   requestDetails : JobRequestInfo;
   pageSize : number = 10;
   testCollectionSize : number;
@@ -40,6 +52,9 @@ export class JobCardCreateComponent implements OnInit {
   skillpage : number = 1;
   questionPage : number = 1
   requirementPage : number = 1;
+
+  employees : userCard [] =[];
+  approvers : userCard [] = [];
 
   locations : Location [] = [];
   addedLocations : Location [] = [];
@@ -83,8 +98,9 @@ export class JobCardCreateComponent implements OnInit {
       scheduleId : [null, [Validators.required]],
       locationId : [null, [Validators.required]],
       raApprovalId : [null, [Validators.required]]
-
     });
+
+    this.testForm = this.formBuilder.group({questions : FormArray});
   }
 
   getBasicFrom(){
@@ -123,6 +139,7 @@ export class JobCardCreateComponent implements OnInit {
     this.getSkills();
     this.getLongQuestions();
     this.getRequirements();
+    this.getEmployees();
   }
   next() {
     this.stepper.next();
@@ -212,23 +229,38 @@ export class JobCardCreateComponent implements OnInit {
     this.requirementCollectionSize = this.requirements.length;
   }
 
+  getEmployees(){
+    this.api.getEmployees().subscribe( success => this.gotEmployees(success), err => this.fetchFailed)
+  }
+
+  gotEmployees(success){
+    this.employees = success;
+  }
   fetchFailed(error){
     this.toast.display({type:"Error",heading: error.error.Title, message : error.error.message});
   }
   //////////////////////////////////
-
+   
+  testsFArray = new FormArray([]);
   addTest(id : number){
     let obj = this.tests.find(x => x.testId == id);
     this.addedTests.push(obj);
     this.tests = this.tests.filter( x => x.testId != id);
+    this.testsFArray.push(new FormControl(false));
+    //this.tControl.push( new FormControl(false));
   }
 
   removeTest(id : number){
+    let index = this.addedTests.map( x => {return x.testId;}).indexOf(id);
     let obj = this.addedTests.find(x => x.testId == id);
+    this.testsFArray.removeAt(index);
     this.tests.push(obj);
     this.addedTests = this.addedTests.filter( x => x.testId != id);
+    
   }
-
+  testing(){
+    console.log(this.testsFArray.value);
+  }
   addLanguage(id : number){
     let obj = this.languages.find(x => x.id == id);
     this.addedLanguages.push(obj);
