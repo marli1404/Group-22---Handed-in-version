@@ -96,6 +96,11 @@ import { InterceptorService } from './services/interceptor.service';
 import { ResetPasswordComponent } from './components/modals/reset-password/reset-password.component';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 import { JobCardHelperService } from './services/job-card-helper.service';
+import { StageReportComponent } from './components/reports/stage-report/stage-report.component';
+import { InterviewReportComponent } from './components/reports/interview-report/interview-report.component';
+import { TeamReportComponent } from './components/reports/team-report/team-report.component';
+import { CandidateReportComponent } from './components/reports/candidate-report/candidate-report.component';
+import { BookingReportComponent } from './components/reports/booking-report/booking-report.component';
 
 @NgModule({
   declarations: [
@@ -182,6 +187,11 @@ import { JobCardHelperService } from './services/job-card-helper.service';
     ViewApplicationComponent,
     ResetPasswordComponent,
     ResetPasswordComponent,
+    StageReportComponent,
+    InterviewReportComponent,
+    TeamReportComponent,
+    CandidateReportComponent,
+    BookingReportComponent,
     
      
   ],
