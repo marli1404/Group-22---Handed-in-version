@@ -39,13 +39,13 @@ export class EditAddJobComponent implements OnInit {
     }
     else
       this.api.createJob(this.getFormDetails()).subscribe( succ => this.newJobSucc(succ), err => this.newJobFailed(err));
-      
+
   }
   editJobSuccess(succ){
     this.toast.display({type :"Success", heading : succ.Title, message : succ.message});
     this.activeModal.close('success');
   }
-  
+
   editJobFailed(err){
     this.toast.display({type :"Error", heading : err.error.Title, message : err.error.message});
     this.activeModal.close();
@@ -54,7 +54,7 @@ export class EditAddJobComponent implements OnInit {
     this.toast.display({type :"Success", heading : succ.Title, message : succ.message});
     this.activeModal.close('success');
   }
-  
+
   newJobFailed(err){
     this.toast.display({type :"Error", heading : err.error.Title, message : err.error.message});
     this.activeModal.close();
@@ -64,7 +64,11 @@ export class EditAddJobComponent implements OnInit {
 
     return {
       jobName : this.jobForm.get('jobName').value,
-    } 
+    }
+  }
+
+  get userJob(){
+    return this.jobForm.get('jobName');
   }
 
 }

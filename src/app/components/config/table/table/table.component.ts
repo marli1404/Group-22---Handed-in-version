@@ -37,7 +37,7 @@ export class TableComponent implements OnInit {
     this.getBuildings();
     this.getFloors();
     console.log(this.buildings);
-    console.log(this.floors);
+
   }
 
   buildForm(){

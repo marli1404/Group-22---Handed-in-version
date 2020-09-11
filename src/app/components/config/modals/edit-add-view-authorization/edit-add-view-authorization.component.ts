@@ -72,4 +72,12 @@ export class EditAddViewAuthorizationComponent implements OnInit {
     alert("not done");
   }
 
+  get userView(){
+    return this.viewAuthForm.get('viewId');
+  }
+
+  get userRole(){
+    return this.viewAuthForm.get("roleId");
+  }
+
 }
