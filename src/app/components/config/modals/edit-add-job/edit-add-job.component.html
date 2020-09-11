@@ -9,13 +9,17 @@
             <div class="col-md-6 col-sm-12">
                 <div class="form-group">
                     <label for="job">Job</label>
-                    <input type="text" name="job" id="job" class="form-control" formControlName="jobName">
+                    <input type="text" name="job" id="job" class="form-control" formControlName="jobName" [class.is-invalid]="userJob.touched && !userJob.valid">
                 </div>
             </div>
             <div class="col-md-6 col-sm-0"></div>
             <div class="col-12">
                 <button class="btn btn-outline-primary mb-4 float-right" [disabled]="!jobForm.valid" (click)="saveJob()">Save</button>
             </div>
+        </div>
+
+        <div *ngIf="userJob.invalid && ( userJob.dirty || userJob.touched)" class="alert alert-danger">
+          Job is required.
         </div>
     </form>
 </div>
